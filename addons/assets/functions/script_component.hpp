@@ -1,1 +1,1 @@
-#include "z\proj_templ\addons\blank\script_component.hpp"
+#include "z\qiptpl\addons\assets\script_component.hpp"

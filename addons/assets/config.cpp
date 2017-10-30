@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"proj_templ_main"};
+        requiredAddons[] = {"qiptpl_main"};
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
@@ -14,3 +14,7 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgMusic.hpp"
+#include "CfgRadio.hpp"
+#include "CfgSounds.hpp"
+#include "CfgUnitInsignia.hpp"

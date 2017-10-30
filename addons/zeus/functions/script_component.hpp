@@ -1,1 +1,1 @@
-#include "z\proj_templ\addons\blank\script_component.hpp"
+#include "z\qiptpl\addons\zeus\script_component.hpp"
