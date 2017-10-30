@@ -1,0 +1,4 @@
+[submodule "extras/qip_mission_template.Altis"]
+	path = extras/qip_mission_template.Altis
+	url = https://github.com/quies-in-proelium/qip_mission_template.Altis
+	branch = master
