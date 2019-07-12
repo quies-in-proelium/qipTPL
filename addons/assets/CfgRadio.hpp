@@ -9,7 +9,7 @@ class CfgRadio {
 	// class RadioMsg
 	// {
 	// 	name = "";
-	// 	sound[] = {"\qipTPL_Assets\Radio\filename.ogg", db-100, 1.0}; // .wss implied
+	// 	sound[] = {"Radio\filename.ogg", db-100, 1.0}; // .wss implied
 	// 	title = {};
 	// };
 };

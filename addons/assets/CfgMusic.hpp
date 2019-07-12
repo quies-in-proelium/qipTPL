@@ -14,21 +14,14 @@ class CfgMusicClasses
 		displayName = "Horror";
 	};
 
-    class Misc {
-        displayName = "Sonstiges";
-    };
+	class Misc {
+		displayName = "Sonstiges";
+	};
 };
 
 class CfgMusic {
 	tracks[]={};
-	// class MarsIntro {
-	// 	name = "";
-	// 	sound[] = {"\qipTPL_Assets\Music\filename.ogg", db+0, 1.0};
-	//	theme = "combat";
-	//	duration = "144";
-	//	musicClass = "Arma_2_British_Armed_Forces";
-	// };
-    #include "\qipTPL_Assets\Music\Horror\CfgMusic_Horror.hpp"
-    #include "\qipTPL_Assets\Music\Tears_of_the_Sun\CfgMusic_TotS.hpp"
-    #include "\qipTPL_Assets\Music\Misc\CfgMusic_Misc.hpp"
+	#include "Music\Horror\CfgMusic_Horror.hpp"
+	#include "Music\Tears_of_the_Sun\CfgMusic_TotS.hpp"
+	#include "Music\Misc\CfgMusic_Misc.hpp"
 };

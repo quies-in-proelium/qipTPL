@@ -1,10 +1,17 @@
 class CfgFunctions {
 	class qipTPL {
-		#include "\qipTPL\Functions\zeus\CfgFunctions.hpp"
-		#include "\qipTPL\Functions\common\CfgFunctions.hpp"
-		#include "\qipTPL\Functions\inventory\CfgFunctions.hpp"
-	};
-	class A3G_Loadout {
-		#include "\qipTPL\3rdPartyAddons\a3g-loadout\CfgFunctions.hpp"
+		file = QPATHTOF(functions);
+		class common {
+			class paramToBool{};
+			class rptLog{};
+			class preInit{
+				preInit = 1;
+			};
+			class postInit{};
+			class uavHelper{};
+		};
+		class inventory {
+			class exportInventory {};
+		};
 	};
 };

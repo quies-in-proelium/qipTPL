@@ -1,5 +1,5 @@
 #define COMPONENT assets
-#define COMPONENT_BEAUTIFIED Blank
+#define COMPONENT_BEAUTIFIED Assets
 #include "\z\qiptpl\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

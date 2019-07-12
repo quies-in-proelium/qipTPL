@@ -1,5 +1,5 @@
 #define COMPONENT missions
-#define COMPONENT_BEAUTIFIED Blank
+#define COMPONENT_BEAUTIFIED Missions
 #include "\z\qiptpl\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL
