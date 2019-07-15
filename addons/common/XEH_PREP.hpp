@@ -1,5 +1,5 @@
 PREP(exportInventory);
-PREP(initialization)
+PREP(initialization);
 PREP(paramToBool);
 PREP(rptLog);
 PREP(uavHelper);

@@ -7,7 +7,7 @@ private ['_connectedUav', '_intersects', '_laserPos', '_validLaserPos', '_target
 _connectedUav = getConnectedUAV qipTPL_unit;
 _laserPos = getPosASL laserTarget _connectedUav;
 _validLaserPos = !(_laserPos isEqualTo [0,0,0]);
-_targetIcon = 'a3\ui_f\data\igui\cfg\islandmap\iconplayer_ca.paa';
+_targetIcon = '\A3\ui_f\data\igui\cfg\islandmap\iconplayer_ca.paa';
 _targetIconColor = [1,0,0,0.5];
 
 if (_validLaserPos) then {

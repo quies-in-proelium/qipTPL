@@ -7,13 +7,13 @@ private ["_playableUnits","_aiUnits"];
 if (isMultiplayer) then {
     _playableUnits = playableUnits;
 } else {
-    _playableUnits = switchableUnits
+    _playableUnits = switchableUnits;
 };
 
 if (((count allUnits)-(count _playableUnits)) < 0) then {
-    _aiUnits = 0
+    _aiUnits = 0;
 } else {
-    _aiUnits = ((count allUnits)-(count _playableUnits))
+    _aiUnits = ((count allUnits)-(count _playableUnits));
 };
 
 // Init reporting
