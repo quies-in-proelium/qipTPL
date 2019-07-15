@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 params ["_display","_control"];
-private ["_qipTPL_customMark","_customMarkLocation",];
+private ["_qipTPL_customMark","_customMarkLocation"];
 
 _control ctrlAddEventHandler ["MouseMoving", {
     _qipTPL_customMark = "customMark" in (ctrlMapMouseOver (_this select 0));
