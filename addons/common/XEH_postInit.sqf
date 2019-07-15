@@ -12,7 +12,6 @@ if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
     qipTPL_unit = (_this select 0);
 }, true] call CBA_fnc_addPlayerEventHandler;
 
-call compile preprocessFileLineNumbers ("qipTPL\config\initConfig.sqf");
 call compile preprocessFileLineNumbers ("qipTPL\config\briefing.sqf");
 call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 

@@ -2,5 +2,5 @@
 
 if (isServer || !hasInterface) exitWith {};
 
-call FUNC(initAddons);
-call FUNC(initScripts);
+[] call FUNC(initAddons);
+[] call FUNC(initScripts);
