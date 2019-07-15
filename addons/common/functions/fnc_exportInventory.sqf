@@ -9,6 +9,8 @@
 */
 #include "script_component.hpp"
 
+private ["_center","_br","_tab","_fnc_addArray","_name","_array","_export"];
+
 _center = player;
 _br = tostring [13,10];
 _tab = toString [9];
