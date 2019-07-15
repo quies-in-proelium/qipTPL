@@ -2,5 +2,8 @@
 
 if (isServer || !hasInterface) exitWith {};
 
-[] call FUNC(initAddons);
-[] call FUNC(initScripts);
+if (!mod_ACE3) then {
+    [] execVM QPATHTOF(Scripts\NRE_earplugs.sqf); // Earplugs
+};
+[] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
+[] execVM QPATHTOF(Scripts\waypointDistance.sqf);
