@@ -1,3 +1,6 @@
+if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
+if !(qipTPL_enableLoadout) exitWith {};
+
 private ["_configPath", "_missionStart"];
 
 _configPath = missionConfigFile >> "CfgLoadouts";

@@ -1,0 +1,2 @@
+PREP(initAddons);
+PREP(initScripts);
