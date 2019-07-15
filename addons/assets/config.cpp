@@ -6,14 +6,15 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"qiptpl_main"};
+        requiredAddons[] = {
+            "qiptpl_main"
+        };
         author = "";
         authors[] = {""};
         VERSION_CONFIG;
     };
 };
 
-#include "CfgEventHandlers.hpp"
 #include "CfgMusic.hpp"
 #include "CfgRadio.hpp"
 #include "CfgSounds.hpp"

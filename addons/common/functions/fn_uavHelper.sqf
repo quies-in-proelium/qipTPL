@@ -4,13 +4,9 @@
 
 private ['_connectedUav', '_intersects', '_laserPos', '_validLaserPos', '_targetIcon', '_targetIconColor'];
 
-// Want to check if the laser targeting anything but the sky, but doesn't work yet
-//_intersects = (lineIntersects [getPosASL _connectedUav, getPosASL laserTarget _connectedUav] || terrainIntersectASL [getPosASL _connectedUav, getPosASL laserTarget _connectedUav]);
-_connectedUav = getConnectedUAV player;
+_connectedUav = getConnectedUAV qipTPL_unit;
 _laserPos = getPosASL laserTarget _connectedUav;
 _validLaserPos = !(_laserPos isEqualTo [0,0,0]);
-// Alternative icon for locked camera when I get it to work
-//_targetIcon = 'a3\ui_f_curator\data\cfgwrapperui\cursors\curatorplacewaypoint_ca.paa';
 _targetIcon = 'a3\ui_f\data\igui\cfg\islandmap\iconplayer_ca.paa';
 _targetIconColor = [1,0,0,0.5];
 

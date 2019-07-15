@@ -1,25 +1,25 @@
 class Arsenal {
-    file = QPATHTOF(a3g-loadout\functions\arsenal);
+    file = QPATHTOF(Addons\a3g-loadout\functions\arsenal);
     class ReplaceLinkedItems {};
     class ReplaceWeapons {};
 };
 
 class Attachments {
-    file = QPATHTOF(a3g-loadout\functions\attachments);
+    file = QPATHTOF(Addons\a3g-loadout\functions\attachments);
     class ReplacePrimaryAttachments {};
     class ReplaceSecondaryAttachments {};
     class ReplaceHandgunAttachments {};
 };
 
 class Containers {
-    file = QPATHTOF(a3g-loadout\functions\containers);
+    file = QPATHTOF(Addons\a3g-loadout\functions\containers);
     class ReplaceUniform {};
     class ReplaceBackpack {};
     class ReplaceVest {};
 };
 
 class General {
-    file = QPATHTOF(a3g-loadout\functions\general);
+    file = QPATHTOF(Addons\a3g-loadout\functions\general);
     class AddItems {};
     class AddMagazines {};
     class AddItemsToUniform {};
@@ -30,7 +30,7 @@ class General {
 };
 
 class Init {
-    file = QPATHTOF(a3g-loadout\functions\init);
+    file = QPATHTOF(Addons\a3g-loadout\functions\init);
     class ApplyLoadout {
         postInit = 1;
     };
@@ -40,7 +40,7 @@ class Init {
 };
 
 class LinkedItems {
-    file = QPATHTOF(a3g-loadout\functions\linkedItems);
+    file = QPATHTOF(Addons\a3g-loadout\functions\linkedItems);
     class ReplaceBinoculars {};
     class ReplaceCompass {};
     class ReplaceGoggles {};
@@ -52,7 +52,7 @@ class LinkedItems {
 };
 
 class Weapons {
-    file = QPATHTOF(a3g-loadout\functions\weapons);
+    file = QPATHTOF(Addons\a3g-loadout\functions\weapons);
     class ReplaceHandgunWeapon {};
     class ReplacePrimaryWeapon {};
     class ReplaceSecondaryWeapon {};

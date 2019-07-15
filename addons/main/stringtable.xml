@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qipTPL">
+    <Package name="Main">
+        <Key ID="STR_qipTPL_Main_URL">
+            <English>https://units.arma3.com/unit/qip</English>
+            <German>https://units.arma3.com/unit/qip</German>
+            <Polish>https://units.arma3.com/unit/qip</Polish>
+            <Portuguese>https://units.arma3.com/unit/qip</Portuguese>
+            <Russian>https://units.arma3.com/unit/qip</Russian>
+            <Czech>https://units.arma3.com/unit/qip</Czech>
+            <Spanish>https://units.arma3.com/unit/qip</Spanish>
+            <Italian>https://units.arma3.com/unit/qip</Italian>
+            <French>https://units.arma3.com/unit/qip</French>
+            <Korean>https://units.arma3.com/unit/qip</Korean>
+            <Japanese>https://units.arma3.com/unit/qip</Japanese>
+            <Chinesesimp>https://units.arma3.com/unit/qip</Chinesesimp>
+            <Chinese>https://units.arma3.com/unit/qip</Chinese>
+        </Key>
+    </Package>
+</Project>
