@@ -4,7 +4,7 @@
     "Enable Template", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "qipTPL Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    2 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
 [
@@ -13,7 +13,7 @@
     ["Init Time","Time to initialize the mission"], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "qipTPL Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     [30, 90, 30, 0], // data for this setting: [min, max, default, number of shown trailing decimals]
-    2 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
 [
@@ -22,7 +22,7 @@
     ["Clan Name","Clan name or name of the community. Used in Hints, intro's etc."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "qipTPL Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     "quies in proelium", // data for this setting: [min, max, default, number of shown trailing decimals]
-    2 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
 [
@@ -31,7 +31,7 @@
     ["Clan Tag","Clantag or shortname of the community. Used in Hints, intro's etc."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "qipTPL Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     "[qip]", // data for this setting: [min, max, default, number of shown trailing decimals]
-    2 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
 qipTPL_clanLogo = QPATHTOEF(assets,Images\clanLogo.paa);

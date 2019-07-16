@@ -4,5 +4,5 @@
     "Predefind Mission Loadout", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "qipTPL Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    2 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
