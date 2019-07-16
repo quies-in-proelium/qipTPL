@@ -14,6 +14,19 @@ _timerInput = qipTPL_missionInitTime; // Mission Init time counter. Min 30 secs.
 _timer = _timerInput / 100;
 _cntStop = -1;
 
+if ( vehicle qipTPL_unit == qipTPL_unit ) then {
+    if (mod_ACE3) then {
+        [qipTPL_unit, currentWeapon qipTPL_unit, currentMuzzle qipTPL_unit] call ACE_SafeMode_fnc_lockSafety;
+    };
+    if ( primaryWeapon qipTPL_unit != "" ) then {
+        qipTPL_unit playMove "AmovPercMstpSlowWrflDnon";
+    } else {
+        if ( handgunWeapon qipTPL_unit != "" ) then {
+            qipTPL_unit playMove "AmovPercMstpSrasWpstDnon_AmovPercMstpSrasWlnrDnon";
+        };
+    };
+};
+
 while {(_cnt != 100)} do {
     _cnt = _cnt + 1;
 
@@ -37,19 +50,6 @@ while {(_cnt != 100)} do {
             5,
             ((100 - _cntStop) * _timer)
         ] spawn BIS_fnc_dynamicText;
-    };
-};
-
-if ( vehicle qipTPL_unit == qipTPL_unit ) then {
-    if (mod_ACE3) then {
-        [qipTPL_unit, currentWeapon qipTPL_unit, currentMuzzle qipTPL_unit] call ACE_SafeMode_fnc_lockSafety;
-    };
-    if ( primaryWeapon qipTPL_unit != "" ) then {
-        qipTPL_unit playMove "AmovPercMstpSlowWrflDnon";
-    } else {
-        if ( handgunWeapon qipTPL_unit != "" ) then {
-            qipTPL_unit playMove "AmovPercMstpSrasWpstDnon_AmovPercMstpSrasWlnrDnon";
-        };
     };
 };
 

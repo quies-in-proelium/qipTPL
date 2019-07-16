@@ -10,7 +10,6 @@ by NemesisRE<br/><br/><br/>
 * NRE Earplugs (by NemesisRE)<br/>
 * a3g-loadout (by v-Arma modified by NemesisRE)<br/>
 * QS_icons (by auQuiksilver modified by NemesisRE)<br/>
-* SL_Zeus (by seelenlos)<br/>
 * EO Extended Animal Module (by Evil Organ)<br/>
 <br/><br/><br/>
 <font size='16'>Thanks to all the great Developers out there who made that possible!</font><br/><br/>
