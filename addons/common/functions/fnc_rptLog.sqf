@@ -1,7 +1,5 @@
 #include "script_component.hpp"
 
-diag_log "RPT: Init - executing Function rptLog"; // Reporting. Do NOT edit/remove
-
 private ["_playableUnits","_aiUnits"];
 
 if (isMultiplayer) then {

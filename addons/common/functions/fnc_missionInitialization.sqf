@@ -40,6 +40,19 @@ while {(_cnt != 100)} do {
     };
 };
 
+if ( vehicle qipTPL_unit == qipTPL_unit ) then {
+    if (mod_ACE3) then {
+        [qipTPL_unit, currentWeapon qipTPL_unit, currentMuzzle qipTPL_unit] call ACE_SafeMode_fnc_lockSafety;
+    };
+    if ( primaryWeapon qipTPL_unit != "" ) then {
+        qipTPL_unit playMove "AmovPercMstpSlowWrflDnon";
+    } else {
+        if ( handgunWeapon qipTPL_unit != "" ) then {
+            qipTPL_unit playMove "AmovPercMstpSrasWpstDnon_AmovPercMstpSrasWlnrDnon";
+        };
+    };
+};
+
 _postInitMsg = format ["
     <br/>
     <t align='left' size='1.2' color='#F7D358'>Missions Initialsierung:</t><br/>

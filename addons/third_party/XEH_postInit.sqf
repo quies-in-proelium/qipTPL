@@ -5,4 +5,6 @@ if (isServer || !hasInterface) exitWith {};
 if (!mod_ACE3) then {
     [] execVM QPATHTOF(Scripts\NRE_earplugs.sqf); // Earplugs
 };
-[] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
+if (!qipTPL_enableBueforTracking) then {
+    [] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
+};
