@@ -27,6 +27,12 @@ if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     };
 };
 
+if (qipTPL_uavIntro) then {
+    _uavIntro = [] call FUNC(uavIntro);
+} else {
+    _uavIntro = 0 spawn {};
+};
+
 while {(_cnt != 100)} do {
     _cnt = _cnt + 1;
 
@@ -40,16 +46,18 @@ while {(_cnt != 100)} do {
     ", _cnt,_TimerInput,_unitName];
 
     sleep _timer;
-    hintSilent parseText _initMsg;
-    if (_cntStop == -1) then {
-        _cntStop = _cnt;
-        [
-            "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission presented by " + qipTPL_clanName + "</t>",
-            0,
-            0,
-            5,
-            ((100 - _cntStop) * _timer)
-        ] spawn BIS_fnc_dynamicText;
+    if (scriptDone _uavIntro) then {
+        hintSilent parseText _initMsg;
+        if (_cntStop == -1) then {
+            _cntStop = _cnt;
+            [
+                "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission presented by " + qipTPL_clanName + "</t>",
+                0,
+                0,
+                5,
+                ((100 - _cntStop) * _timer)
+            ] spawn BIS_fnc_dynamicText;
+        };
     };
 };
 
