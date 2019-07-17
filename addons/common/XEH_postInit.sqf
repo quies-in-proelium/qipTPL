@@ -12,7 +12,6 @@ if (isServer) exitWith {
 
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
-call compile preprocessFileLineNumbers ("qipTPL\config\briefing.sqf");
 call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 
 [] spawn FUNC(missionInitialization);

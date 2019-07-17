@@ -27,10 +27,9 @@ if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     };
 };
 
+uavIntro = 0 spawn {};
 if (qipTPL_uavIntro) then {
-    _uavIntro = [] call FUNC(uavIntro);
-} else {
-    _uavIntro = 0 spawn {};
+    [] call FUNC(uavIntro);
 };
 
 while {(_cnt != 100)} do {
@@ -46,7 +45,7 @@ while {(_cnt != 100)} do {
     ", _cnt,_TimerInput,_unitName];
 
     sleep _timer;
-    if (scriptDone _uavIntro) then {
+    if (scriptDone uavIntro) then {
         hintSilent parseText _initMsg;
         if (_cntStop == -1) then {
             _cntStop = _cnt;

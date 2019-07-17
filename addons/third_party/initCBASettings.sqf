@@ -17,9 +17,11 @@
     {
         params ["_value"];
         if (_value) then {
-            qipTPL_BluforTracking = [] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
+            [] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
         } else {
-            terminate qipTPL_BluforTracking;
+            if (true) {
+                // find a way to disable if running
+            };
         };
     }
 ] call CBA_fnc_addSetting;
