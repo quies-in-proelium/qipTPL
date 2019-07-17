@@ -1,6 +1,10 @@
 #include "script_component.hpp"
 
-private ["_uavIntroPosition"];
+private ["_uavIntro","_uavIntroPosition"];
+
+if (!qipTPL_uavIntro) then {
+    _uavIntro = 0 spawn {};
+};
 
 if (getMarkerColor "qipTPL_uavIntroMarker" == "") then {
 	_uavIntroPosition = vehicle qipTPL_unit;
@@ -8,7 +12,7 @@ if (getMarkerColor "qipTPL_uavIntroMarker" == "") then {
 	_uavIntroPosition = getMarkerPos "qipTPL_uavIntroMarker";
 };
 
-uavIntro = [
+_uavIntro = [
     _uavIntroPosition, // Target position (replace MARKERNAME)
     getText (missionConfigFile >> "onLoadName"), // SITREP text
     100,                    // 400m altitude
@@ -20,3 +24,5 @@ uavIntro = [
     true,
     3
 ] spawn BIS_fnc_establishingShot;
+
+_uavIntro;
