@@ -13,6 +13,7 @@ _cnt = 0;
 _timerInput = qipTPL_missionInitTime; // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
 _timer = _timerInput / 100;
 _cntStop = -1;
+_missionAuthor = getText (missionConfigFile >> "author");
 
 if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     if (mod_ACE3) then {
@@ -47,7 +48,7 @@ while {(_cnt != 100)} do {
         if (_cntStop == -1) then {
             _cntStop = _cnt;
             [
-                "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission presented by " + qipTPL_clanName + "</t>",
+                "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission build by " + _missionAuthor + "</t>",
                 0,
                 0,
                 5,
