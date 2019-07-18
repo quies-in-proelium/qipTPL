@@ -3,7 +3,7 @@
 if (isNil "qipTPL_enabled" || !(qipTPL_enabled) || !hasInterface) exitWith {};
 
 if (isServer) exitWith {
-    [] call FUNC(rptLog);
+    [] spawn FUNC(rptLog);
 };
 
 ["unit", {

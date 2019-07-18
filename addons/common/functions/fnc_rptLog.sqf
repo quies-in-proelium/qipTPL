@@ -1,27 +1,30 @@
 #include "script_component.hpp"
 
-private ["_playableUnits","_aiUnits"];
+[
+    {time > 10},
+    {
+        private ["_playableUnits","_aiUnits","_allGroups"];
+        if (isMultiplayer) then {
+            _playableUnits = count playableUnits;
+        } else {
+            _playableUnits = count switchableUnits;
+        };
 
-if (isMultiplayer) then {
-    _playableUnits = playableUnits;
-} else {
-    _playableUnits = switchableUnits;
-};
+        _aiUnits = ((count allUnits)-(_playableUnits));
+        _allGroups = count allGroups;
 
-if (((count allUnits)-(count _playableUnits)) < 0) then {
-    _aiUnits = 0;
-} else {
-    _aiUnits = ((count allUnits)-(count _playableUnits));
-};
-
-// Init reporting
-diag_log ""; diag_log "";
-diag_log "--------------------------------------------------------------------------------------";
-diag_log format ["RPT: Init - Mission name: %1",(getText (missionConfigFile >> "overviewText"))];
-diag_log format ["RPT: Init - Mission developer: %1",(getText (missionConfigFile >> "author"))];
-diag_log "--------------------------------------------------------------------------------------";
-diag_log format ["RPT: Init - Number of clients connected: %1", (count _playableUnits)];
-diag_log "--------------------------------------------------------------------------------------";
-diag_log format ["RPT: Init - Number of AI's active: %1", _aiUnits];
-diag_log "--------------------------------------------------------------------------------------";
-diag_log ""; diag_log "";
+        // Init reporting
+        diag_log ""; diag_log "";
+        diag_log "--------------------------------------------------------------------------------------";
+        diag_log format ["RPT: Init - Mission name: %1",(getText (missionConfigFile >> "overviewText"))];
+        diag_log format ["RPT: Init - Mission developer: %1",(getText (missionConfigFile >> "author"))];
+        diag_log "--------------------------------------------------------------------------------------";
+        diag_log format ["RPT: Init - Number of clients connected: %1", _playableUnits];
+        diag_log "--------------------------------------------------------------------------------------";
+        diag_log format ["RPT: Init - Number of AI's active: %1", _aiUnits];
+        diag_log "--------------------------------------------------------------------------------------";
+        diag_log format ["RPT: Init - Number of Groups active: %1", _allGroups];
+        diag_log "--------------------------------------------------------------------------------------";
+        diag_log ""; diag_log "";
+    }
+] call CBA_fnc_waitUntilAndExecute;
