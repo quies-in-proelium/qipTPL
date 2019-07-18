@@ -7,9 +7,9 @@ if (!qipTPL_uavIntro) then {
 };
 
 if (getMarkerColor "qipTPL_uavIntroMarker" == "") then {
-	_uavIntroPosition = vehicle qipTPL_unit;
+    _uavIntroPosition = vehicle qipTPL_unit;
 } else {
-	_uavIntroPosition = getMarkerPos "qipTPL_uavIntroMarker";
+    _uavIntroPosition = getMarkerPos "qipTPL_uavIntroMarker";
 };
 
 _uavIntro = [
@@ -20,7 +20,7 @@ _uavIntro = [
     160,                    // 0 degrees viewing angle
     1,                      // Clockwise movement
     [],
-    1,
+    0,
     true,
     3
 ] spawn BIS_fnc_establishingShot;
