@@ -2,3 +2,7 @@
 	path = extras/qip_mission_template.Altis
 	url = https://github.com/quies-in-proelium/qip_mission_template.Altis
 	branch = master
+[submodule "addons/third_party/Scripts/Soldier-Tracker"]
+	path = addons/third_party/Scripts/Soldier-Tracker
+	url = https://github.com/quies-in-proelium/Soldier-Tracker.git
+	branch = qipTPL

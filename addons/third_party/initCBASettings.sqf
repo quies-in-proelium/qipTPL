@@ -17,7 +17,7 @@
     {
         params ["_value"];
         if (_value) then {
-            [] execVM QPATHTOF(Scripts\QS_icons.sqf); // Soldier Tracker by Quiksilver
+            [] execVM QPATHTOF(Scripts\Soldier-Tracker\QS_icons.sqf); // Soldier Tracker by Quiksilver
         } else {
             if (true) then {
                 INFO("Don't forget you wanted to fix that!"); // find a way to disable if running
