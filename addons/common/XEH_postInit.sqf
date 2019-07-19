@@ -15,3 +15,5 @@ mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 
 [] spawn FUNC(missionInitialization);
+
+[] call FUNC(addZeusCommand);

@@ -1,3 +1,4 @@
+PREP(addZeusCommand);
 PREP(customMark);
 PREP(exportInventory);
 PREP(missionInitialization);

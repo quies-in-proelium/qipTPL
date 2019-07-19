@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
+
 if (isServer || !hasInterface) exitWith {};
 
 if (!mod_ACE3) then {

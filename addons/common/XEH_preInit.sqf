@@ -2,10 +2,11 @@
 
 ADDON = false;
 
-#include "XEH_PREP.hpp"
 #include "initCBASettings.sqf"
 
 if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
+
+#include "XEH_PREP.hpp"
 
 qipTPL_unit = objNull;
 uiNamespace setVariable ["qipTPL_unit", objNull];
