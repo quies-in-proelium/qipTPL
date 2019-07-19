@@ -16,4 +16,4 @@ call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 
 [] spawn FUNC(missionInitialization);
 
-[] call FUNC(addZeusCommand);
+[] call FUNC(addChatCommands);

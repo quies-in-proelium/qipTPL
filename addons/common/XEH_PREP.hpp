@@ -1,4 +1,5 @@
-PREP(addZeusCommand);
+PREP(addChatCommands);
+PREP(addZeus);
 PREP(customMark);
 PREP(exportInventory);
 PREP(missionInitialization);
