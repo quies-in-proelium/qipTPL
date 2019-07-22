@@ -8,12 +8,12 @@
     private _zeus = _group createUnit ["ModuleCurator_F", [0,0,0], [], 0, "NONE"];
     _zeus setVariable ["owner", _owner, true];
     _zeus setVariable ["Addons", 3, true];
-    _zeus setVariable ["TFAR_CuratorCamEars",true,true];
     _zeus setVariable ["BIS_fnc_initModules_disableAutoActivation", false];
     _zeus setCuratorCoef ["Place", 0];
     _zeus setCuratorCoef ["Delete", 0];
     _group deleteGroupWhenEmpty true;
     _zeus addCuratorEditableObjects [allMissionObjects "", true];
+    _ownerPlayer setVariable ["TFAR_CuratorCamEars",true,true];
 }] call CBA_fnc_addEventHandler;
 ["zeus", {
     [QGVAR(requestZeus), qipTPL_unit] call CBA_fnc_serverEvent;
