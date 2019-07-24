@@ -2,7 +2,3 @@
 	path = extras/qipMissionTPL
 	url = https://github.com/quies-in-proelium/qipMissionTPL
 	branch = master
-[submodule "addons/third_party/Scripts/Soldier-Tracker"]
-	path = addons/third_party/Scripts/Soldier-Tracker
-	url = https://github.com/quies-in-proelium/Soldier-Tracker.git
-	branch = qipTPL
