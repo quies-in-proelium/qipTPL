@@ -26,7 +26,6 @@ if ((!(_alt)) && (!(_shift))) then {
             _vehicle = _vehicles select 0;
         };
     };
-    _QS_ST_X = [] call (missionNamespace getVariable 'QS_ST_X');
     if (alive _vehicle) then {
         if ((count (crew _vehicle)) > 1) then {
             if ((side (effectiveCommander _vehicle)) isEqualTo playerSide) then {

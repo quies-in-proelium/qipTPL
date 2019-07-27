@@ -29,10 +29,10 @@ if ((group _unit) isEqualTo (group player)) then {
 } else {
     _a = 0.65;
 };
-if (_QS_ST_X select 14) then {
-    if ([_unit,((_QS_ST_X select 15) select 0)] call (_QS_ST_X select 69)) then {
+if (QS_ST_showMedicalWounded) then {
+    if ([_unit,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {
         _exit = TRUE;
-        _color = _QS_ST_X select 16;
+        _color = QS_ST_MedicalIconColor;
         _color set [3,_a];
         if (_mapScale > 0.80) then {
             if (_ds isEqualTo 1) then {
@@ -41,9 +41,9 @@ if (_QS_ST_X select 14) then {
         };
     };
 } else {
-    if ([_unit,((_QS_ST_X select 15) select 0)] call (_QS_ST_X select 69)) then {
+    if ([_unit,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {
         _exit = TRUE;
-        _color = _QS_ST_X select 16;
+        _color = QS_ST_MedicalIconColor;
         _color set [3,0];
     };
 };
@@ -57,10 +57,10 @@ if (_useTeamColor) then {
                 _teamID = 0;
             };
         };
-        if (_side isEqualTo EAST) then {_color = _QS_ST_X select 9;};
-        if (_side isEqualTo WEST) then {_color = _QS_ST_X select 10;};
-        if (_side isEqualTo RESISTANCE) then {_color = _QS_ST_X select 11;};
-        if (_side isEqualTo CIVILIAN) then {_color = _QS_ST_X select 12;};
+        if (_side isEqualTo EAST) then {_color = QS_ST_iconColor_EAST;};
+        if (_side isEqualTo WEST) then {_color = QS_ST_iconColor_WEST;};
+        if (_side isEqualTo RESISTANCE) then {_color = QS_ST_iconColor_RESISTANCE;};
+        if (_side isEqualTo CIVILIAN) then {_color = QS_ST_iconColor_CIVILIAN;};
         _color = [_color,[1,0,0,1],[0,1,0.5,1],[0,0.5,1,1],[1,1,0,1]] select _teamID;
         _color set [3,_a];
         if (_mapScale > 0.80) then {
@@ -72,11 +72,11 @@ if (_useTeamColor) then {
     };
 };
 if (_exit) exitWith {_color;};
-if (_side isEqualTo EAST) exitWith {_color = _QS_ST_X select 9; _color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
-if (_side isEqualTo WEST) exitWith {_color = _QS_ST_X select 10;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
-if (_side isEqualTo RESISTANCE) exitWith {_color = _QS_ST_X select 11;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
-if (_side isEqualTo CIVILIAN) exitWith {_color = _QS_ST_X select 12;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
-_color = _QS_ST_X select 13;
+if (_side isEqualTo EAST) exitWith {_color = QS_ST_iconColor_EAST;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
+if (_side isEqualTo WEST) exitWith {_color = QS_ST_iconColor_WEST;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
+if (_side isEqualTo RESISTANCE) exitWith {_color = QS_ST_iconColor_RESISTANCE;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
+if (_side isEqualTo CIVILIAN) exitWith {_color = QS_ST_iconColor_CIVILIAN;_color set [3,_a];if (_ds isEqualTo 1) then {if (_mapScale > 0.80) then {_color set [3,0];};};_color;};
+_color = QS_ST_iconColor_UNKNOWN;
 if (_ds isEqualTo 1) then { if (_mapScale > 0.80) then {_color set [3,0];};};
 
 _color;
