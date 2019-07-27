@@ -1,10 +1,10 @@
 #include "script_component.hpp"
 
-params ['_group','_QS_ST_X','_di'];
+params ['_group','_di'];
 
 private _groupIconText = '';
 if (_di isEqualTo 1) then {
-    if (_QS_ST_X select 36) then {
+    if (QS_ST_showGroupMapText) then {
         _groupIconText = groupId _group;
     };
 };

@@ -12,9 +12,7 @@ if (_vehicleClass isEqualTo '') then {
 
 private _groupIconType = _grpVehicle getVariable ['QS_ST_groupVehicleIconType',''];
 
-if (!(_groupIconType isEqualTo '')) exitWith {
-    _groupIconType;
-};
+if (!(_groupIconType isEqualTo '')) exitWith {_groupIconType;};
 
 private _iconTypes_EAST = ['o_inf','o_motor_inf','o_mech_inf','o_armor','o_recon','o_air','o_plane','o_uav','o_med','o_art','o_mortar','o_hq','o_support','o_maint','o_service','o_naval','o_unknown'];
 private _iconTypes_WEST = ['b_inf','b_motor_inf','b_mech_inf','b_armor','b_recon','b_air','b_plane','b_uav','b_med','b_art','b_mortar','b_hq','b_support','b_maint','b_service','b_naval','b_unknown'];

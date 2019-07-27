@@ -10,7 +10,6 @@ if (!((side _group) isEqualTo playerSide)) exitWith {
     };
 };
 
-private _QS_ST_X = [] call (missionNamespace getVariable 'QS_ST_X');
 private _lifeState = '';
 private _unitMOS = '';
 private _unitName = '';
@@ -18,16 +17,16 @@ private _color = [0,0,0,1];
 private _colorIncapacitated = [1,0.41,0,1];
 private _colorInjured = [0,0,0,1];
 private _colorDead = [0.4,0,0.5,0.65];
-private _text = [_group,_QS_ST_X,1] call (_QS_ST_X select 51);
+private _text = [_group,1] call FUNC(groupIconText);
 private _groupCount = count (units _group);
 private _unitNameList = '';
 private _leader = TRUE;
-private _showClass = _QS_ST_X select 34;
-private _AINames = _QS_ST_X select 72;
+private _showClass = QS_ST_groupInteractiveIcons_showClass;
+private _AINames = QS_ST_showAINames;
 
-if ((_QS_ST_X select 14)) then {
-    _colorIncapacitated = _QS_ST_X select 70;
-    _colorInjured = _QS_ST_X select 81;
+if ((QS_ST_showMedicalWounded)) then {
+    _colorIncapacitated = QS_ST_htmlColorMedical;
+    _colorInjured = QS_ST_htmlColorInjured;
     _colorDead = [0.4,0,0.5,0.65];
 } else {
     _colorIncapacitated = [1,0.41,0,1];
@@ -37,18 +36,13 @@ if ((_QS_ST_X select 14)) then {
 {
     _color = [0,0,0,1];
     _lifeState = lifeState _x;
-    if (_lifeState isEqualTo 'INJURED') then {
-        _color = _colorInjured;
-    } else {
-        if (_lifeState isEqualTo 'INCAPACITATED') then {
-            _color = _colorIncapacitated;
-        } else {
-            if (_lifeState isEqualTo 'DEAD') then {
-                _color = _colorDead;
-            };
-        };
+    switch (true) do {
+        case (_lifeState isEqualTo 'INJURED'): _color = _colorInjured;
+        case (_lifeState isEqualTo 'INCAPACITATED'): _color = _colorIncapacitated;
+        case (_lifeState isEqualTo 'DEAD'): _color = _colorDead;
     };
-    if ([_x,((_QS_ST_X select 15) select 0)] call (_QS_ST_X select 69)) then {_color = _colorIncapacitated;};
+
+    if ([_x,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {_color = _colorIncapacitated;};
     _unitMOS = getText (configFile >> 'CfgVehicles' >> (typeOf _x) >> 'displayName');
     _unitName = name _x;
     if (!isPlayer _x) then {

@@ -1,33 +1,33 @@
 #include "script_component.hpp"
 
-params ['_vehicle','_QS_ST_X'];
+params ['_vehicle'];
 
 private _unit = effectiveCommander _vehicle;
 private _ps = side _unit;
-private _c = [0,0,0,0];
+private _color = [0,0,0,0];
 
 if (_ps isEqualTo EAST) exitWith {
-    _c = _QS_ST_X select 9;
+    _color = QS_ST_iconColor_EAST;
     _unit setVariable ['QS_ST_groupIconColor',
-    [_c,_ps],FALSE];
-    _c;
+    [_color,_ps],FALSE];
+    _color;
 };
 if (_ps isEqualTo WEST) exitWith {
-    _c = _QS_ST_X select 10;
-    _unit setVariable ['QS_ST_groupIconColor',[_c,_ps],FALSE];
-    _c;
+    _color = QS_ST_iconColor_WEST;
+    _unit setVariable ['QS_ST_groupIconColor',[_color,_ps],FALSE];
+    _color;
 };
 if (_ps isEqualTo RESISTANCE) exitWith {
-    _c = _QS_ST_X select 11;
-    _unit setVariable ['QS_ST_groupIconColor',[_c,_ps],FALSE];
-    _c;
+    _color = QS_ST_iconColor_RESISTANCE;
+    _unit setVariable ['QS_ST_groupIconColor',[_color,_ps],FALSE];
+    _color;
 };
 if (_ps isEqualTo CIVILIAN) exitWith {
-    _c = _QS_ST_X select 12;
-    _unit setVariable ['QS_ST_groupIconColor',[_c,_ps],FALSE];
-    _c;
+    _color = QS_ST_iconColor_CIVILIAN;
+    _unit setVariable ['QS_ST_groupIconColor',[_color,_ps],FALSE];
+    _color;
 };
-_c = _QS_ST_X select 13;
-_unit setVariable ['QS_ST_groupIconColor',[_c,_ps],FALSE];
+_color = QS_ST_iconColor_UNKNOWN;
+_unit setVariable ['QS_ST_groupIconColor',[_color,_ps],FALSE];
 
-_c;
+_color;

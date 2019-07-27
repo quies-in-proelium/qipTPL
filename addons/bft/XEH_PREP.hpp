@@ -1,4 +1,7 @@
+PREP(additionalDevices);
 PREP(configGroupIcon);
+PREP(gpsIcons);
+PREP(groupIcons);
 PREP(groupIconText);
 PREP(groupIconType);
 PREP(hasGPSDevice);
