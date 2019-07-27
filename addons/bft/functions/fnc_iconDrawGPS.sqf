@@ -3,7 +3,7 @@
 if (
     (!('MinimapDisplay' in ((infoPanel 'left') + (infoPanel 'right')))) ||
     {(visibleMap)} ||
-    {((QS_ST_GPSrequireGPSItem) && (!(call FUNC(hasGPSDevice))))}
+    {(QS_ST_GPSrequireGPSItem && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
 _map = _this select 0;
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_gps')) then {
@@ -51,7 +51,7 @@ if (player isEqualTo (leader (group player))) then {
 } else {
     if (isNull (objectParent player)) then {
         if (isNull (objectParent (leader (group player)))) then {
-            if (((leader (group player)) distance2D player) < (QS_ST_GPSDist)) then {
+            if (((leader (group player)) distance2D player) < QS_ST_GPSDist) then {
                 _map drawLine [(getPosASLVisual player),(getPosASLVisual (leader (group player))),[0,1,1,0.5]];
             };
         };

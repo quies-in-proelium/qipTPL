@@ -24,7 +24,7 @@ private _leader = TRUE;
 private _showClass = QS_ST_groupInteractiveIcons_showClass;
 private _AINames = QS_ST_showAINames;
 
-if ((QS_ST_showMedicalWounded)) then {
+if (QS_ST_showMedicalWounded) then {
     _colorIncapacitated = QS_ST_htmlColorMedical;
     _colorInjured = QS_ST_htmlColorInjured;
     _colorDead = [0.4,0,0.5,0.65];

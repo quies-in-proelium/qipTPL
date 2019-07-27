@@ -30,7 +30,7 @@ if ((group _unit) isEqualTo (group player)) then {
     _a = 0.65;
 };
 if (QS_ST_showMedicalWounded) then {
-    if ([_unit,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {
+    if ([_unit,QS_ST_MedicalSystem] call FUNC(isIncapacitated)) then {
         _exit = TRUE;
         _color = QS_ST_MedicalIconColor;
         _color set [3,_a];
@@ -41,7 +41,7 @@ if (QS_ST_showMedicalWounded) then {
         };
     };
 } else {
-    if ([_unit,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {
+    if ([_unit,QS_ST_MedicalSystem] call FUNC(isIncapacitated)) then {
         _exit = TRUE;
         _color = QS_ST_MedicalIconColor;
         _color set [3,0];

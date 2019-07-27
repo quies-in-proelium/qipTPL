@@ -12,7 +12,7 @@ private _vehicle = objNull;
 private _position = [[0,0,0],0];
 private _iconSize = 0;
 
-if ((QS_ST_MAPrequireGPSItem) && (!(call FUNC(hasGPSDevice)))) exitWith {};
+if (QS_ST_MAPrequireGPSItem && (!(call FUNC(hasGPSDevice)))) exitWith {};
 
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_map')) then {
     missionNamespace setVariable ['QS_ST_updateDraw_map',(diag_tickTime + 3),FALSE];
@@ -67,7 +67,7 @@ if (_player isEqualTo (leader (group _player))) then {
 } else {
     if (isNull (objectParent _player)) then {
         if (isNull (objectParent (leader (group _player)))) then {
-            if (((leader (group _player)) distance2D _player) < (QS_ST_GPSDist)) then {
+            if (((leader (group _player)) distance2D _player) < QS_ST_GPSDist) then {
                 _map drawLine [(getPosASLVisual _player),(getPosASLVisual (leader (group _player))),[0,1,1,0.5]];
             };
         };

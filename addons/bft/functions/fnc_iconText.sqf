@@ -24,9 +24,9 @@ if (!isPlayer ((crew _vehicle) select 0)) then {
     };
 };
 
-_isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && (QS_ST_admin));
+_isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && QS_ST_admin);
 
-if (((_vehicle distance2D player) < (QS_ST_showMOS_range)) || {(_isAdmin)}) then {
+if (((_vehicle distance2D player) < QS_ST_showMOS_range) || {(_isAdmin)}) then {
     if ((_mapScale < 0.75) || {(_isAdmin)}) then {
         if ((_mapScale > 0.25) || {(_isAdmin)}) then {
             if (_showMOS) then {
