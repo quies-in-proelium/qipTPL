@@ -12,13 +12,17 @@ if (getMarkerColor "qipTPL_uavIntroMarker" == "") then {
     _uavIntroPosition = getMarkerPos "qipTPL_uavIntroMarker";
 };
 
+if (qipTPL_uavIntroText == "") then {
+    qipTPL_uavIntroText = getText (missionConfigFile >> "onLoadName");
+}
+
 _uavIntro = [
-    _uavIntroPosition,                               // Target position (replace MARKERNAME)
-    getText (missionConfigFile >> "onLoadName"),     // SITREP text
-    100 + ((getPosASL _uavIntroPosition) select 2),  // 400m altitude
-    100,                                             // 200m radius
-    160,                                             // 0 degrees viewing angle
-    1,                                               // Clockwise movement
+    _uavIntroPosition,
+    qipTPL_uavIntroText,
+    qipTPL_uavIntroAltitude,
+    qipTPL_uavIntroRadius,
+    qipTPL_uavIntroAngle,
+    1,
     [],
     0,
     true,
