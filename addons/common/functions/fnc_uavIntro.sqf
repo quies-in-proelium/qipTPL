@@ -14,7 +14,7 @@ if (getMarkerColor "qipTPL_uavIntroMarker" == "") then {
 
 if (qipTPL_uavIntroText == "") then {
     qipTPL_uavIntroText = getText (missionConfigFile >> "onLoadName");
-}
+};
 
 _uavIntro = [
     _uavIntroPosition,
