@@ -39,7 +39,7 @@
     "SLIDER",
     ["UAV Intro altitude","Altitude (in meters)"],
     ["qipTPL Settings","Mission Settings"],
-    [100, 3000, 100, 0],
+    [25, 3000, 100, 0],
     1
 ] call CBA_fnc_addSetting;
 
@@ -48,7 +48,7 @@
     "SLIDER",
     ["UAV Intro radius","Radius of the circular movement (in meters)"],
     ["qipTPL Settings","Mission Settings"],
-    [100, 1000, 100, 0],
+    [25, 1000, 100, 0],
     1
 ] call CBA_fnc_addSetting;
 
@@ -57,7 +57,16 @@
     "SLIDER",
     ["UAV Intro angle","Viewing angle (in degrees)"],
     ["qipTPL Settings","Mission Settings"],
-    [0, 180, 160, 0],
+    [0, 360, 160, 0],
+    1
+] call CBA_fnc_addSetting;
+
+[
+    "qipTPL_uavIntroVision",
+    "LIST",
+    ["UAV Intro vision","Different visions (Normal,NVG,TI)"],
+    ["qipTPL Settings","Mission Settings"],
+    [[0,1,2,3,4,5,6,7,8,9],["Normal","NVG","White Hot","Black Hot","Light Green Hot / Darker Green cold","Black Hot / Darker Green cold","Light Red Hot / Darker Red Cold","Black Hot / Darker Red Cold","White Hot / Darker Red Cold","Thermal (Shade of Red and Green, Bodies are white)"],0],
     1
 ] call CBA_fnc_addSetting;
 

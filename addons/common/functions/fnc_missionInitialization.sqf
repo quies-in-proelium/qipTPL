@@ -44,6 +44,17 @@ while {(_cnt != 100)} do {
 
     sleep _timer;
     if (scriptDone _uavIntro) then {
+        switch (qipTPL_uavIntroVision) do {
+            case 1: {camUseNVG false};
+            case 2: {false setCamUseTI 0};
+            case 3: {false setCamUseTI 1};
+            case 4: {false setCamUseTI 2};
+            case 5: {false setCamUseTI 3};
+            case 6: {false setCamUseTI 4};
+            case 7: {false setCamUseTI 5};
+            case 8: {false setCamUseTI 6};
+            case 9: {false setCamUseTI 7};
+        };
         hintSilent parseText _initMsg;
         if (_cntStop == -1) then {
             _cntStop = _cnt;
