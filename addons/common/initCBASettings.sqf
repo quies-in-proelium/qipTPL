@@ -12,7 +12,7 @@
     "SLIDER",
     ["Init Time","Time to initialize the mission"],
     ["qipTPL Settings","Mission Settings"],
-    [15, 90, 30, 0],
+    [10, 90, 15, 0],
     1
 ] call CBA_fnc_addSetting;
 

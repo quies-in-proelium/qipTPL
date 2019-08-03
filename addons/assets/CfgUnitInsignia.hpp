@@ -43,4 +43,9 @@ class CfgUnitInsignia {
 		author = "NemesisRE";
 		texture = QPATHTOF(Images\qip_PapaBaer.paa);
 	};
+	class QIP_EUROGENDFOR {
+		displayName = "Eurogendfor Patch";
+		author = "NemesisRE";
+		texture = QPATHTOF(Images\European_Gendarmerie_Force.paa);
+	};
 };

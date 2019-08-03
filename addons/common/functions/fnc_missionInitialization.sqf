@@ -29,6 +29,18 @@ if ( vehicle qipTPL_unit == qipTPL_unit ) then {
 };
 
 _uavIntro = [] call FUNC(uavIntro);
+waitUntil {scriptDone _uavIntro};
+switch (qipTPL_uavIntroVision) do {
+    case 1: {camUseNVG false};
+    case 2: {false setCamUseTI 0};
+    case 3: {false setCamUseTI 1};
+    case 4: {false setCamUseTI 2};
+    case 5: {false setCamUseTI 3};
+    case 6: {false setCamUseTI 4};
+    case 7: {false setCamUseTI 5};
+    case 8: {false setCamUseTI 6};
+    case 9: {false setCamUseTI 7};
+};
 
 while {(_cnt != 100)} do {
     _cnt = _cnt + 1;
@@ -43,29 +55,17 @@ while {(_cnt != 100)} do {
     ", _cnt,_TimerInput,_unitName];
 
     sleep _timer;
-    if (scriptDone _uavIntro) then {
-        switch (qipTPL_uavIntroVision) do {
-            case 1: {camUseNVG false};
-            case 2: {false setCamUseTI 0};
-            case 3: {false setCamUseTI 1};
-            case 4: {false setCamUseTI 2};
-            case 5: {false setCamUseTI 3};
-            case 6: {false setCamUseTI 4};
-            case 7: {false setCamUseTI 5};
-            case 8: {false setCamUseTI 6};
-            case 9: {false setCamUseTI 7};
-        };
-        hintSilent parseText _initMsg;
-        if (_cntStop == -1) then {
-            _cntStop = _cnt;
-            [
-                "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission build by " + _missionAuthor + "</t>",
-                0,
-                0,
-                5,
-                ((100 - _cntStop) * _timer)
-            ] spawn BIS_fnc_dynamicText;
-        };
+
+    hintSilent parseText _initMsg;
+    if (_cntStop == -1) then {
+        _cntStop = _cnt;
+        [
+            "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission build by " + _missionAuthor + "</t>",
+            0,
+            0,
+            5,
+            ((100 - _cntStop) * _timer)
+        ] spawn BIS_fnc_dynamicText;
     };
 };
 
@@ -82,6 +82,6 @@ _postInitMsg = format ["
 "];
 
 hint parseText _postInitMsg;
-sleep 5;
+sleep 10;
 
 hintSilent "";
