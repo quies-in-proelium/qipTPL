@@ -2,7 +2,7 @@
 
 // Draws an icon at current via uav lased position and draws a line between the uav and the icon
 
-private ['_connectedUav', '_intersects', '_laserPos', '_validLaserPos', '_targetIcon', '_targetIconColor'];
+private ["_connectedUav","_laserPos","_validLaserPos","_targetIcon","_targetIconColor"];
 
 _connectedUav = getConnectedUAV qipTPL_unit;
 _laserPos = getPosASL laserTarget _connectedUav;

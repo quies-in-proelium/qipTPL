@@ -17,6 +17,10 @@ class CfgMusicClasses
 	class Misc {
 		displayName = "Sonstiges";
 	};
+
+	class Contact {
+		displayName = "Contact";
+	};
 };
 
 class CfgMusic {
@@ -24,4 +28,5 @@ class CfgMusic {
 	#include "Music\Horror\CfgMusic_Horror.hpp"
 	#include "Music\Tears_of_the_Sun\CfgMusic_TotS.hpp"
 	#include "Music\Misc\CfgMusic_Misc.hpp"
+	#include "Music\Contact\CfgMusic_Contact.hpp"
 };

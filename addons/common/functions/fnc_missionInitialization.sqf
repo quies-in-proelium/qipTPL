@@ -7,7 +7,7 @@
 */
 #include "script_component.hpp"
 
-private ["_unit","_unitName","_cnt","_timerInput","_timer","_halfTime","_uavIntro","_initMsg","_postInitMsg", "_uavIntroPosition"];
+private ["_unitName","_cnt","_cntStop","_timerInput","_timer","_missionAuthor","_uavIntro","_initMsg","_postInitMsg"];
 _unitName = name qipTPL_unit;
 _cnt = 0;
 _timerInput = qipTPL_missionInitTime; // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.

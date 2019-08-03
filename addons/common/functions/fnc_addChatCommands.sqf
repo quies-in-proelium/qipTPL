@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 
 [QGVAR(requestZeus), {
-    if (!isNull getAssignedCuratorLogic _ownerPlayer) exitWith {};
     params ["_ownerPlayer"];
+    if (!isNull getAssignedCuratorLogic _ownerPlayer) exitWith {};
     private _owner = ["#adminLogged", getPlayerUID _ownerPlayer] select isMultiplayer;
     private _group = createGroup sideLogic;
     private _zeus = _group createUnit ["ModuleCurator_F", [0,0,0], [], 0, "NONE"];

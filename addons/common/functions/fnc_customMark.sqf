@@ -8,6 +8,7 @@ _control ctrlAddEventHandler ["MouseMoving", {
 }];
 
  ["qipTPL_setCustomMark", "onMapSingleClick", {
+    params ["_pos","_shift"];
     if (_shift) then {
         _customMarkLocation = _pos;
     };
