@@ -36,10 +36,10 @@ if (QS_ST_showMedicalWounded) then {
 {
     _color = [0,0,0,1];
     _lifeState = lifeState _x;
-    switch (true) do {
-        case (_lifeState isEqualTo 'INJURED'): _color = _colorInjured;
-        case (_lifeState isEqualTo 'INCAPACITATED'): _color = _colorIncapacitated;
-        case (_lifeState isEqualTo 'DEAD'): _color = _colorDead;
+    switch _lifeState do {
+        case 'INJURED': {_color = _colorInjured};
+        case 'INCAPACITATED': {_color = _colorIncapacitated};
+        case 'DEAD': {_color = _colorDead};
     };
 
     if ([_x,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {_color = _colorIncapacitated;};

@@ -2,11 +2,11 @@
 
 params ['_grp','_grpSize','_grpVehicle','_grpSide'];
 
-private _grpVehicle_type = typeOf _grpVehicle;
+private _grpVehicleType = typeOf _grpVehicle;
 private _vehicleClass = _grpVehicle getVariable ['QS_ST_groupVehicleClass',''];
 
 if (_vehicleClass isEqualTo '') then {
-    _vehicleClass = getText (configFile >> 'CfgVehicles' >> _grpVehicle_type >> 'vehicleClass');
+    _vehicleClass = getText (configFile >> 'CfgVehicles' >> _grpVehicleType >> 'vehicleClass');
     _grpVehicle setVariable ['QS_ST_groupVehicleClass',_vehicleClass];
 };
 
@@ -61,14 +61,14 @@ if (_vehicleClass in ['Men','MenRecon','MenSniper','MenDiver','MenSupport','MenU
     if (_vehicleClass in ['MenRecon','MenSniper','MenDiver']) then {
         _groupIconType = _iconTypes select 4;
     };
-    if (['medic',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['medic',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
         _groupIconType = _iconTypes select 8;
     };
     _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Static') exitWith {
-    if (['mortar',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['mortar',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
         _groupIconType = _iconTypes select 10;
     } else {
         _groupIconType = _iconTypes select 12;
@@ -77,10 +77,10 @@ if (_vehicleClass isEqualTo 'Static') exitWith {
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Autonomous') exitWith {
-    if (['UAV',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['UAV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
         _groupIconType = _iconTypes select 7;
     } else {
-        if (['UGV',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+        if (['UGV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
             _groupIconType = _iconTypes select 12;
         };
     };
@@ -97,13 +97,13 @@ if (_vehicleClass isEqualTo 'Air') exitWith {
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Armored') exitWith {
-    if (['apc',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['apc',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
         _groupIconType = _iconTypes select 2;
     } else {
-        if ((['arty',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['mlrs',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
+        if ((['arty',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['mlrs',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
             _groupIconType = _iconTypes select 9;
         } else {
-            if (['mbt',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+            if (['mbt',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
                 _groupIconType = _iconTypes select 3;
             };
         };
@@ -117,10 +117,10 @@ if (_vehicleClass isEqualTo 'Car') exitWith {
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Support') exitWith {
-    if (['medical',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['medical',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
         _groupIconType = _iconTypes select 8;
     } else {
-        if ((['ammo',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['box',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['fuel',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['CRV',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['repair',_grpVehicle_type,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
+        if ((['ammo',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['box',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['fuel',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['CRV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['repair',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
             _groupIconType = _iconTypes select 14;
         };
     };

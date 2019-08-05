@@ -1,11 +1,6 @@
 #include "script_component.hpp"
 
 private _map = _this select 0;
-private _shadow = QS_ST_iconShadowMap;
-private _textSize = QS_ST_iconTextSize_Map;
-private _textFont = QS_ST_iconTextFont;
-private _textOffset = QS_ST_iconTextOffset;
-private _delay = QS_ST_iconUpdatePulseDelay;
 private _player = player;
 private _mapScale = ctrlMapScale _map;
 private _vehicle = objNull;
@@ -24,7 +19,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
         if (!isNull _x) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
-                _position = [_vehicle,1,_delay] call FUNC(iconPosDir);
+                _position = [_vehicle,1,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
                 _iconSize = [_vehicle,1] call FUNC(iconSize);
                 if (_vehicle isEqualTo (vehicle _player)) then {
                     _map drawIcon [
@@ -37,8 +32,8 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                         '',
                         0,
                         0.03,
-                        _textFont,
-                        _textOffset
+                        QS_ST_iconTextFont,
+                        QS_ST_iconTextOffset
                     ];
                 };
                 _map drawIcon [
@@ -49,10 +44,10 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                     _iconSize,
                     (_position select 1),
                     ([_vehicle,1,_mapScale] call FUNC(iconText)),
-                    _shadow,
-                    _textSize,
-                    _textFont,
-                    _textOffset
+                    QS_ST_iconShadowMap,
+                    QS_ST_iconTextSize_Map,
+                    QS_ST_iconTextFont,
+                    QS_ST_iconTextOffset
                 ];
             };
         };
@@ -73,8 +68,8 @@ if (_player isEqualTo (leader (group _player))) then {
         };
     };
 };
-if (_delay > 0) then {
+if (QS_ST_iconUpdatePulseDelay > 0) then {
     if (diag_tickTime > (missionNamespace getVariable 'QS_ST_iconUpdatePulseTimer')) then {
-        missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',(diag_tickTime + _delay)];
+        missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',(diag_tickTime + QS_ST_iconUpdatePulseDelay)];
     };
 };
