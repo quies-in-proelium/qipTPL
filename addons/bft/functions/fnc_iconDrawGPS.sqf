@@ -5,17 +5,12 @@ if (
     {(visibleMap)} ||
     {(QS_ST_GPSrequireGPSItem && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
-_map = _this select 0;
+private _map = _this select 0;
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_gps')) then {
     missionNamespace setVariable ['QS_ST_updateDraw_gps',(diag_tickTime + 3),FALSE];
     missionNamespace setVariable ['QS_ST_drawArray_gps',([2] call FUNC(iconUnits)),FALSE];
 };
 if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
-    _shadow = QS_ST_iconShadowGPS;
-    _textSize = QS_ST_iconTextSize_GPS;
-    _textFont = QS_ST_iconTextFont;
-    _textOffset = QS_ST_iconTextOffset;
-    _delay = QS_ST_iconUpdatePulseDelay;
     private _vehicle = objNull;
     private _position = [[0,0,0],0];
     private _iconSize = 0;
@@ -23,7 +18,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
         if (!isNull _x) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
-                _position = [_vehicle,2,_delay] call FUNC(iconPosDir);
+                _position = [_vehicle,2,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
                 _iconSize = [_vehicle,2] call FUNC(iconSize);
                 _map drawIcon [
                     ([_vehicle,2] call FUNC(iconType)),
@@ -33,10 +28,10 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
                     _iconSize,
                     (_position select 1),
                     ([_vehicle,2] call FUNC(iconText)),
-                    _shadow,
-                    _textSize,
-                    _textFont,
-                    _textOffset
+                    QS_ST_iconShadowGPS,
+                    QS_ST_iconTextSize_GPS,
+                    QS_ST_iconTextFont,
+                    QS_ST_iconTextOffset
                 ];
             };
         };

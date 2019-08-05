@@ -9,6 +9,7 @@ private _showAINames = QS_ST_AINames;
 private _iconText = '';
 private _n = 0;
 private _vehicleType = missionNamespace getVariable [format ['QS_ST_iconVehicleDN#%1',(typeOf _vehicle)],''];
+private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && QS_ST_admin);
 
 if (_vehicleType isEqualTo '') then {
     _vehicleType = getText (configFile >> 'CfgVehicles' >> (typeOf _vehicle) >> 'displayName');
@@ -23,8 +24,6 @@ if (!isPlayer ((crew _vehicle) select 0)) then {
         _vn = '[AI]';
     };
 };
-
-_isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && QS_ST_admin);
 
 if (((_vehicle distance2D player) < QS_ST_showMOS_range) || {(_isAdmin)}) then {
     if ((_mapScale < 0.75) || {(_isAdmin)}) then {
@@ -72,7 +71,7 @@ if ((_vehicle isKindOf 'LandVehicle') || {(_vehicle isKindOf 'Air')} || {(_vehic
                 _iconText = '';
                 private _crewIndex = 0;
                 private _na = '';
-                _crewCount = (count (crew _vehicle)) - 1;
+                private _crewCount = (count (crew _vehicle)) - 1;
                 {
                     _na = name _x;
                     if (!(_showAINames)) then {
@@ -232,7 +231,7 @@ if ((_vehicle isKindOf 'LandVehicle') || {(_vehicle isKindOf 'Air')} || {(_vehic
     };
     if (unitIsUAV _vehicle) then {
         if (isUavConnected _vehicle) then {
-            _y = (UAVControl _vehicle) select 0;
+            private _y = (UAVControl _vehicle) select 0;
             if (_mapScale < 0.75) then {
                 if (_mapScale > 0.25) then {
                     if (_showMOS) then {

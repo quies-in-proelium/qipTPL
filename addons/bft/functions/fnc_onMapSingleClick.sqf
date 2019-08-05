@@ -9,10 +9,10 @@ if ((!(_alt)) && (!(_shift))) then {
             (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
         };
     };
-    comment "player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];";
+    // "player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];";
     player setVariable ['QS_ST_mapSingleClick',TRUE,FALSE];
     private _vehicle = objNull;
-    _vehicles = (nearestObjects [_position,['Air','LandVehicle','Ship'],250,TRUE]) select {(alive _x)};
+    private _vehicles = (nearestObjects [_position,['Air','LandVehicle','Ship'],250,TRUE]) select {(alive _x)};
     if ((count _vehicles) > 0) then {
         if ((count _vehicles) > 1) then {
             private _dist = 999999;
@@ -56,7 +56,7 @@ if ((!(_alt)) && (!(_shift))) then {
 if (_shift) then {
     if (player isEqualTo (leader (group player))) then {
         private _nearUnit = objNull;
-        _nearUnits = (nearestObjects [_position,['CAManBase'],250,TRUE]) select {((alive _x) && ((group _x) isEqualTo (group player)) && (isNull (objectParent _x)))};
+        private _nearUnits = (nearestObjects [_position,['CAManBase'],250,TRUE]) select {((alive _x) && ((group _x) isEqualTo (group player)) && (isNull (objectParent _x)))};
         if ((count _nearUnits) > 0) then {
             if ((count _nearUnits) > 1) then {
                 private _dist = 999999;

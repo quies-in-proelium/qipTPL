@@ -30,6 +30,7 @@ _as pushBack (_sides select _playerFaction);
 {
 	0 = _as pushBack (_sides select _x);
 } count _showFriendlySides;
+
 for '_x' from 0 to 1 step 0 do {
 	if (_dynamicDiplomacy) then {
 		if (diag_tickTime > _checkDiplomacy) then {

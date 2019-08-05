@@ -4,12 +4,11 @@ private _side = playerSide;
 private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 uiSleep 0.1;
 QS_ST_faction = _sides find _side;
-
-switch (true) do {
-    case (_side isEqualTo EAST): QS_ST_showFriendlySides = QS_ST_friendlySides_EAST;
-    case (_side isEqualTo WEST): QS_ST_showFriendlySides = QS_ST_friendlySides_WEST;
-    case (_side isEqualTo RESISTANCE): QS_ST_showFriendlySides = QS_ST_friendlySides_RESISTANCE;
-    case (_side isEqualTo CIVILIAN): QS_ST_showFriendlySides = QS_ST_friendlySides_CIVILIAN;
+switch _side do {
+    case "EAST": {QS_ST_showFriendlySides = QS_ST_friendlySides_EAST};
+    case "WEST": {QS_ST_showFriendlySides = QS_ST_friendlySides_WEST};
+    case "RESISTANCE": {QS_ST_showFriendlySides = QS_ST_friendlySides_RESISTANCE};
+    case "CIVILIAN": {QS_ST_showFriendlySides = QS_ST_friendlySides_CIVILIAN};
 };
 QS_ST_autonomousVehicles = [];
 if (!(QS_ST_iconShadowMap in [0,1,2])) then {
@@ -58,7 +57,7 @@ if (QS_ST_map_enableUnitIcons) then {
             [
                 'Map',
                 {
-                    params ['_mapIsOpened','_mapIsForced'];
+                    params ['_mapIsOpened'];
                     if (!(_mapIsOpened)) then {
                         if (alive (player getVariable ['QS_ST_map_vehicleShowCrew',objNull])) then {
                             player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];

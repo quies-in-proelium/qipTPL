@@ -30,7 +30,7 @@ if (_type isEqualTo 1) then {
     private _update = FALSE;
     private _updateIcon = FALSE;
     private _updateParams = FALSE;
-    _iconDetail = _grp getVariable 'QS_ST_Group_Icon';
+    private _iconDetail = _grp getVariable 'QS_ST_Group_Icon';
     _iconDetail params ['_iconID','_grpIconType','_grpLeaderType','','_text','_scale','_visibility'];
     if (!(_grpLeaderType isEqualTo (typeOf _grpLeader_vehicle))) then {
         _update = TRUE;
@@ -54,8 +54,6 @@ if (_type isEqualTo 1) then {
     };
 };
 if (_type isEqualTo 2) then {
-    _grpIconArray = _grp getVariable 'QS_ST_Group_Icon';
-    _grpID = _grpIconArray select 0;
     clearGroupIcons _grp;
     _grp setVariable ['QS_ST_Group_Icon',nil,FALSE];
     _grp setVariable ['QS_ST_Group',nil,FALSE];
