@@ -10,7 +10,7 @@ for '_x' from 0 to 1 step 0 do {
 	if (!(_QS_display1Opened)) then {
 		if (!isNull ((findDisplay 160) displayCtrl 51)) then {
 			_QS_display1Opened = TRUE;
-			((findDisplay 160) displayCtrl 51) ctrlAddEventHandler ['Draw',(format ['_this call %1',FUNC(iconDrawMap)])];
+			((findDisplay 160) displayCtrl 51) ctrlAddEventHandler ["Draw",{_this call FUNC(iconDrawMap)}];
 		};
 	} else {
 		if (isNull ((findDisplay 160) displayCtrl 51)) then {
@@ -20,7 +20,7 @@ for '_x' from 0 to 1 step 0 do {
 	if (!(_QS_display2Opened)) then {
 		if (!isNull ((findDisplay -1) displayCtrl 500)) then {
 			_QS_display2Opened = TRUE;
-			((findDisplay -1) displayCtrl 500) ctrlAddEventHandler ['Draw',(format ['_this call %1',FUNC(iconDrawMap)])];
+			((findDisplay -1) displayCtrl 500) ctrlAddEventHandler ["Draw",{_this call FUNC(iconDrawMap)}];
 		};
 	} else {
 		if (isNull ((findDisplay -1) displayCtrl 500)) then {
@@ -31,8 +31,8 @@ for '_x' from 0 to 1 step 0 do {
 		if (!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40)) || {!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41))}) then {
 			_QS_display3Opened = TRUE;
 			// DAYMAP 40; Nightmap 41
-			((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40) ctrlAddEventHandler ['Draw',(format ['_this call %1',(iconDrawMap)])];
-			((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41) ctrlAddEventHandler ['Draw',(format ['_this call %1',(iconDrawMap)])];
+			((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40) ctrlAddEventHandler ["Draw",{_this call FUNC(iconDrawMap)}];
+			((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41) ctrlAddEventHandler ["Draw",{_this call FUNC(iconDrawMap)}];
 		};
 	} else {
 		if (isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40)) || {isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41))}) then {

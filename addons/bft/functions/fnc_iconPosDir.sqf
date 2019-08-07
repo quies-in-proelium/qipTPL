@@ -1,11 +1,11 @@
 #include "script_component.hpp"
 
-params ['_vehicle','_ds','_dl'];
+params ['_vehicle','_ds','_delay'];
 
 private _iconPosDir = [[0,0,0],0];
 
 if (_ds isEqualTo 1) then {
-    if (_dl > 0) then {
+    if (_delay > 0) then {
         if (diag_tickTime > (missionNamespace getVariable 'QS_ST_iconUpdatePulseTimer')) then {
             _iconPosDir = [getPosASLVisual _vehicle,getDirVisual _vehicle];
             _vehicle setVariable ['QS_ST_lastPulsePos',_iconPosDir,FALSE];

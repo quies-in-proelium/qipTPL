@@ -20,7 +20,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
                 _position = [_vehicle,1,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
-                _iconSize = [_vehicle,1] call FUNC(iconSize);
+                _iconSize = _vehicle call FUNC(iconSize);
                 if (_vehicle isEqualTo (vehicle _player)) then {
                     _map drawIcon [
                         'a3\ui_f\data\igui\cfg\islandmap\iconplayer_ca.paa',
@@ -37,7 +37,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                     ];
                 };
                 _map drawIcon [
-                    ([_vehicle,1] call FUNC(iconType)),
+                    (_vehicle call FUNC(iconType)),
                     ([_vehicle,1,_mapScale] call FUNC(iconColor)),
                     (_position select 0),
                     _iconSize,
@@ -51,13 +51,13 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                 ];
             };
         };
-    } count (missionNamespace getVariable ['QS_ST_drawArray_map',[]]);
+    } forEach (missionNamespace getVariable ['QS_ST_drawArray_map',[]]);
 };
 if (_player isEqualTo (leader (group _player))) then {
     if (!((groupSelectedUnits _player) isEqualTo [])) then {
         {
             _map drawLine [(getPosASLVisual _player),(getPosASLVisual (vehicle _x)),[0,1,1,0.5]];
-        } count (groupSelectedUnits _player);
+        } forEach (groupSelectedUnits _player);
     };
 } else {
     if (isNull (objectParent _player)) then {

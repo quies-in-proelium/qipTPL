@@ -87,7 +87,7 @@ if ((_vehicle isKindOf 'LandVehicle') || {(_vehicle isKindOf 'Air')} || {(_vehic
                         };
                     };
                     _crewIndex = _crewIndex + 1;
-                } count (crew _vehicle);
+                } forEach (crew _vehicle);
             } else {
                 if (!isNull driver _vehicle) then {
                     if (_mapScale < 0.75) then {

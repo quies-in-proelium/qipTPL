@@ -2,4 +2,4 @@
 
 if (isDedicated || !hasInterface) exitWith {};
 
-[] call FUNC(initSoldierTracker);
+[] spawn FUNC(initSoldierTracker);

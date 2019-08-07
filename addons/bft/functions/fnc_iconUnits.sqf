@@ -30,11 +30,11 @@ if (((_di isEqualTo 1) && QS_ST_showCivilianIcons) && {(!(QS_ST_showOnlyVehicles
             if (!(_x in _au)) then {
                 if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
                     if ((crew _x) isEqualTo []) then {
-                        0 = _au pushBack _x;
+                        _au pushBack _x;
                     };
                 };
             };
-        } count vehicles;
+        } forEach vehicles;
     };
     _au;
 };
@@ -50,21 +50,21 @@ if (QS_ST_showFactionOnly) then {
     if (isMultiplayer) then {
         if (_isAdmin) then {
             {
-                0 = _as pushBack _x;
-            } count _side;
+                _as pushBack _x;
+            } forEach _side;
         } else {
             if (QS_ST_friendlySides_Dynamic) then {
                 _as pushBack (_side select QS_ST_faction);
                 {
                     if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
-                        0 = _as pushBack _x;
+                        _as pushBack _x;
                     };
-                } count _side;
+                } forEach _side;
             } else {
                 _as pushBack (_side select QS_ST_faction);
                 {
-                    0 = _as pushBack (_side select _x);
-                } count QS_ST_showFriendlySides;
+                    _as pushBack (_side select _x);
+                } forEach QS_ST_showFriendlySides;
             };
         };
     } else {
@@ -72,14 +72,14 @@ if (QS_ST_showFactionOnly) then {
             _as pushBack (_side select QS_ST_faction);
             {
                 if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
-                    0 = _as pushBack _x;
+                    _as pushBack _x;
                 };
-            } count _side;
+            } forEach _side;
         } else {
             _as pushBack (_side select QS_ST_faction);
             {
-                0 = _as pushBack (_side select _x);
-            } count QS_ST_showFriendlySides;
+                _as pushBack (_side select _x);
+            } forEach QS_ST_showFriendlySides;
         };
     };
 };
@@ -88,9 +88,9 @@ if (!(QS_ST_showAI)) then {
         if (_isAdmin) then {
             {
                 if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                    0 = _au pushBack _x;
+                    _au pushBack _x;
                 };
-            } count allUnits;
+            } forEach allUnits;
         } else {
             {
                 if (((side _x) in _as) || {(captive _x)}) then {
@@ -98,17 +98,17 @@ if (!(QS_ST_showAI)) then {
                         if (_di isEqualTo 2) then {
                             if ((_x distance2D player) < QS_ST_GPSDist) then {
                                 if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                                    0 = _au pushBack _x;
+                                    _au pushBack _x;
                                 };
                             };
                         } else {
                             if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                                0 = _au pushBack _x;
+                                _au pushBack _x;
                             };
                         };
                     };
                 };
-            } count (allPlayers + allUnitsUav);
+            } forEach (allPlayers + allUnitsUav);
         };
     } else {
         {
@@ -117,17 +117,17 @@ if (!(QS_ST_showAI)) then {
                     if (_di isEqualTo 2) then {
                         if ((_x distance2D player) < QS_ST_GPSDist) then {
                             if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                                0 = _au pushBack _x;
+                                _au pushBack _x;
                             };
                         };
                     } else {
                         if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                            0 = _au pushBack _x;
+                            _au pushBack _x;
                         };
                     };
                 };
             };
-        } count (allPlayers + allUnitsUav);
+        } forEach (allPlayers + allUnitsUav);
     };
 } else {
     {
@@ -135,39 +135,39 @@ if (!(QS_ST_showAI)) then {
             if (_di isEqualTo 2) then {
                 if ((_x distance2D player) < QS_ST_GPSDist) then {
                     if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                        0 = _au pushBack _x;
+                        _au pushBack _x;
                     };
                 };
             } else {
                 if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
-                    0 = _au pushBack _x;
+                    _au pushBack _x;
                 };
             };
         };
-    } count allUnits;
+    } forEach allUnits;
 };
 if ((_di isEqualTo 1) && QS_ST_showOnlyVehicles) exitWith {
-    _auv = [];
+    private _auv = [];
     {
         if (!((vehicle _x) isKindOf 'Man')) then {
-            0 = _auv pushBack _x;
+            _auv pushBack _x;
         };
-    } count _au;
+    } forEach _au;
     if (QS_ST_showEmptyVehicles) then {
         {
             if (!(_x in _auv)) then {
                 if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
                     if ((crew _x) isEqualTo []) then {
-                        0 = _auv pushBack _x;
+                        _auv pushBack _x;
                     };
                 };
             };
-        } count vehicles;
+        } forEach vehicles;
     };
     if (QS_ST_showGroupOnly) then {
         {
-            0 = _auv pushBack _x;
-        } count (units (group player));
+            _auv pushBack _x;
+        } forEach (units (group player));
     };
     _auv;
 };
@@ -176,11 +176,11 @@ if ((_di isEqualTo 1) && QS_ST_showEmptyVehicles) exitWith {
         if (!(_x in _au)) then {
             if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
                 if ((crew _x) isEqualTo []) then {
-                    0 = _au pushBack _x;
+                    _au pushBack _x;
                 };
             };
         };
-    } count vehicles;
+    } foreach vehicles;
     _au;
 };
 
