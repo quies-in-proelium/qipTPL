@@ -3,7 +3,7 @@
 params ['_unit'];
 
 private _vehicleType = typeOf (vehicle _unit);
-private _iconType = missionNamespace getVariable [format ['QS_ST_iconType#%1',_vehicleType],''];
+private _iconType = missionNamespace getVariable [QGVAR(iconType#) + _vehicleType,''];
 switch ((_iconType isEqualTo '') && ((vehicle _unit) isKindOf 'CAManBase')) do {
     case (_unit getUnitTrait 'medic'): {
         _vehicleType = 'B_medic_F';
@@ -17,6 +17,6 @@ switch ((_iconType isEqualTo '') && ((vehicle _unit) isKindOf 'CAManBase')) do {
 };
 
 _iconType = getText (configFile >> 'CfgVehicles' >> _vehicleType >> 'icon');
-missionNamespace setVariable [format ['QS_ST_iconType#%1',_vehicleType],_iconType];
+missionNamespace setVariable [QGVAR(iconType#) + _vehicleType,_iconType];
 
 _iconType;

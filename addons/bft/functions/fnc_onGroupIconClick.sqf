@@ -3,7 +3,7 @@
 params ['_is3D','_group','_wpID','_button','_posx','_posy','_shift','_ctrl','_alt'];
 
 if (!((side _group) isEqualTo playerSide)) exitWith {
-    hintSilent QS_ST_STR_text2;
+    hintSilent 'This group is not in your faction!';
     0 spawn {
         uiSleep 3;
         hintSilent '';

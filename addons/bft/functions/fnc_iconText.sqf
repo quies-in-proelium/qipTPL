@@ -8,12 +8,12 @@ private _showMOS = GVAR(showMOS);
 private _showAINames = GVAR(AINames);
 private _iconText = '';
 private _n = 0;
-private _vehicleType = missionNamespace getVariable [format ['QS_ST_iconVehicleDN#%1',(typeOf _vehicle)],''];
+private _vehicleType = missionNamespace getVariable [QGVAR(iconVehicleDN#) + typeOf _vehicle,''];
 private _isAdmin = (((call BIS_fnc_admin) isEqualTo 2) && GVAR(adminMode));
 
 if (_vehicleType isEqualTo '') then {
     _vehicleType = getText (configFile >> 'CfgVehicles' >> (typeOf _vehicle) >> 'displayName');
-    missionNamespace setVariable [format ['QS_ST_iconVehicleDN#%1',(typeOf _vehicle)],_vehicleType];
+    missionNamespace setVariable [QGVAR(iconVehicleDN#) + typeOf _vehicle,_vehicleType];
 };
 if (!(_showMOS)) then {
     _vehicleType = '';
