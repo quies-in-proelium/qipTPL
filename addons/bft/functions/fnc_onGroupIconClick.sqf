@@ -64,7 +64,7 @@ if (QS_ST_showMedicalWounded) then {
             _unitNameList = _unitNameList + format ["<t align='left'><t color='%2'>%1</t></t>",_unitName,_color] + '<br/>';
         };
     };
-} count (units _group);
+} forEach (units _group);
 
 hintSilent parseText format [
     "

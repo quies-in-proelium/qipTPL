@@ -1,111 +1,111 @@
 //================= GENERAL
 [
-    "QS_ST_map_enableUnitIcons", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Enable MAP unit/vehicle Icons", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","General"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_map_enableUnitIcons",
+    "CHECKBOX",
+    "Enable MAP unit/vehicle Icons",
+    ["qipTPL BFT Main","General"],
+    true,
+    1
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_gps_enableUnitIcons", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Enable GPS unit/vehicle Icons", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","General"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_gps_enableUnitIcons",
+    "CHECKBOX",
+    "Enable GPS unit/vehicle Icons",
+    ["qipTPL BFT Main","General"],
+    true,
+    1
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_enableGroupIcons", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Enable Map+GPS+HUD GROUP Icons", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","General"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_enableGroupIcons",
+    "CHECKBOX",
+    "Enable Map+GPS+HUD GROUP Icons",
+    ["qipTPL BFT Main","General"],
+    true,
+    1
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_admin", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Enable showing all units (even enemies) if logged in as admin on a server", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","General"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    false, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_admin",
+    "CHECKBOX",
+    "Enable showing all units (even enemies) if logged in as admin on a server",
+    ["qipTPL BFT Main","General"],
+    false,
+    1
 ] call CBA_fnc_addSetting;
 
 //================= MEDICAL
 [
-    "QS_ST_showMedicalWounded", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Show wounded on the map and GPS", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Medical"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_showMedicalWounded",
+    "CHECKBOX",
+    "Show wounded on the map and GPS",
+    ["qipTPL BFT Main","Medical"],
+    true,
+    1
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_MedicalSystem", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "LIST", // setting type
-    "Medical System that is used", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Medical"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [["BIS","BTC","AIS","ACE","FAR","AWS"],["BIS","BTC","AIS","ACE","FAR","AWS"],0], // data for this setting: [min, max, default, number of shown trailing decimals]
-    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_MedicalSystem",
+    "LIST",
+    "Medical System that is used",
+    ["qipTPL BFT Main","Medical"],
+    [["BIS","BTC","AIS","ACE","FAR","AWS"],["BIS","BTC","AIS","ACE","FAR","AWS"],0],
+    1,
     nil,
     true
 ] call CBA_fnc_addSetting;
 
 //================= DIPLOMACY
 [
-    "QS_ST_friendlySides_Dynamic", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Allow faction alliances to change dynamically", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Diplomacy"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_friendlySides_Dynamic",
+    "CHECKBOX",
+    "Allow faction alliances to change dynamically",
+    ["qipTPL BFT Main","Diplomacy"],
+    true,
+    1
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_friendlySides_EAST", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "LIST", // setting type
-    "East is Friendly to:", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Diplomacy"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [[[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]],["West","Independent","Civilians","West & Independent","West & Civilians","Independent & Civilians","All three"],2], // data for this setting: [min, max, default, number of shown trailing decimals]
-    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_friendlySides_EAST",
+    "LIST",
+    "East is Friendly to:",
+    ["qipTPL BFT Main","Diplomacy"],
+    [[[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]],["West","Independent","Civilians","West & Independent","West & Civilians","Independent & Civilians","All three"],2],
+    1,
     nil,
     true
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_friendlySides_WEST", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "LIST", // setting type
-    "West is Friendly to:", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Diplomacy"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [[[0],[2],[3],[0,2],[0,3],[2,3],[0,2,3]],["East","Independent","Civilians","East & Independent","East & Civilians","Independent & Civilians","All three"],1], // data for this setting: [min, max, default, number of shown trailing decimals]
-    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_friendlySides_WEST",
+    "LIST",
+    "West is Friendly to:",
+    ["qipTPL BFT Main","Diplomacy"],
+    [[[0],[2],[3],[0,2],[0,3],[2,3],[0,2,3]],["East","Independent","Civilians","East & Independent","East & Civilians","Independent & Civilians","All three"],1],
+    1,
     nil,
     true
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_friendlySides_RESISTANCE", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "LIST", // setting type
-    "Independent is Friendly to:", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Diplomacy"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [[[0],[1],[3],[0,1],[0,3],[1,3],[0,1,3]],["East","West","Civilians","East & West","East & Civilians","West & Civilians","All three"],5], // data for this setting: [min, max, default, number of shown trailing decimals]
-    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_friendlySides_RESISTANCE",
+    "LIST",
+    "Independent is Friendly to:",
+    ["qipTPL BFT Main","Diplomacy"],
+    [[[0],[1],[3],[0,1],[0,3],[1,3],[0,1,3]],["East","West","Civilians","East & West","East & Civilians","West & Civilians","All three"],5],
+    1,
     nil,
     true
 ] call CBA_fnc_addSetting;
 
 [
-    "QS_ST_friendlySides_CIVILIAN", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "LIST", // setting type
-    "Civilians is Friendly to:", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    ["qipTPL BFT Main","Diplomacy"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [[[0],[1],[2],[0,1],[0,2],[1,2],[0,1,2]],["East","West","Independent","East & West","East & Independent","West & Independent","All three"],4], // data for this setting: [min, max, default, number of shown trailing decimals]
-    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "QS_ST_friendlySides_CIVILIAN",
+    "LIST",
+    "Civilians is Friendly to:",
+    ["qipTPL BFT Main","Diplomacy"],
+    [[[0],[1],[2],[0,1],[0,2],[1,2],[0,1,2]],["East","West","Independent","East & West","East & Independent","West & Independent","All three"],4],
+    1,
     nil,
     true
 ] call CBA_fnc_addSetting;

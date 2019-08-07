@@ -1,11 +1,13 @@
 #include "script_component.hpp"
 
+params["_map"];
+
 if (
     (!('MinimapDisplay' in ((infoPanel 'left') + (infoPanel 'right')))) ||
     {(visibleMap)} ||
     {(QS_ST_GPSrequireGPSItem && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
-private _map = _this select 0;
+
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_gps')) then {
     missionNamespace setVariable ['QS_ST_updateDraw_gps',(diag_tickTime + 3),FALSE];
     missionNamespace setVariable ['QS_ST_drawArray_gps',([2] call FUNC(iconUnits)),FALSE];
@@ -19,9 +21,9 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
                 _position = [_vehicle,2,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
-                _iconSize = [_vehicle,2] call FUNC(iconSize);
+                _iconSize = _vehicle call FUNC(iconSize);
                 _map drawIcon [
-                    ([_vehicle,2] call FUNC(iconType)),
+                    (_vehicle call FUNC(iconType)),
                     ([_vehicle,2] call FUNC(iconColor)),
                     (_position select 0),
                     _iconSize,
@@ -35,13 +37,13 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
                 ];
             };
         };
-    } count (missionNamespace getVariable ['QS_ST_drawArray_gps',[]]);
+    } forEach (missionNamespace getVariable ['QS_ST_drawArray_gps',[]]);
 };
 if (player isEqualTo (leader (group player))) then {
     if (!((groupSelectedUnits player) isEqualTo [])) then {
         {
             _map drawLine [(getPosASLVisual player),(getPosASLVisual (vehicle _x)),[0,1,1,0.5]];
-        } count (groupSelectedUnits player);
+        } forEach (groupSelectedUnits player);
     };
 } else {
     if (isNull (objectParent player)) then {

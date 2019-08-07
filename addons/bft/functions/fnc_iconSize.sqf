@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ['_vehicle',''];
+params ['_vehicle'];
 
 private _iconSize = missionNamespace getVariable [(format ['QS_ST_iconSize#%1',(typeOf _vehicle)]),0];
 

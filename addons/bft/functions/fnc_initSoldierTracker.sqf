@@ -4,11 +4,12 @@ private _side = playerSide;
 private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 uiSleep 0.1;
 QS_ST_faction = _sides find _side;
-switch _side do {
-    case "EAST": {QS_ST_showFriendlySides = QS_ST_friendlySides_EAST};
-    case "WEST": {QS_ST_showFriendlySides = QS_ST_friendlySides_WEST};
-    case "RESISTANCE": {QS_ST_showFriendlySides = QS_ST_friendlySides_RESISTANCE};
-    case "CIVILIAN": {QS_ST_showFriendlySides = QS_ST_friendlySides_CIVILIAN};
+switch QS_ST_faction do {
+    case east: {QS_ST_showFriendlySides = QS_ST_friendlySides_EAST};
+    case west: {QS_ST_showFriendlySides = QS_ST_friendlySides_WEST};
+    case resistance: {QS_ST_showFriendlySides = QS_ST_friendlySides_RESISTANCE};
+    case civilian: {QS_ST_showFriendlySides = QS_ST_friendlySides_CIVILIAN};
+    default {QS_ST_showFriendlySides = []};
 };
 QS_ST_autonomousVehicles = [];
 if (!(QS_ST_iconShadowMap in [0,1,2])) then {
@@ -40,7 +41,7 @@ QS_ST_htmlColorInjured = [QS_ST_colorInjured select 0,QS_ST_colorInjured select 
 ];
 waitUntil {
     uiSleep 0.1;
-    !(isNull (findDisplay 12))
+    !(isNull (findDisplay 12));
 };
 if (QS_ST_map_enableUnitIcons) then {
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ['Draw',(format ['_this call %1',FUNC(iconDrawMap)])];
