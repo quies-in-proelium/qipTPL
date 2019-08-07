@@ -5,7 +5,7 @@ params["_map"];
 if (
     (!('MinimapDisplay' in ((infoPanel 'left') + (infoPanel 'right')))) ||
     {(visibleMap)} ||
-    {(QS_ST_GPSrequireGPSItem && (!(call FUNC(hasGPSDevice))))}
+    {(GVAR(requireGPSItemGPS) && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
 
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_gps')) then {
@@ -20,7 +20,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
         if (!isNull _x) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
-                _position = [_vehicle,2,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
+                _position = [_vehicle,2,GVAR(iconUpdatePulseDelay)] call FUNC(iconPosDir);
                 _iconSize = _vehicle call FUNC(iconSize);
                 _map drawIcon [
                     (_vehicle call FUNC(iconType)),
@@ -30,10 +30,10 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
                     _iconSize,
                     (_position select 1),
                     ([_vehicle,2] call FUNC(iconText)),
-                    QS_ST_iconShadowGPS,
-                    QS_ST_iconTextSize_GPS,
-                    QS_ST_iconTextFont,
-                    QS_ST_iconTextOffset
+                    GVAR(iconShadowGPS),
+                    GVAR(iconTextSizeGPS),
+                    GVAR(iconTextFont),
+                    GVAR(iconTextOffset)
                 ];
             };
         };
@@ -48,7 +48,7 @@ if (player isEqualTo (leader (group player))) then {
 } else {
     if (isNull (objectParent player)) then {
         if (isNull (objectParent (leader (group player)))) then {
-            if (((leader (group player)) distance2D player) < QS_ST_GPSDist) then {
+            if (((leader (group player)) distance2D player) < GVAR(GPSDist)) then {
                 _map drawLine [(getPosASLVisual player),(getPosASLVisual (leader (group player))),[0,1,1,0.5]];
             };
         };

@@ -7,7 +7,7 @@ private _vehicle = objNull;
 private _position = [[0,0,0],0];
 private _iconSize = 0;
 
-if (QS_ST_MAPrequireGPSItem && (!(call FUNC(hasGPSDevice)))) exitWith {};
+if (GVAR(requireGPSItemMap) && (!(call FUNC(hasGPSDevice)))) exitWith {};
 
 if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_map')) then {
     missionNamespace setVariable ['QS_ST_updateDraw_map',(diag_tickTime + 3),FALSE];
@@ -19,7 +19,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
         if (!isNull _x) then {
             _vehicle = vehicle _x;
             if (alive _vehicle) then {
-                _position = [_vehicle,1,QS_ST_iconUpdatePulseDelay] call FUNC(iconPosDir);
+                _position = [_vehicle,1,GVAR(iconUpdatePulseDelay)] call FUNC(iconPosDir);
                 _iconSize = _vehicle call FUNC(iconSize);
                 if (_vehicle isEqualTo (vehicle _player)) then {
                     _map drawIcon [
@@ -32,8 +32,8 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                         '',
                         0,
                         0.03,
-                        QS_ST_iconTextFont,
-                        QS_ST_iconTextOffset
+                        GVAR(iconTextFont),
+                        GVAR(iconTextOffset)
                     ];
                 };
                 _map drawIcon [
@@ -44,10 +44,10 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                     _iconSize,
                     (_position select 1),
                     ([_vehicle,1,_mapScale] call FUNC(iconText)),
-                    QS_ST_iconShadowMap,
-                    QS_ST_iconTextSize_Map,
-                    QS_ST_iconTextFont,
-                    QS_ST_iconTextOffset
+                    GVAR(iconShadowMap),
+                    GVAR(iconTextSizeMap),
+                    GVAR(iconTextFont),
+                    GVAR(iconTextOffset)
                 ];
             };
         };
@@ -62,14 +62,14 @@ if (_player isEqualTo (leader (group _player))) then {
 } else {
     if (isNull (objectParent _player)) then {
         if (isNull (objectParent (leader (group _player)))) then {
-            if (((leader (group _player)) distance2D _player) < QS_ST_GPSDist) then {
+            if (((leader (group _player)) distance2D _player) < GVAR(GPSDist)) then {
                 _map drawLine [(getPosASLVisual _player),(getPosASLVisual (leader (group _player))),[0,1,1,0.5]];
             };
         };
     };
 };
-if (QS_ST_iconUpdatePulseDelay > 0) then {
+if (GVAR(iconUpdatePulseDelay) > 0) then {
     if (diag_tickTime > (missionNamespace getVariable 'QS_ST_iconUpdatePulseTimer')) then {
-        missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',(diag_tickTime + QS_ST_iconUpdatePulseDelay)];
+        missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',(diag_tickTime + GVAR(iconUpdatePulseDelay))];
     };
 };

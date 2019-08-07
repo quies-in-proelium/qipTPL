@@ -21,10 +21,9 @@ private _text = [_group,1] call FUNC(groupIconText);
 private _groupCount = count (units _group);
 private _unitNameList = '';
 private _leader = TRUE;
-private _showClass = QS_ST_groupInteractiveIcons_showClass;
-private _AINames = QS_ST_showAINames;
+private _showClass = GVAR(groupInteractiveClassIcons);
 
-if (QS_ST_showMedicalWounded) then {
+if (GVAR(showMedicalWounded)) then {
     _colorIncapacitated = QS_ST_htmlColorMedical;
     _colorInjured = QS_ST_htmlColorInjured;
     _colorDead = [0.4,0,0.5,0.65];
@@ -42,11 +41,11 @@ if (QS_ST_showMedicalWounded) then {
         case 'DEAD': {_color = _colorDead};
     };
 
-    if ([_x,(QS_ST_MedicalSystem select 0)] call FUNC(isIncapacitated)) then {_color = _colorIncapacitated;};
+    if ([_x,GVAR(medicalSystem)] call FUNC(isIncapacitated)) then {_color = _colorIncapacitated;};
     _unitMOS = getText (configFile >> 'CfgVehicles' >> (typeOf _x) >> 'displayName');
     _unitName = name _x;
     if (!isPlayer _x) then {
-        if (!(_AINames)) then {
+        if (!(GVAR(showAINames))) then {
             _unitName = '[AI]';
         };
     };

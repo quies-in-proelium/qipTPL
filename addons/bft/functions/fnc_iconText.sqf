@@ -2,14 +2,14 @@
 
 params ['_vehicle','_ds',['_mapScale',1]];
 
-if ((_ds isEqualTo 2) || {(!(QS_ST_iconMapText))}) exitWith {};
+if ((_ds isEqualTo 2) || {(!(GVAR(iconMapText)))}) exitWith {};
 
-private _showMOS = QS_ST_showMOS;
-private _showAINames = QS_ST_AINames;
+private _showMOS = GVAR(showMOS);
+private _showAINames = GVAR(AINames);
 private _iconText = '';
 private _n = 0;
 private _vehicleType = missionNamespace getVariable [format ['QS_ST_iconVehicleDN#%1',(typeOf _vehicle)],''];
-private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && QS_ST_admin);
+private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && GVAR(adminMode));
 
 if (_vehicleType isEqualTo '') then {
     _vehicleType = getText (configFile >> 'CfgVehicles' >> (typeOf _vehicle) >> 'displayName');
@@ -25,7 +25,7 @@ if (!isPlayer ((crew _vehicle) select 0)) then {
     };
 };
 
-if (((_vehicle distance2D player) < QS_ST_showMOS_range) || {(_isAdmin)}) then {
+if (((_vehicle distance2D player) < GVAR(showMOSRange)) || {(_isAdmin)}) then {
     if ((_mapScale < 0.75) || {(_isAdmin)}) then {
         if ((_mapScale > 0.25) || {(_isAdmin)}) then {
             if (_showMOS) then {

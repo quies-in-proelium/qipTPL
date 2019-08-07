@@ -4,7 +4,7 @@ private _grp = grpNull;
 private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 private _grpLeader = objNull;
 private _refreshGroups = FALSE;
-if (!(QS_ST_showCivilianGroups)) then {
+if (!(GVAR(showCivilianGroups))) then {
 	_sides deleteAt 3;
 };
 private _groupUpdateDelay_timer = 5;
@@ -13,14 +13,14 @@ private _checkDiplomacy_delay = 10;
 private _checkDiplomacy = diag_tickTime + _checkDiplomacy_delay;
 private _as = [];
 _as pushBack (_sides select QS_ST_faction);
-if (!isNil "QS_ST_showFriendlySides") then {
+if (!isNil QGVAR(showFriendlySides)) then {
 	{
 		_as pushBack (_sides select _x);
-	} forEach QS_ST_showFriendlySides;
+	} forEach GVAR(showFriendlySides);
 };
 
 for '_x' from 0 to 1 step 0 do {
-	if (QS_ST_friendlySides_Dynamic) then {
+	if (GVAR(friendlySidesDynamic)) then {
 		if (diag_tickTime > _checkDiplomacy) then {
 			_as = [];
 			{
@@ -34,11 +34,11 @@ for '_x' from 0 to 1 step 0 do {
 	if (diag_tickTime > _groupUpdateDelay) then {
 		{
 			_grp = _x;
-			if ((QS_ST_showOwnGroup) || {((!(QS_ST_showOwnGroup)) && (!(_grp isEqualTo (group player))))} || {(!(QS_ST_map_enableUnitIcons))}) then {
+			if ((GVAR(showOwnGroup)) || {((!(GVAR(showOwnGroup))) && (!(_grp isEqualTo (group player))))} || (!(GVAR(enableUnitIconsMap)))) then {
 				if (({(alive _x)} count (units _grp)) > 0) then {
 					if ((side _grp) in _as) then {
 						_grpLeader = leader _grp;
-						if (QS_ST_showAIGroups) then {
+						if (GVAR(showAIGroups)) then {
 							if (isNil {_grp getVariable 'QS_ST_Group'}) then {
 								if (!isNull _grp) then {
 									if (!isNull _grpLeader) then {
@@ -87,7 +87,7 @@ for '_x' from 0 to 1 step 0 do {
 		};
 		_groupUpdateDelay = diag_tickTime + _groupUpdateDelay_timer;
 	};
-	if (QS_ST_GRPrequireGPSItem) then {
+	if (GVAR(requireGPSItemGroup)) then {
 		if (!(call FUNC(hasGPSDevice))) then {
 			setGroupIconsVisible [FALSE,FALSE];
 			waitUntil {
@@ -110,14 +110,14 @@ for '_x' from 0 to 1 step 0 do {
 				setGroupIconsVisible [FALSE,(groupIconsVisible select 1)];
 			};
 		} else {
-			if (QS_ST_showGroupMapIcons) then {
+			if (GVAR(showGroupMapIcons)) then {
 				if (!(groupIconsVisible select 0)) then {
 					setGroupIconsVisible [TRUE,(groupIconsVisible select 1)];
 				};
 			};
 		};
 	} else {
-		if (QS_ST_showGroupMapIcons) then {
+		if (GVAR(showGroupMapIcons)) then {
 			if (groupIconsVisible select 0) then {
 				setGroupIconsVisible [FALSE,(groupIconsVisible select 1)];
 			};

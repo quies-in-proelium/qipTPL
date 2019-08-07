@@ -17,11 +17,11 @@ private _grpSide = side _grpLeader;
 if (_type isEqualTo 0) then {
     _grpIconType = [_grp,_grpSize,_grpLeader_vehicle,_grpSide] call FUNC(groupIconType);
     _grp setVariable ['QS_ST_Group',1,FALSE];
-    _iconID = _grp addGroupIcon [_grpIconType,QS_ST_groupIconOffset];
+    _iconID = _grp addGroupIcon [_grpIconType,GVAR(groupIconOffset)];
     _grp setGroupIcon [_iconID,_grpIconType];
     _grpIconColor = [_grpLeader] call FUNC(iconColorGroup);
     _text = [_grp,1] call FUNC(groupIconText);
-    _scale = QS_ST_groupIconScale;
+    _scale = GVAR(groupIconScale);
     _visibility = TRUE;
     _grp setGroupIconParams [_grpIconColor,_text,_scale,_visibility];
     _grp setVariable ['QS_ST_Group_Icon',[_iconID,_grpIconType,_grpLeader_vType,_grpIconColor,_text,_scale,_visibility],FALSE];

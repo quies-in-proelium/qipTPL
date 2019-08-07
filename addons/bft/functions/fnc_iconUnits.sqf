@@ -6,26 +6,26 @@ private _exit = FALSE;
 private _side = [EAST,WEST,RESISTANCE,CIVILIAN];
 private _as = [];
 private _au = [];
-private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && QS_ST_admin);
+private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && GVAR(adminMode));
 
 if (!(playerSide isEqualTo CIVILIAN)) then {
-    if (!(QS_ST_showCivilianIcons)) then {
+    if (!(GVAR(showCivilianIcons))) then {
         _side = [EAST,WEST,RESISTANCE];
     };
 };
-if ((QS_ST_showAll) > 0) exitWith {
-    if ((QS_ST_showAll) isEqualTo 1) then {
+if ((GVAR(showAll)) > 0) exitWith {
+    if ((GVAR(showAll)) isEqualTo 1) then {
         _au = allUnits + vehicles;
     };
-    if ((QS_ST_showAll) isEqualTo 2) then {
+    if ((GVAR(showAll)) isEqualTo 2) then {
         _au = entities [[],[],TRUE,TRUE];
     };
     _au;
 };
-if (((_di isEqualTo 1) && QS_ST_showCivilianIcons) && {(!(QS_ST_showOnlyVehicles))}) then {
+if (((_di isEqualTo 1) && GVAR(showCivilianIcons)) && {(!(GVAR(showOnlyVehicles)))}) then {
     _exit = TRUE;
     _au = units (group player);
-    if ((QS_ST_showEmptyVehicles)) then {
+    if (GVAR(showEmptyVehicles)) then {
         {
             if (!(_x in _au)) then {
                 if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
@@ -38,13 +38,13 @@ if (((_di isEqualTo 1) && QS_ST_showCivilianIcons) && {(!(QS_ST_showOnlyVehicles
     };
     _au;
 };
-if ((_di isEqualTo 2) && QS_ST_GPSshowGroupOnly) then {
+if ((_di isEqualTo 2) && GVAR(GPSshowGroupOnly)) then {
     _exit = TRUE;
     _au = units (group player);
     _au;
 };
 if (_exit) exitWith {_au;};
-if (QS_ST_showFactionOnly) then {
+if (GVAR(showFactionOnly)) then {
     _as pushBack (_side select QS_ST_faction);
 } else {
     if (isMultiplayer) then {
@@ -53,7 +53,7 @@ if (QS_ST_showFactionOnly) then {
                 _as pushBack _x;
             } forEach _side;
         } else {
-            if (QS_ST_friendlySides_Dynamic) then {
+            if (GVAR(friendlySidesDynamic)) then {
                 _as pushBack (_side select QS_ST_faction);
                 {
                     if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
@@ -64,11 +64,11 @@ if (QS_ST_showFactionOnly) then {
                 _as pushBack (_side select QS_ST_faction);
                 {
                     _as pushBack (_side select _x);
-                } forEach QS_ST_showFriendlySides;
+                } forEach GVAR(showFriendlySides);
             };
         };
     } else {
-        if (QS_ST_friendlySides_Dynamic) then {
+        if (GVAR(friendlySidesDynamic)) then {
             _as pushBack (_side select QS_ST_faction);
             {
                 if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
@@ -79,11 +79,11 @@ if (QS_ST_showFactionOnly) then {
             _as pushBack (_side select QS_ST_faction);
             {
                 _as pushBack (_side select _x);
-            } forEach QS_ST_showFriendlySides;
+            } forEach GVAR(showFriendlySides);
         };
     };
 };
-if (!(QS_ST_showAI)) then {
+if (!(GVAR(showAI))) then {
     if (isMultiplayer) then {
         if (_isAdmin) then {
             {
@@ -96,7 +96,7 @@ if (!(QS_ST_showAI)) then {
                 if (((side _x) in _as) || {(captive _x)}) then {
                     if (isPlayer _x) then {
                         if (_di isEqualTo 2) then {
-                            if ((_x distance2D player) < QS_ST_GPSDist) then {
+                            if ((_x distance2D player) < GVAR(GPSDist)) then {
                                 if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
                                     _au pushBack _x;
                                 };
@@ -115,7 +115,7 @@ if (!(QS_ST_showAI)) then {
             if (((side _x) in _as) || {(captive _x)}) then {
                 if (isPlayer _x) then {
                     if (_di isEqualTo 2) then {
-                        if ((_x distance2D player) < QS_ST_GPSDist) then {
+                        if ((_x distance2D player) < GVAR(GPSDist)) then {
                             if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
                                 _au pushBack _x;
                             };
@@ -133,7 +133,7 @@ if (!(QS_ST_showAI)) then {
     {
         if (((side _x) in _as) || {(captive _x)}) then {
             if (_di isEqualTo 2) then {
-                if ((_x distance2D player) < QS_ST_GPSDist) then {
+                if ((_x distance2D player) < GVAR(GPSDist)) then {
                     if (_x isEqualTo ((crew (vehicle _x)) select 0)) then {
                         _au pushBack _x;
                     };
@@ -146,14 +146,14 @@ if (!(QS_ST_showAI)) then {
         };
     } forEach allUnits;
 };
-if ((_di isEqualTo 1) && QS_ST_showOnlyVehicles) exitWith {
+if ((_di isEqualTo 1) && GVAR(showOnlyVehicles)) exitWith {
     private _auv = [];
     {
         if (!((vehicle _x) isKindOf 'Man')) then {
             _auv pushBack _x;
         };
     } forEach _au;
-    if (QS_ST_showEmptyVehicles) then {
+    if (GVAR(showEmptyVehicles)) then {
         {
             if (!(_x in _auv)) then {
                 if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
@@ -164,14 +164,14 @@ if ((_di isEqualTo 1) && QS_ST_showOnlyVehicles) exitWith {
             };
         } forEach vehicles;
     };
-    if (QS_ST_showGroupOnly) then {
+    if (GVAR(showGroupOnly)) then {
         {
             _auv pushBack _x;
         } forEach (units (group player));
     };
     _auv;
 };
-if ((_di isEqualTo 1) && QS_ST_showEmptyVehicles) exitWith {
+if ((_di isEqualTo 1) && GVAR(showEmptyVehicles)) exitWith {
     {
         if (!(_x in _au)) then {
             if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {

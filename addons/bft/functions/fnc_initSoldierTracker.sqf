@@ -5,31 +5,31 @@ private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 uiSleep 0.1;
 QS_ST_faction = _sides find _side;
 switch QS_ST_faction do {
-    case east: {QS_ST_showFriendlySides = QS_ST_friendlySides_EAST};
-    case west: {QS_ST_showFriendlySides = QS_ST_friendlySides_WEST};
-    case resistance: {QS_ST_showFriendlySides = QS_ST_friendlySides_RESISTANCE};
-    case civilian: {QS_ST_showFriendlySides = QS_ST_friendlySides_CIVILIAN};
-    default {QS_ST_showFriendlySides = []};
+    case east: {GVAR(showFriendlySides) = GVAR(friendlySides_EAST)};
+    case west: {GVAR(showFriendlySides) = GVAR(friendlySides_WEST)};
+    case resistance: {GVAR(showFriendlySides) = GVAR(friendlySides_RESISTANCE)};
+    case civilian: {GVAR(showFriendlySides) = GVAR(friendlySides_CIVILIAN)};
+    default {GVAR(showFriendlySides) = []};
 };
 QS_ST_autonomousVehicles = [];
-if (!(QS_ST_iconShadowMap in [0,1,2])) then {
-    QS_ST_iconShadowMap = 1;
+if (!(GVAR(iconShadowMap) in [0,1,2])) then {
+    GVAR(iconShadowMap) = 1;
 };
-if (!(QS_ST_iconShadowGPS in [0,1,2])) then {
-    QS_ST_iconShadowGPS = 1;
+if (!(GVAR(iconShadowGPS) in [0,1,2])) then {
+    GVAR(iconShadowGPS) = 1;
 };
-if (QS_ST_iconUpdatePulseDelay > 0) then {
+if (GVAR(iconUpdatePulseDelay) > 0) then {
     missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',diag_tickTime];
 };
 
-if (QS_ST_enableGroupIcons) then {
-    if (!(QS_ST_map_enableUnitIcons)) then {
-        QS_ST_groupIconOffset = [0,0];
+if (GVAR(enableGroupIcons)) then {
+    if (!(GVAR(enableUnitIconsMap))) then {
+        GVAR(groupIconOffset) = [0,0];
     };
 };
 QS_ST_groupIconText = FALSE;
-QS_ST_htmlColorMedical = [QS_ST_MedicalIconColor select 0,QS_ST_MedicalIconColor select 1,QS_ST_MedicalIconColor select 2,QS_ST_MedicalIconColor select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
-QS_ST_htmlColorInjured = [QS_ST_colorInjured select 0,QS_ST_colorInjured select 1,QS_ST_colorInjured select 2,QS_ST_colorInjured select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
+QS_ST_htmlColorMedical = [GVAR(medicalIconColor) select 0,GVAR(medicalIconColor) select 1,GVAR(medicalIconColor) select 2,GVAR(medicalIconColor) select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
+QS_ST_htmlColorInjured = [GVAR(colorInjured) select 0,GVAR(colorInjured) select 1,GVAR(colorInjured) select 2,GVAR(colorInjured) select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
 
 {
     missionNamespace setVariable _x;
@@ -43,12 +43,12 @@ waitUntil {
     uiSleep 0.1;
     !(isNull (findDisplay 12));
 };
-if (QS_ST_map_enableUnitIcons) then {
+if (GVAR(enableUnitIconsMap)) then {
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ['Draw',(format ['_this call %1',FUNC(iconDrawMap)])];
-    if (QS_ST_otherDisplays) then {
+    if (GVAR(otherDisplays)) then {
         [] spawn FUNC(additionalDevices);
     };
-    if (QS_ST_iconMapClickShowDetail) then {
+    if (GVAR(iconMapClickShowDetail)) then {
         player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
         player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
         {
@@ -72,13 +72,13 @@ if (QS_ST_map_enableUnitIcons) then {
     };
 };
 
-if (QS_ST_gps_enableUnitIcons) then {
+if (GVAR(enableUnitIconsGPS)) then {
     [] spawn FUNC(gpsIcons);
 };
-if (QS_ST_gps_enableUnitIcons) then {
-    setGroupIconsVisible [QS_ST_showGroupMapIcons,QS_ST_showGroupHudIcons];
-    setGroupIconsSelectable QS_ST_groupInteractiveIcons;
-    if (QS_ST_groupInteractiveIcons) then {
+if (GVAR(enableUnitIconsGPS)) then {
+    setGroupIconsVisible [GVAR(showGroupMapIcons),GVAR(showGroupHudIcons)];
+    setGroupIconsSelectable GVAR(groupInteractiveIcons);
+    if (GVAR(groupInteractiveIcons)) then {
         {
             addMissionEventHandler _x;
         } forEach [
