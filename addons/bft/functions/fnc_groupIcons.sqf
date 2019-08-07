@@ -12,7 +12,7 @@ private _groupUpdateDelay = diag_tickTime + _groupUpdateDelay_timer;
 private _checkDiplomacy_delay = 10;
 private _checkDiplomacy = diag_tickTime + _checkDiplomacy_delay;
 private _as = [];
-_as pushBack (_sides select QS_ST_faction);
+_as pushBack (_sides select GVAR(playerFaction));
 if (!isNil QGVAR(showFriendlySides)) then {
 	{
 		_as pushBack (_sides select _x);
@@ -24,7 +24,7 @@ for '_x' from 0 to 1 step 0 do {
 		if (diag_tickTime > _checkDiplomacy) then {
 			_as = [];
 			{
-				if (((_sides select QS_ST_faction) getFriend _x) > 0.6) then {
+				if (((_sides select GVAR(playerFaction)) getFriend _x) > 0.6) then {
 					_as pushBack _x;
 				};
 			} forEach _sides;
@@ -39,7 +39,7 @@ for '_x' from 0 to 1 step 0 do {
 					if ((side _grp) in _as) then {
 						_grpLeader = leader _grp;
 						if (GVAR(showAIGroups)) then {
-							if (isNil {_grp getVariable 'QS_ST_Group'}) then {
+							if (isNil {_grp getVariable QGVAR(group)}) then {
 								if (!isNull _grp) then {
 									if (!isNull _grpLeader) then {
 										[_grp,0] call FUNC(configGroupIcon);
@@ -54,7 +54,7 @@ for '_x' from 0 to 1 step 0 do {
 							};
 						} else {
 							if (isPlayer _grpLeader) then {
-								if (isNil {_grp getVariable 'QS_ST_Group'}) then {
+								if (isNil {_grp getVariable QGVAR(group)}) then {
 									if (!isNull _grp) then {
 										if (!isNull _grpLeader) then {
 											[_grp,0] call FUNC(configGroupIcon);
@@ -70,12 +70,12 @@ for '_x' from 0 to 1 step 0 do {
 							};
 						};
 					} else {
-						if (!isNil {_grp getVariable 'QS_ST_Group_Icon'}) then {
+						if (!isNil {_grp getVariable QGVAR(groupIcon)}) then {
 							[_grp,2] call FUNC(configGroupIcon);
 						};
 					};
 				} else {
-					if (!isNil {_grp getVariable 'QS_ST_Group_Icon'}) then {
+					if (!isNil {_grp getVariable QGVAR(groupIcon)}) then {
 						[_grp,2] call FUNC(configGroupIcon);
 					};
 				};
@@ -97,14 +97,14 @@ for '_x' from 0 to 1 step 0 do {
 		};
 	};
 
-	if ((!(visibleMap)) && (isNull ((findDisplay 160) displayCtrl 51)) && (isNull ((findDisplay -1) displayCtrl 500)) && (isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40))) && (isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41)))) then {
+	if ((!(visibleMap)) && (isNull ((findDisplay 160) displayCtrl 51)) && (isNull ((findDisplay -1) displayCtrl 500)) && (isNull (((findDisplay -1) displayCtrl 40))) && (isNull (((findDisplay -1) displayCtrl 41)))) then {
 		waitUntil {
 			uiSleep 0.25;
-			((visibleMap) || {(!isNull ((findDisplay 160) displayCtrl 51))} || {(!isNull ((findDisplay -1) displayCtrl 500))} || {(!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40)))} || {(!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41)))})
+			((visibleMap) || {(!isNull ((findDisplay 160) displayCtrl 51))} || {(!isNull ((findDisplay -1) displayCtrl 500))} || {(!isNull (((findDisplay -1) displayCtrl 40)))} || {(!isNull (((findDisplay -1) displayCtrl 41)))})
 		};
 		_refreshGroups = TRUE;
 	};
-	if ((visibleMap) || {(!isNull ((findDisplay 160) displayCtrl 51))} || {(!isNull ((findDisplay -1) displayCtrl 500))} || {(!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 40)))} || {(!isNull (((uiNamespace getVariable "Tao_FoldMap") displayCtrl 41)))}) then {
+	if ((visibleMap) || {(!isNull ((findDisplay 160) displayCtrl 51))} || {(!isNull ((findDisplay -1) displayCtrl 500))} || {(!isNull (((findDisplay -1) displayCtrl 40)))} || {(!isNull (((findDisplay -1) displayCtrl 41)))}) then {
 		if ((ctrlMapScale ((findDisplay 12) displayCtrl 51)) isEqualTo 1) then {
 			if (groupIconsVisible select 0) then {
 				setGroupIconsVisible [FALSE,(groupIconsVisible select 1)];

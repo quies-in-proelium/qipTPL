@@ -2,15 +2,15 @@
 
 private _side = playerSide;
 private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
-QS_ST_faction = _sides find _side;
-switch QS_ST_faction do {
+GVAR(playerFaction) = _sides find _side;
+switch GVAR(playerFaction) do {
     case east: {GVAR(showFriendlySides) = GVAR(friendlySides_EAST)};
     case west: {GVAR(showFriendlySides) = GVAR(friendlySides_WEST)};
     case resistance: {GVAR(showFriendlySides) = GVAR(friendlySides_RESISTANCE)};
     case civilian: {GVAR(showFriendlySides) = GVAR(friendlySides_CIVILIAN)};
     default {GVAR(showFriendlySides) = []};
 };
-QS_ST_autonomousVehicles = [];
+
 if (!(GVAR(iconShadowMap) in [0,1,2])) then {
     GVAR(iconShadowMap) = 1;
 };
@@ -18,7 +18,7 @@ if (!(GVAR(iconShadowGPS) in [0,1,2])) then {
     GVAR(iconShadowGPS) = 1;
 };
 if (GVAR(iconUpdatePulseDelay) > 0) then {
-    missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',diag_tickTime];
+    missionNamespace setVariable [QGVAR(iconUpdatePulseTimer),diag_tickTime];
 };
 
 if (GVAR(enableGroupIcons)) then {
@@ -26,22 +26,19 @@ if (GVAR(enableGroupIcons)) then {
         GVAR(groupIconOffset) = [0,0];
     };
 };
-QS_ST_groupIconText = FALSE;
-QS_ST_htmlColorMedical = [GVAR(medicalIconColor) select 0,GVAR(medicalIconColor) select 1,GVAR(medicalIconColor) select 2,GVAR(medicalIconColor) select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
-QS_ST_htmlColorInjured = [GVAR(colorInjured) select 0,GVAR(colorInjured) select 1,GVAR(colorInjured) select 2,GVAR(colorInjured) select 3] call (missionNamespace getVariable 'BIS_fnc_colorRGBtoHTML');
 
 {
     missionNamespace setVariable _x;
 } forEach [
-    ['QS_ST_updateDraw_map',(diag_tickTime + 2),FALSE],
-    ['QS_ST_updateDraw_gps',(diag_tickTime + 1),FALSE],
-    ['QS_ST_drawArray_map',[],FALSE],
-    ['QS_ST_drawArray_gps',[],FALSE]
+    [QGVAR(updateDrawMap),(diag_tickTime + 2),FALSE],
+    [QGVAR(updateDrawGPS),(diag_tickTime + 1),FALSE],
+    [QGVAR(drawArrayMap),[],FALSE],
+    [QGVAR(drawArrayGPS),[],FALSE]
 ];
 
 if (GVAR(enableUnitIconsMap) && GVAR(iconMapClickShowDetail)) then {
-    player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-    player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+    player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+    player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
     {
         addMissionEventHandler _x;
     } forEach [
@@ -51,10 +48,10 @@ if (GVAR(enableUnitIconsMap) && GVAR(iconMapClickShowDetail)) then {
             {
                 params ['_mapIsOpened'];
                 if (!(_mapIsOpened)) then {
-                    if (alive (player getVariable ['QS_ST_map_vehicleShowCrew',objNull])) then {
-                        player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
-                        (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-                        player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
+                    if (alive (player getVariable [QGVAR(mapVehicleShowCrew),objNull])) then {
+                        player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
+                        (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+                        player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
                     };
                 };
             }

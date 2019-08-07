@@ -6,7 +6,7 @@ private _exit = FALSE;
 private _side = [EAST,WEST,RESISTANCE,CIVILIAN];
 private _as = [];
 private _au = [];
-private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && GVAR(adminMode));
+private _isAdmin = (((call BIS_fnc_admin) isEqualTo 2) && GVAR(adminMode));
 
 if (!(playerSide isEqualTo CIVILIAN)) then {
     if (!(GVAR(showCivilianIcons))) then {
@@ -28,7 +28,7 @@ if (((_di isEqualTo 1) && GVAR(showCivilianIcons)) && {(!(GVAR(showOnlyVehicles)
     if (GVAR(showEmptyVehicles)) then {
         {
             if (!(_x in _au)) then {
-                if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
+                if (_x getVariable [QGVAR(drawEmptyVehicle),FALSE]) then {
                     if ((crew _x) isEqualTo []) then {
                         _au pushBack _x;
                     };
@@ -45,7 +45,7 @@ if ((_di isEqualTo 2) && GVAR(GPSshowGroupOnly)) then {
 };
 if (_exit) exitWith {_au;};
 if (GVAR(showFactionOnly)) then {
-    _as pushBack (_side select QS_ST_faction);
+    _as pushBack (_side select GVAR(playerFaction));
 } else {
     if (isMultiplayer) then {
         if (_isAdmin) then {
@@ -54,14 +54,14 @@ if (GVAR(showFactionOnly)) then {
             } forEach _side;
         } else {
             if (GVAR(friendlySidesDynamic)) then {
-                _as pushBack (_side select QS_ST_faction);
+                _as pushBack (_side select GVAR(playerFaction));
                 {
-                    if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
+                    if (((_side select GVAR(playerFaction)) getFriend _x) > 0.6) then {
                         _as pushBack _x;
                     };
                 } forEach _side;
             } else {
-                _as pushBack (_side select QS_ST_faction);
+                _as pushBack (_side select GVAR(playerFaction));
                 {
                     _as pushBack (_side select _x);
                 } forEach GVAR(showFriendlySides);
@@ -69,14 +69,14 @@ if (GVAR(showFactionOnly)) then {
         };
     } else {
         if (GVAR(friendlySidesDynamic)) then {
-            _as pushBack (_side select QS_ST_faction);
+            _as pushBack (_side select GVAR(playerFaction));
             {
-                if (((_side select QS_ST_faction) getFriend _x) > 0.6) then {
+                if (((_side select GVAR(playerFaction)) getFriend _x) > 0.6) then {
                     _as pushBack _x;
                 };
             } forEach _side;
         } else {
-            _as pushBack (_side select QS_ST_faction);
+            _as pushBack (_side select GVAR(playerFaction));
             {
                 _as pushBack (_side select _x);
             } forEach GVAR(showFriendlySides);
@@ -156,7 +156,7 @@ if ((_di isEqualTo 1) && GVAR(showOnlyVehicles)) exitWith {
     if (GVAR(showEmptyVehicles)) then {
         {
             if (!(_x in _auv)) then {
-                if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
+                if (_x getVariable [QGVAR(drawEmptyVehicle),FALSE]) then {
                     if ((crew _x) isEqualTo []) then {
                         _auv pushBack _x;
                     };
@@ -174,7 +174,7 @@ if ((_di isEqualTo 1) && GVAR(showOnlyVehicles)) exitWith {
 if ((_di isEqualTo 1) && GVAR(showEmptyVehicles)) exitWith {
     {
         if (!(_x in _au)) then {
-            if (_x getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
+            if (_x getVariable [QGVAR(drawEmptyVehicle),FALSE]) then {
                 if ((crew _x) isEqualTo []) then {
                     _au pushBack _x;
                 };

@@ -9,7 +9,7 @@ private _showAINames = GVAR(AINames);
 private _iconText = '';
 private _n = 0;
 private _vehicleType = missionNamespace getVariable [format ['QS_ST_iconVehicleDN#%1',(typeOf _vehicle)],''];
-private _isAdmin = (((call (missionNamespace getVariable 'BIS_fnc_admin')) isEqualTo 2) && GVAR(adminMode));
+private _isAdmin = (((call BIS_fnc_admin) isEqualTo 2) && GVAR(adminMode));
 
 if (_vehicleType isEqualTo '') then {
     _vehicleType = getText (configFile >> 'CfgVehicles' >> (typeOf _vehicle) >> 'displayName');
@@ -66,8 +66,8 @@ if ((_vehicle isKindOf 'LandVehicle') || {(_vehicle isKindOf 'Air')} || {(_vehic
     _n = 0;
     _n = (count (crew _vehicle)) - 1;
     if (_n > 0) then {
-        if (!isNil {_vehicle getVariable 'QS_ST_mapClickShowCrew'}) then {
-            if (_vehicle getVariable 'QS_ST_mapClickShowCrew') then {
+        if (!isNil {_vehicle getVariable QGVAR(mapClickShowCrew)}) then {
+            if (_vehicle getVariable QGVAR(mapClickShowCrew)) then {
                 _iconText = '';
                 private _crewIndex = 0;
                 private _na = '';
@@ -79,7 +79,7 @@ if ((_vehicle isKindOf 'LandVehicle') || {(_vehicle isKindOf 'Air')} || {(_vehic
                             _na = '[AI]';
                         };
                     };
-                    if (!(['error',_na,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))) then {
+                    if (!(['error',_na,FALSE] call BIS_fnc_inString)) then {
                         if (!(_crewIndex isEqualTo _crewCount)) then {
                             _iconText = _iconText + _na + ', ';
                         } else {

@@ -10,12 +10,12 @@ private _iconSize = 0;
 
 if (GVAR(requireGPSItemMap) && (!(call FUNC(hasGPSDevice)))) exitWith {};
 
-if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_map')) then {
-    missionNamespace setVariable ['QS_ST_updateDraw_map',(diag_tickTime + 3),FALSE];
-    missionNamespace setVariable ['QS_ST_drawArray_map',([1] call FUNC(iconUnits)),FALSE];
+if (diag_tickTime > (missionNamespace getVariable QGVAR(updateDrawMap))) then {
+    missionNamespace setVariable [QGVAR(updateDrawMap),(diag_tickTime + 3),FALSE];
+    missionNamespace setVariable [QGVAR(drawArrayMap),([1] call FUNC(iconUnits)),FALSE];
 };
 
-if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
+if (!((missionNamespace getVariable QGVAR(drawArrayMap)) isEqualTo [])) then {
     {
         if (!isNull _x) then {
             _vehicle = vehicle _x;
@@ -52,7 +52,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_map') isEqualTo [])) then {
                 ];
             };
         };
-    } forEach (missionNamespace getVariable ['QS_ST_drawArray_map',[]]);
+    } forEach (missionNamespace getVariable [QGVAR(drawArrayMap),[]]);
 };
 if (_player isEqualTo (leader (group _player))) then {
     if (!((groupSelectedUnits _player) isEqualTo [])) then {
@@ -70,7 +70,7 @@ if (_player isEqualTo (leader (group _player))) then {
     };
 };
 if (GVAR(iconUpdatePulseDelay) > 0) then {
-    if (diag_tickTime > (missionNamespace getVariable 'QS_ST_iconUpdatePulseTimer')) then {
-        missionNamespace setVariable ['QS_ST_iconUpdatePulseTimer',(diag_tickTime + GVAR(iconUpdatePulseDelay))];
+    if (diag_tickTime > (missionNamespace getVariable QGVAR(iconUpdatePulseTimer))) then {
+        missionNamespace setVariable [QGVAR(iconUpdatePulseTimer),(diag_tickTime + GVAR(iconUpdatePulseDelay))];
     };
 };

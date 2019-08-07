@@ -8,11 +8,11 @@ if (
     {(GVAR(requireGPSItemGPS) && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
 
-if (diag_tickTime > (missionNamespace getVariable 'QS_ST_updateDraw_gps')) then {
-    missionNamespace setVariable ['QS_ST_updateDraw_gps',(diag_tickTime + 3),FALSE];
-    missionNamespace setVariable ['QS_ST_drawArray_gps',([2] call FUNC(iconUnits)),FALSE];
+if (diag_tickTime > (missionNamespace getVariable QGVAR(updateDrawGPS))) then {
+    missionNamespace setVariable [QGVAR(updateDrawGPS),(diag_tickTime + 3),FALSE];
+    missionNamespace setVariable [QGVAR(drawArrayGPS),([2] call FUNC(iconUnits)),FALSE];
 };
-if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
+if (!((missionNamespace getVariable QGVAR(drawArrayGPS)) isEqualTo [])) then {
     private _vehicle = objNull;
     private _position = [[0,0,0],0];
     private _iconSize = 0;
@@ -37,7 +37,7 @@ if (!((missionNamespace getVariable 'QS_ST_drawArray_gps') isEqualTo [])) then {
                 ];
             };
         };
-    } forEach (missionNamespace getVariable ['QS_ST_drawArray_gps',[]]);
+    } forEach (missionNamespace getVariable [QGVAR(drawArrayGPS),[]]);
 };
 if (player isEqualTo (leader (group player))) then {
     if (!((groupSelectedUnits player) isEqualTo [])) then {

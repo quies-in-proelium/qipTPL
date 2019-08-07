@@ -24,8 +24,8 @@ private _leader = TRUE;
 private _showClass = GVAR(groupInteractiveClassIcons);
 
 if (GVAR(showMedicalWounded)) then {
-    _colorIncapacitated = QS_ST_htmlColorMedical;
-    _colorInjured = QS_ST_htmlColorInjured;
+    _colorIncapacitated = GVAR(medicalIconColor) call BIS_fnc_colorRGBtoHTML;
+    _colorInjured = GVAR(colorInjured) call BIS_fnc_colorRGBtoHTML;
     _colorDead = [0.4,0,0.5,0.65];
 } else {
     _colorIncapacitated = [1,0.41,0,1];

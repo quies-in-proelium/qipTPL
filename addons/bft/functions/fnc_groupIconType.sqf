@@ -3,14 +3,14 @@
 params ['_grp','_grpSize','_grpVehicle','_grpSide'];
 
 private _grpVehicleType = typeOf _grpVehicle;
-private _vehicleClass = _grpVehicle getVariable ['QS_ST_groupVehicleClass',''];
+private _vehicleClass = _grpVehicle getVariable [QGVAR(groupVehicleClass),''];
 
 if (_vehicleClass isEqualTo '') then {
     _vehicleClass = getText (configFile >> 'CfgVehicles' >> _grpVehicleType >> 'vehicleClass');
-    _grpVehicle setVariable ['QS_ST_groupVehicleClass',_vehicleClass];
+    _grpVehicle setVariable [QGVAR(groupVehicleClass),_vehicleClass];
 };
 
-private _groupIconType = _grpVehicle getVariable ['QS_ST_groupVehicleIconType',''];
+private _groupIconType = _grpVehicle getVariable [QGVAR(groupVehicleIconType),''];
 
 if (!(_groupIconType isEqualTo '')) exitWith {_groupIconType;};
 
@@ -46,7 +46,7 @@ if (_grpSide isEqualTo CIVILIAN) exitWith {
     if (_grpVehicle isKindOf 'Man') then {
         _groupIconType = _iconTypes select 4;
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if ((_vehicleClass isEqualTo 'Ship') || {(_vehicleClass isEqualTo 'Submarine')}) exitWith {
@@ -61,30 +61,30 @@ if (_vehicleClass in ['Men','MenRecon','MenSniper','MenDiver','MenSupport','MenU
     if (_vehicleClass in ['MenRecon','MenSniper','MenDiver']) then {
         _groupIconType = _iconTypes select 4;
     };
-    if (['medic',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['medic',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
         _groupIconType = _iconTypes select 8;
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Static') exitWith {
-    if (['mortar',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['mortar',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
         _groupIconType = _iconTypes select 10;
     } else {
         _groupIconType = _iconTypes select 12;
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Autonomous') exitWith {
-    if (['UAV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['UAV',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
         _groupIconType = _iconTypes select 7;
     } else {
-        if (['UGV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+        if (['UGV',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
             _groupIconType = _iconTypes select 12;
         };
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Air') exitWith {
@@ -93,40 +93,40 @@ if (_vehicleClass isEqualTo 'Air') exitWith {
     } else {
         _groupIconType = _iconTypes select 6;
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Armored') exitWith {
-    if (['apc',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['apc',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
         _groupIconType = _iconTypes select 2;
     } else {
-        if ((['arty',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['mlrs',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
+        if ((['arty',_grpVehicleType,FALSE] call BIS_fnc_inString) || {(['mlrs',_grpVehicleType,FALSE] call BIS_fnc_inString)}) then {
             _groupIconType = _iconTypes select 9;
         } else {
-            if (['mbt',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+            if (['mbt',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
                 _groupIconType = _iconTypes select 3;
             };
         };
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Car') exitWith {
     _groupIconType = _iconTypes select 1;
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 if (_vehicleClass isEqualTo 'Support') exitWith {
-    if (['medical',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) then {
+    if (['medical',_grpVehicleType,FALSE] call BIS_fnc_inString) then {
         _groupIconType = _iconTypes select 8;
     } else {
-        if ((['ammo',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString')) || {(['box',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['fuel',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['CRV',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))} || {(['repair',_grpVehicleType,FALSE] call (missionNamespace getVariable 'BIS_fnc_inString'))}) then {
+        if ((['ammo',_grpVehicleType,FALSE] call BIS_fnc_inString) || {(['box',_grpVehicleType,FALSE] call BIS_fnc_inString)} || {(['fuel',_grpVehicleType,FALSE] call BIS_fnc_inString)} || {(['CRV',_grpVehicleType,FALSE] call BIS_fnc_inString)} || {(['repair',_grpVehicleType,FALSE] call BIS_fnc_inString)}) then {
             _groupIconType = _iconTypes select 14;
         };
     };
-    _grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+    _grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
     _groupIconType;
 };
 _groupIconType = _iconTypes select 16;
-_grpVehicle setVariable ['QS_ST_groupVehicleIconType',_groupIconType,FALSE];
+_grpVehicle setVariable [QGVAR(groupVehicleIconType),_groupIconType,FALSE];
 _groupIconType;

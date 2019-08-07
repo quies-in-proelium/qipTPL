@@ -3,14 +3,14 @@
 params ['_units','_position','_alt','_shift'];
 
 if ((!(_alt)) && (!(_shift))) then {
-    if (player getVariable 'QS_ST_mapSingleClick') then {
-        player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
-        if (alive (player getVariable ['QS_ST_map_vehicleShowCrew',objNull])) then {
-            (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
+    if (player getVariable QGVAR(mapSingleClick)) then {
+        player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
+        if (alive (player getVariable [QGVAR(mapVehicleShowCrew),objNull])) then {
+            (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
         };
     };
-    // "player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];";
-    player setVariable ['QS_ST_mapSingleClick',TRUE,FALSE];
+    // "player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];";
+    player setVariable [QGVAR(mapSingleClick),TRUE,FALSE];
     private _vehicle = objNull;
     private _vehicles = (nearestObjects [_position,['Air','LandVehicle','Ship'],250,TRUE]) select {(alive _x)};
     if ((count _vehicles) > 0) then {
@@ -29,28 +29,28 @@ if ((!(_alt)) && (!(_shift))) then {
     if (alive _vehicle) then {
         if ((count (crew _vehicle)) > 1) then {
             if ((side (effectiveCommander _vehicle)) isEqualTo playerSide) then {
-                if (!(_vehicle isEqualTo (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]))) then {
-                    player setVariable ['QS_ST_map_vehicleShowCrew',_vehicle,FALSE];
-                    _vehicle setVariable ['QS_ST_mapClickShowCrew',TRUE,FALSE];
+                if (!(_vehicle isEqualTo (player getVariable [QGVAR(mapVehicleShowCrew),objNull]))) then {
+                    player setVariable [QGVAR(mapVehicleShowCrew),_vehicle,FALSE];
+                    _vehicle setVariable [QGVAR(mapClickShowCrew),TRUE,FALSE];
                 } else {
-                    (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-                    player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-                    player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+                    (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+                    player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+                    player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
                 };
             } else {
-                (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-                player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-                player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+                (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+                player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+                player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
             };
         } else {
-            (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-            player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-            player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+            (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+            player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+            player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
         };
     } else {
-        (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-        player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-        player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+        (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+        player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+        player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
     };
 };
 if (_shift) then {

@@ -8,7 +8,7 @@ private _exit = FALSE;
 private _color = GVAR(iconColor_UNKNOWN);
 private _a = 0;
 if (!(_vehicle isKindOf 'Man')) then {
-    if (_vehicle getVariable ['QS_ST_drawEmptyVehicle',FALSE]) then {
+    if (_vehicle getVariable [QGVAR(drawEmptyVehicle),FALSE]) then {
         if ((count (crew _vehicle)) isEqualTo 0) then {
             _exit = TRUE;
             _color = GVAR(iconColor_Empty);

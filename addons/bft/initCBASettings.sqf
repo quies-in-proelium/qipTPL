@@ -192,7 +192,7 @@ GVAR(requireGPSItemGroup) = TRUE;                                // BOOL. TRUE t
 //============================= CONFIGURE BONUS FEATURES ===========================//
 //==================================================================================//
 
-GVAR(showEmptyVehicles) = FALSE;                                // BOOL. TRUE to mark certain unoccupied vehicles on the map. The vehicle must be assigned this variable:    <vehicle> setVariable ['QS_ST_drawEmptyVehicle',TRUE,TRUE];    Default FALSE.   Only works if  GVAR(enableUnitIconsMap) = TRUE;
+GVAR(showEmptyVehicles) = FALSE;                                // BOOL. TRUE to mark certain unoccupied vehicles on the map. The vehicle must be assigned this variable:    <vehicle> setVariable [QGVAR(drawEmptyVehicle),TRUE,TRUE];    Default FALSE.   Only works if  GVAR(enableUnitIconsMap) = TRUE;
 GVAR(iconColor_Empty) = [0.7,0.6,0,0.5];                        // ARRAY (NUMBERS). Color of unoccupied vehicles, in RGBA. Default = [0.7,0.6,0,0.5];
 // GVAR(iconSize_Empty) = 20;                                   // NOT USED
 
