@@ -1,6 +1,7 @@
 #include "script_component.hpp"
 
-private _map = _this select 0;
+params["_map"];
+
 private _player = player;
 private _mapScale = ctrlMapScale _map;
 private _vehicle = objNull;

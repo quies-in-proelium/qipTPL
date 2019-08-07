@@ -2,7 +2,6 @@
 
 private _side = playerSide;
 private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
-uiSleep 0.1;
 QS_ST_faction = _sides find _side;
 switch QS_ST_faction do {
     case east: {GVAR(showFriendlySides) = GVAR(friendlySides_EAST)};
@@ -39,43 +38,31 @@ QS_ST_htmlColorInjured = [GVAR(colorInjured) select 0,GVAR(colorInjured) select 
     ['QS_ST_drawArray_map',[],FALSE],
     ['QS_ST_drawArray_gps',[],FALSE]
 ];
-waitUntil {
-    uiSleep 0.1;
-    !(isNull (findDisplay 12));
-};
-if (GVAR(enableUnitIconsMap)) then {
-    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ['Draw',(format ['_this call %1',FUNC(iconDrawMap)])];
-    if (GVAR(otherDisplays)) then {
-        [] spawn FUNC(additionalDevices);
-    };
-    if (GVAR(iconMapClickShowDetail)) then {
-        player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-        player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
-        {
-            addMissionEventHandler _x;
-        } forEach [
-            ['MapSingleClick',FUNC(onMapSingleClick)],
-            [
-                'Map',
-                {
-                    params ['_mapIsOpened'];
-                    if (!(_mapIsOpened)) then {
-                        if (alive (player getVariable ['QS_ST_map_vehicleShowCrew',objNull])) then {
-                            player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
-                            (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
-                            player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
-                        };
+
+if (GVAR(enableUnitIconsMap) && GVAR(iconMapClickShowDetail)) then {
+    player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
+    player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+    {
+        addMissionEventHandler _x;
+    } forEach [
+        ['MapSingleClick',FUNC(onMapSingleClick)],
+        [
+            'Map',
+            {
+                params ['_mapIsOpened'];
+                if (!(_mapIsOpened)) then {
+                    if (alive (player getVariable ['QS_ST_map_vehicleShowCrew',objNull])) then {
+                        player setVariable ['QS_ST_mapSingleClick',FALSE,FALSE];
+                        (player getVariable ['QS_ST_map_vehicleShowCrew',objNull]) setVariable ['QS_ST_mapClickShowCrew',FALSE,FALSE];
+                        player setVariable ['QS_ST_map_vehicleShowCrew',objNull,FALSE];
                     };
-                }
-            ]
-        ];
-    };
+                };
+            }
+        ]
+    ];
 };
 
-if (GVAR(enableUnitIconsGPS)) then {
-    [] spawn FUNC(gpsIcons);
-};
-if (GVAR(enableUnitIconsGPS)) then {
+if (GVAR(enableGroupIcons)) then {
     setGroupIconsVisible [GVAR(showGroupMapIcons),GVAR(showGroupHudIcons)];
     setGroupIconsSelectable GVAR(groupInteractiveIcons);
     if (GVAR(groupInteractiveIcons)) then {
