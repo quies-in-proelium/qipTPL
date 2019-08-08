@@ -1,4 +1,6 @@
 PREP(configGroupIcon);
+PREP(groupIconOverEnter);
+PREP(groupIconOverLeave);
 PREP(groupIcons);
 PREP(groupIconText);
 PREP(groupIconType);
@@ -14,7 +16,4 @@ PREP(iconType);
 PREP(iconUnits);
 PREP(initSoldierTracker);
 PREP(isIncapacitated);
-PREP(onGroupIconClick);
-PREP(onGroupIconOverEnter);
-PREP(onGroupIconOverLeave);
-PREP(onMapSingleClick);
+PREP(mapSingleClick);

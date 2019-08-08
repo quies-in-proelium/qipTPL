@@ -42,7 +42,7 @@ if (GVAR(enableUnitIconsMap) && GVAR(iconMapClickShowDetail)) then {
     {
         addMissionEventHandler _x;
     } forEach [
-        ['MapSingleClick',FUNC(onMapSingleClick)],
+        ['MapSingleClick',FUNC(mapSingleClick)],
         [
             'Map',
             {
@@ -66,9 +66,8 @@ if (GVAR(enableGroupIcons)) then {
         {
             addMissionEventHandler _x;
         } forEach [
-            ['GroupIconClick',FUNC(onGroupIconClick)],
-            ['GroupIconOverEnter',FUNC(onGroupIconOverEnter)],
-            ['GroupIconOverLeave',FUNC(onGroupIconOverLeave)]
+            ['GroupIconOverEnter',FUNC(groupIconOverEnter)],
+            ['GroupIconOverLeave',FUNC(groupIconOverLeave)]
         ];
     };
     [] spawn FUNC(groupIcons);
