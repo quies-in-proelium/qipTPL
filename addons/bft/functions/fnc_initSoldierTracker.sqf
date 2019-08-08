@@ -66,8 +66,13 @@ if (GVAR(enableGroupIcons)) then {
         {
             addMissionEventHandler _x;
         } forEach [
+<<<<<<< HEAD
             ['GroupIconOverEnter',FUNC(groupIconOverEnter)],
             ['GroupIconOverLeave',FUNC(groupIconOverLeave)]
+=======
+            ['GroupIconOverEnter',FUNC(onGroupIconOverEnter)],
+            ['GroupIconOverLeave',FUNC(onGroupIconOverLeave)]
+>>>>>>> 4c8b2c1e6033c52c3797fbab2a64459f68b91be8
         ];
     };
     [] spawn FUNC(groupIcons);
