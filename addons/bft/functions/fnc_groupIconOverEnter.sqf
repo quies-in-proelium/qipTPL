@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params ['_is3D','_group','_wpID','_button','_posx','_posy','_shift','_ctrl','_alt'];
+private _group = _this select 1;
 
 if (!((side _group) isEqualTo playerSide)) exitWith {
     hintSilent 'This group is not in your faction!';

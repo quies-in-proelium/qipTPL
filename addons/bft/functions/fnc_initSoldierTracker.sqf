@@ -66,7 +66,6 @@ if (GVAR(enableGroupIcons)) then {
         {
             addMissionEventHandler _x;
         } forEach [
-            ['GroupIconClick',FUNC(onGroupIconClick)],
             ['GroupIconOverEnter',FUNC(onGroupIconOverEnter)],
             ['GroupIconOverLeave',FUNC(onGroupIconOverLeave)]
         ];
