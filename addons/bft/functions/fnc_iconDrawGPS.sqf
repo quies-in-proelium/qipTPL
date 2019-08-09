@@ -1,12 +1,12 @@
 #include "script_component.hpp"
 
-params["_map"];
-
 if (
     (!('MinimapDisplay' in ((infoPanel 'left') + (infoPanel 'right')))) ||
     {(visibleMap)} ||
     {(GVAR(requireGPSItemGPS) && (!(call FUNC(hasGPSDevice))))}
 ) exitWith {};
+
+params["_map"];
 
 if (diag_tickTime > (missionNamespace getVariable QGVAR(updateDrawGPS))) then {
     missionNamespace setVariable [QGVAR(updateDrawGPS),(diag_tickTime + 3),FALSE];

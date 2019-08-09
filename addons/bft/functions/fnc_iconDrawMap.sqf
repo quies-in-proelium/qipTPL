@@ -1,13 +1,13 @@
 #include "script_component.hpp"
 
+if (GVAR(requireGPSItemMap) && (!(call FUNC(hasGPSDevice)))) exitWith {};
+
 params["_map"];
 
 private _mapScale = ctrlMapScale _map;
 private _vehicle = objNull;
 private _position = [[0,0,0],0];
 private _iconSize = 0;
-
-if (GVAR(requireGPSItemMap) && (!(call FUNC(hasGPSDevice)))) exitWith {};
 
 if (diag_tickTime > (missionNamespace getVariable QGVAR(updateDrawMap))) then {
     missionNamespace setVariable [QGVAR(updateDrawMap),(diag_tickTime + 3),FALSE];

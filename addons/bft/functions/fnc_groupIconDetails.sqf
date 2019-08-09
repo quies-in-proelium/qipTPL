@@ -4,10 +4,6 @@ private _group = _this select 1;
 
 if (!((side _group) isEqualTo playerSide)) exitWith {
     hintSilent 'This group is not in your faction!';
-    0 spawn {
-        uiSleep 3;
-        hintSilent '';
-    };
 };
 
 private _lifeState = '';

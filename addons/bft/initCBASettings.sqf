@@ -110,6 +110,15 @@
     true
 ] call CBA_fnc_addSetting;
 
+[
+    QGVAR(groupIconsInteraction),
+    "LIST",
+    "Interaction with group icons to show details",
+    ["qipTPL BFT Main","Group"],
+    [["disabled","hover","click"],["Disabled","Hover","Click"],1],
+    0
+] call CBA_fnc_addSetting;
+
 //================= DEFAULT ICON COLORS by FACTION
 
 GVAR(iconColor_EAST) = [0.5,0,0,0.65];                            // ARRAY (NUMBER). RGBA color code.    Default [0.5,0,0,0.65];
@@ -178,7 +187,7 @@ GVAR(showGroupMapIcons) = TRUE;                                // BOOL. Group ic
 GVAR(showGroupHudIcons) = FALSE;                                // BOOL. Group icons displayed on player 3D HUD. Default FALSE.
 GVAR(showAIGroups) = TRUE;                                        // BOOL. Show Groups with AI leaders. Default TRUE.
 GVAR(showAINames) = TRUE;                                        // BOOL. Show AI Names. If FALSE, when names are listed with Group features, will only display as '[AI]'. Default FALSE.
-GVAR(groupInteractiveIcons) = TRUE;                            // BOOL. Group icons are interactable (mouse hover and mouse click for group details). Default TRUE.
+//GVAR(groupInteractiveIcons) = TRUE;                            // BOOL. Group icons are interactable (mouse hover and mouse click for group details). Default TRUE.
 GVAR(groupInteractiveClassIcons) = TRUE;                    // BOOL. TRUE to show units vehicle class when revealing group details with interactive map group click. Default TRUE.
 GVAR(showGroupMapText) = TRUE;                                    // BOOL. TRUE to show Group Name on the map. If FALSE, name can still be seen by clicking on the group icon, if GVAR(groupInteractiveIcons) = TRUE. Default FALSE.
 GVAR(groupIconScale) = 0.75;                                        // NUMBER. Group Icon Scale. Default = 0.75

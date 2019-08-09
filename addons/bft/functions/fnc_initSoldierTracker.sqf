@@ -1,8 +1,6 @@
 #include "script_component.hpp"
 
-private _side = playerSide;
-private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
-GVAR(playerFaction) = _sides find _side;
+GVAR(playerFaction) = playerSide;
 switch GVAR(playerFaction) do {
     case east: {GVAR(showFriendlySides) = GVAR(friendlySides_EAST)};
     case west: {GVAR(showFriendlySides) = GVAR(friendlySides_WEST)};
@@ -11,64 +9,55 @@ switch GVAR(playerFaction) do {
     default {GVAR(showFriendlySides) = []};
 };
 
-if (!(GVAR(iconShadowMap) in [0,1,2])) then {
-    GVAR(iconShadowMap) = 1;
-};
-if (!(GVAR(iconShadowGPS) in [0,1,2])) then {
-    GVAR(iconShadowGPS) = 1;
-};
 if (GVAR(iconUpdatePulseDelay) > 0) then {
     missionNamespace setVariable [QGVAR(iconUpdatePulseTimer),diag_tickTime];
 };
 
-if (GVAR(enableGroupIcons)) then {
-    if (!(GVAR(enableUnitIconsMap))) then {
-        GVAR(groupIconOffset) = [0,0];
-    };
-};
+GVAR(groupUpdateDelay) = diag_tickTime + 5;
+GVAR(checkDiplomacy) = diag_tickTime + 10;
 
-{
-    missionNamespace setVariable _x;
-} forEach [
-    [QGVAR(updateDrawMap),(diag_tickTime + 2),FALSE],
-    [QGVAR(updateDrawGPS),(diag_tickTime + 1),FALSE],
-    [QGVAR(drawArrayMap),[],FALSE],
-    [QGVAR(drawArrayGPS),[],FALSE]
-];
+missionNamespace setVariable [QGVAR(updateDrawMap),(diag_tickTime + 2),FALSE];
+missionNamespace setVariable [QGVAR(updateDrawGPS),(diag_tickTime + 1),FALSE];
+missionNamespace setVariable [QGVAR(drawArrayMap),[],FALSE];
+missionNamespace setVariable [QGVAR(drawArrayGPS),[],FALSE];
 
 if (GVAR(enableUnitIconsMap) && GVAR(iconMapClickShowDetail)) then {
     player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
     player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
-    {
-        addMissionEventHandler _x;
-    } forEach [
-        ['MapSingleClick',FUNC(mapSingleClick)],
-        [
-            'Map',
-            {
-                params ['_mapIsOpened'];
-                if (!(_mapIsOpened)) then {
-                    if (alive (player getVariable [QGVAR(mapVehicleShowCrew),objNull])) then {
-                        player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
-                        (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
-                        player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
-                    };
-                };
-            }
-        ]
+    addMissionEventHandler ['MapSingleClick',FUNC(mapSingleClick)];
+    addMissionEventHandler [
+        'Map',
+        {
+            params ['_mapIsOpened'];
+            if (!(_mapIsOpened) && (alive (player getVariable [QGVAR(mapVehicleShowCrew),objNull]))) then {
+                player setVariable [QGVAR(mapSingleClick),FALSE,FALSE];
+                (player getVariable [QGVAR(mapVehicleShowCrew),objNull]) setVariable [QGVAR(mapClickShowCrew),FALSE,FALSE];
+                player setVariable [QGVAR(mapVehicleShowCrew),objNull,FALSE];
+            };
+        }
     ];
 };
 
 if (GVAR(enableGroupIcons)) then {
-    setGroupIconsVisible [GVAR(showGroupMapIcons),GVAR(showGroupHudIcons)];
-    setGroupIconsSelectable GVAR(groupInteractiveIcons);
-    if (GVAR(groupInteractiveIcons)) then {
-        {
-            addMissionEventHandler _x;
-        } forEach [
-            ['GroupIconOverEnter',FUNC(groupIconOverEnter)],
-            ['GroupIconOverLeave',FUNC(groupIconOverLeave)]
-        ];
+    if (!(GVAR(enableUnitIconsMap)) || (GVAR(showGroupOnly) && !(GVAR(showOwnGroup)))) then {
+        GVAR(groupIconOffset) = [0,0];
     };
-    [] spawn FUNC(groupIcons);
+
+    setGroupIconsVisible [GVAR(showGroupMapIcons),GVAR(showGroupHudIcons)];
+
+    switch GVAR(groupIconsInteraction) do {
+        case "hover": {
+            setGroupIconsSelectable true;
+            addMissionEventHandler ['GroupIconOverEnter',FUNC(groupIconDetails)];
+            addMissionEventHandler ['GroupIconOverLeave',FUNC(clearHint)];
+        };
+        case "click": {
+            setGroupIconsSelectable true;
+            addMissionEventHandler ['GroupIconClick',FUNC(groupIconDetails)];
+            addMissionEventHandler ['GroupIconOverLeave',FUNC(clearHint)];
+        };
+        case "disabled": {setGroupIconsSelectable false};
+    };
+
+    [FUNC(groupIcons)] call CBA_fnc_addPerFrameHandler;
 };

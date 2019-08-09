@@ -1,6 +1,6 @@
+PREP(clearHint);
 PREP(configGroupIcon);
-PREP(groupIconOverEnter);
-PREP(groupIconOverLeave);
+PREP(groupIconDetails);
 PREP(groupIcons);
 PREP(groupIconText);
 PREP(groupIconType);

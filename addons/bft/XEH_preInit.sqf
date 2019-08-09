@@ -6,7 +6,7 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 if (hasInterface) then {
-    PREP(initDisplay);
+    [] call FUNC(initSoldierTracker);
 };
 
 ADDON = true;

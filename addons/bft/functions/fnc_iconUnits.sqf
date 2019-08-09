@@ -3,14 +3,14 @@
 params ['_di'];
 
 private _exit = FALSE;
-private _side = [EAST,WEST,RESISTANCE,CIVILIAN];
+private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 private _as = [];
 private _au = [];
 private _isAdmin = (((call BIS_fnc_admin) isEqualTo 2) && GVAR(adminMode));
 
 if (!(playerSide isEqualTo CIVILIAN)) then {
     if (!(GVAR(showCivilianIcons))) then {
-        _side = [EAST,WEST,RESISTANCE];
+        _sides = [EAST,WEST,RESISTANCE];
     };
 };
 if ((GVAR(showAll)) > 0) exitWith {
@@ -45,40 +45,40 @@ if ((_di isEqualTo 2) && GVAR(GPSshowGroupOnly)) then {
 };
 if (_exit) exitWith {_au;};
 if (GVAR(showFactionOnly)) then {
-    _as pushBack (_side select GVAR(playerFaction));
+    _as pushBack GVAR(playerFaction);
 } else {
     if (isMultiplayer) then {
         if (_isAdmin) then {
             {
                 _as pushBack _x;
-            } forEach _side;
+            } forEach _sides;
         } else {
             if (GVAR(friendlySidesDynamic)) then {
-                _as pushBack (_side select GVAR(playerFaction));
+                _as pushBack GVAR(playerFaction);
                 {
-                    if (((_side select GVAR(playerFaction)) getFriend _x) > 0.6) then {
+                    if ((GVAR(playerFaction) getFriend _x) > 0.6) then {
                         _as pushBack _x;
                     };
-                } forEach _side;
+                } forEach _sides;
             } else {
-                _as pushBack (_side select GVAR(playerFaction));
+                _as pushBack GVAR(playerFaction);
                 {
-                    _as pushBack (_side select _x);
+                    _as pushBack (_sides select _x);
                 } forEach GVAR(showFriendlySides);
             };
         };
     } else {
         if (GVAR(friendlySidesDynamic)) then {
-            _as pushBack (_side select GVAR(playerFaction));
+            _as pushBack GVAR(playerFaction);
             {
-                if (((_side select GVAR(playerFaction)) getFriend _x) > 0.6) then {
+                if ((GVAR(playerFaction) getFriend _x) > 0.6) then {
                     _as pushBack _x;
                 };
-            } forEach _side;
+            } forEach _sides;
         } else {
-            _as pushBack (_side select GVAR(playerFaction));
+            _as pushBack GVAR(playerFaction);
             {
-                _as pushBack (_side select _x);
+                _as pushBack _x;
             } forEach GVAR(showFriendlySides);
         };
     };
