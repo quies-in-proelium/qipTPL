@@ -16,9 +16,3 @@ class Extended_PostInit_EventHandlers {
         disableModuload = true;
     };
 };
-
-class Extended_DisplayLoad_EventHandlers {
-    class RscDiary {
-        ADDON = QUOTE(_this call (uiNamespace getVariable 'FUNC(initDisplay)'));
-    };
-};

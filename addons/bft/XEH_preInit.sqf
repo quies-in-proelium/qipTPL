@@ -6,7 +6,10 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 if (hasInterface) then {
-    [] call FUNC(initSoldierTracker);
+    if (GVAR(bftEnabled)) then {
+        GVAR(bftMarkers) = [];
+        [FUNC(trackingUpdate), GVAR(updateInterval), []] call CBA_fnc_addPerFrameHandler;
+    };
 };
 
 ADDON = true;

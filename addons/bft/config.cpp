@@ -8,9 +8,11 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"qiptpl_main"};
         author = "NemesisRE";
-        authors[] = {"Quiksilver"};
+        authors[] = {"Quiksilver","ACE3"};
         VERSION_CONFIG;
     };
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgMarkers.hpp"
+#include "CfgMarkerColors.hpp"
