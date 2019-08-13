@@ -7,10 +7,12 @@
 */
 #include "script_component.hpp"
 
+if (GVAR(skipMissionInit)) exitWith {};
+
 private ["_unitName","_cnt","_cntStop","_timerInput","_timer","_missionAuthor","_uavIntro","_initMsg","_postInitMsg"];
 _unitName = name qipTPL_unit;
 _cnt = 0;
-_timerInput = qipTPL_missionInitTime; // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
+_timerInput = GVAR(missionInitTime); // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
 _timer = _timerInput / 100;
 _cntStop = -1;
 _missionAuthor = getText (missionConfigFile >> "author");
@@ -30,7 +32,7 @@ if ( vehicle qipTPL_unit == qipTPL_unit ) then {
 
 _uavIntro = [] call FUNC(uavIntro);
 waitUntil {scriptDone _uavIntro};
-switch (qipTPL_uavIntroVision) do {
+switch (GVAR(uavIntroVision)) do {
     case 1: {camUseNVG false};
     case 2: {false setCamUseTI 0};
     case 3: {false setCamUseTI 1};
@@ -60,7 +62,7 @@ while {(_cnt != 100)} do {
     if (_cntStop == -1) then {
         _cntStop = _cnt;
         [
-            "<img size='8' shadow='false' image='" + qipTPL_clanLogo + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission build by " + _missionAuthor + "</t>",
+            "<img size='8' shadow='false' image='" + GVAR(clanLogo) + "'/><br/><br/><t size='.7' color='#FFFFFF'>Mission build by " + _missionAuthor + "</t>",
             0,
             0,
             5,

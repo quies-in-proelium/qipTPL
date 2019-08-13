@@ -1,5 +1,5 @@
 [
-    "qipTPL_enabled",
+    QGVAR(qipTPL_enabled),
     "CHECKBOX",
     "Enable Template",
     ["qipTPL Settings","Mission Settings"],
@@ -8,7 +8,16 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_missionInitTime",
+    QGVAR(skipMissionInit),
+    "CHECKBOX",
+    "Skip Mission initialization",
+    ["qipTPL Settings","Mission Settings"],
+    true,
+    1
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(missionInitTime),
     "SLIDER",
     ["Init Time","Time to initialize the mission"],
     ["qipTPL Settings","Mission Settings"],
@@ -17,7 +26,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntro",
+    QGVAR(uavIntro),
     "CHECKBOX",
     ["UAV Intro","Uses 'qipTPL_uavIntroMarker' marker or player position as target"],
     ["qipTPL Settings","Mission Settings"],
@@ -26,7 +35,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntroText",
+    QGVAR(uavIntroText),
     "EDITBOX",
     ["UAV Intro Text","Text that is show when UAV Intro plays"],
     ["qipTPL Settings","Mission Settings"],
@@ -35,7 +44,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntroAltitude",
+    QGVAR(uavIntroAltitude),
     "SLIDER",
     ["UAV Intro altitude","Altitude (in meters)"],
     ["qipTPL Settings","Mission Settings"],
@@ -44,7 +53,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntroRadius",
+    QGVAR(uavIntroRadius),
     "SLIDER",
     ["UAV Intro radius","Radius of the circular movement (in meters)"],
     ["qipTPL Settings","Mission Settings"],
@@ -53,7 +62,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntroAngle",
+    QGVAR(uavIntroAngle),
     "SLIDER",
     ["UAV Intro angle","Viewing angle (in degrees)"],
     ["qipTPL Settings","Mission Settings"],
@@ -62,7 +71,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_uavIntroVision",
+    QGVAR(uavIntroVision),
     "LIST",
     ["UAV Intro vision","Different visions (Normal,NVG,TI)"],
     ["qipTPL Settings","Mission Settings"],
@@ -71,7 +80,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_clanName",
+    QGVAR(clanName),
     "EDITBOX",
     ["Clan Name","Clan name or name of the community. Used in Hints, intro's etc."],
     ["qipTPL Settings","Main Settings"],
@@ -80,7 +89,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_clanTag",
+    QGVAR(clanTag),
     "EDITBOX",
     ["Clan Tag","Clantag or shortname of the community. Used in Hints, intro's etc."],
     ["qipTPL Settings","Main Settings"],
@@ -88,5 +97,5 @@
     1
 ] call CBA_fnc_addSetting;
 
-qipTPL_clanLogo = QPATHTOEF(assets,Images\clanLogo.paa);
-qipTPL_clanFlag = QPATHTOEF(assets,Images\clanFlag.paa);
+GVAR(clanLogo) = QPATHTOEF(assets,Images\clanLogo.paa);
+GVAR(clanFlag) = QPATHTOEF(assets,Images\clanFlag.paa);
