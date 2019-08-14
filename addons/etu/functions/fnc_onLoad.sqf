@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: BlauBär
  * Prepares the teleporter dialog.
@@ -8,7 +9,7 @@
  * Return Value:
  * None
  */
-#include "script_component.hpp"
+
 params ["_dialog"];
 
 private _listPlayers    = _dialog displayCtrl 10;

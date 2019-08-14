@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: BlauBär
  * Logs a message of the given type to the RPT.
@@ -10,7 +11,7 @@
  * Return Value:
  * None
  */
-#include "script_component.hpp"
+
 params ["_message", "_component", ["_mode", 0]];
 
 switch (_mode) do {

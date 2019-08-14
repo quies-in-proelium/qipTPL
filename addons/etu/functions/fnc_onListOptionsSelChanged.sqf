@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: BlauBär
  * Handles a change of the selected transport option.
@@ -9,7 +10,7 @@
  * Return Value:
  * None
  */
-#include "script_component.hpp"
+
 params ["_ctrl", "_selection"];
 
 GVAR(targetType) = _ctrl lbData _selection;

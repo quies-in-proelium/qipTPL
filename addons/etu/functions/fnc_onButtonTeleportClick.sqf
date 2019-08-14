@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: BlauBär
  * Handles clicking the teleport button.
@@ -8,7 +9,6 @@
  * Return Value:
  * None
  */
-#include "script_component.hpp"
 
 if (isNull GVAR(target)) exitWith {};
 closeDialog 0;

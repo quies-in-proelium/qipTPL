@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 	Author: NemesisRE
 
@@ -5,7 +6,6 @@
 	Shows initialization message
 
 */
-#include "script_component.hpp"
 
 if (GVAR(skipMissionInit)) exitWith {};
 

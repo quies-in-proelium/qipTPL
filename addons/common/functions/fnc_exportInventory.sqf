@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
 	Author: NemesisRE
 
@@ -7,7 +8,6 @@
 	Returns:
 	STRING - Class code
 */
-#include "script_component.hpp"
 
 private ["_center","_br","_tab","_fnc_addArray","_name","_array","_export"];
 
