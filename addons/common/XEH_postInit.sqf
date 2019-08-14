@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-if (isNil "qipTPL_enabled" || !(qipTPL_enabled) || !hasInterface) exitWith {};
+if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled)) || !hasInterface) exitWith {};
 
 ["unit", {
     qipTPL_unit = (_this select 0);

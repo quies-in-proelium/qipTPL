@@ -1,5 +1,5 @@
 [
-    "qipTPL_enableLoadout", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    QGVAR(enableLoadout), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Predefind Mission Loadout", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     ["qipTPL Settings","Mission Settings"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -8,7 +8,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "qipTPL_enableBluforTracking", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    QGVAR(enableBluforTracking), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Blufor Tracking", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     ["qipTPL Settings","Mission Settings"], // Pretty name of the category where the setting can be found. Can be stringtable entry.

@@ -1,4 +1,3 @@
-PREP(addChatCommands);
 PREP(customMark);
 PREP(exportInventory);
 PREP(giveZeus);

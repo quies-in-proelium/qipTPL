@@ -1,5 +1,7 @@
-if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
-if !(qipTPL_enableLoadout) exitWith {};
+#include "script_component.hpp"
+
+if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
+if !(GVAR(enableLoadout)) exitWith {};
 
 private ["_configPath", "_missionStart","_units","_str","_role"];
 

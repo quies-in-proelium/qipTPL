@@ -4,7 +4,7 @@ ADDON = false;
 
 #include "initCBASettings.sqf"
 
-if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
+if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
 
 #include "XEH_PREP.hpp"
 
