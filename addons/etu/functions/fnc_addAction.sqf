@@ -16,20 +16,20 @@
 
 params [["_object", objNull, [objNull]]];
 
-//_object addAction ["Notfalltransporter", { createDialog "RscTemplateTransporter" }, [], 0, false];
+GVAR(teleporter) = _object;
 _object addAction ["Transport zum Squadleader",
     {
-        private ["_caller","_leader","_leaderPosX","_leaderPosY","_leaderPosZ"];
-        _caller = _this select 1;
-        _leader = leader _caller;
+        params ["", "_caller"];
+        private ["_leader","_pos"];
+        _caller call FUNC(restoreGear);
+        _leader = leader (group (vehicle _caller));
         if (vehicle _leader == _leader) then {
-            _leaderPosX = (getpos _leader select 0) + (3*sin ((getDir _leader) -180));
-            _leaderPosY = (getpos _leader select 1) + (3*cos ((getDir _leader) -180));
-            _leaderPosZ = (getpos _leader select 2);
-            _caller setpos [_leaderPosX,_leaderPosY,_leaderPosZ];
+            _pos = _leader modelToWorld [-5,-5,0];
+			_pos set [2,0];
+            _caller setpos _pos;
         } else {
             if ((vehicle _leader) emptyPositions "cargo" == 0) then {
-                hint "No room in squad leader's vehicle.";
+                hint "No room in squad leader's vehicle";
             } else {
                 _caller moveincargo vehicle _leader;
             };
