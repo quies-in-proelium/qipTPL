@@ -11,6 +11,7 @@ class CfgSounds {
     //     sound[] = {"Sounds\wolf1.ogg", db+0, 1.0}; // Dateiname, volume, pitch
     //     titles[] = {1, "*wolf growls*"}; // Untertitel verzögerung in sekunden, Untertitel text (optional)
     // };
+    #include "Sounds\AL\CfgSounds_AL.hpp"
 
     class qipTPL_Nuclear {
         name = "[qip] Nuclear siren";
