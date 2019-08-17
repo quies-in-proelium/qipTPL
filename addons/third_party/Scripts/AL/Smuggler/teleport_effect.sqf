@@ -4,7 +4,7 @@ fn_teleport = {
 	params ["_unit","_pozitie"];
 	waitUntil {isNil{player getVariable "tele"}};
 	player setVariable ["tele",true];
-	[] spawn {execVM QPATHTOF(Scripts\AL\video_effect.sqf)};
+	[] spawn {execVM QPATHTOF(Scripts\AL\Smuggler\video_effect.sqf)};
 	["zoomin"] remoteExec ["playsound",_unit];
 	private _sound_in = ["halu_1","halu_2","halu_3","halu_4","halu_5","halu_6","halu_7","halu_8","halu_9","halu_91","halu_92","halu_93","halu_94","halu_95","halu_96","halu_97","halu_98","halu_99","halu_991","halu_992","halu_993","halu_994","halu_995","halu_996","halu_997","halu_998","halu_999","halu_9999"] call BIS_fnc_selectRandom;
 	[_sound_in] remoteExec ["playsound",_unit];

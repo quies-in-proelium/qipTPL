@@ -12,19 +12,19 @@ protection_smug = _teleport_protect; publicVariable "protection_smug";
 detect_smug = _device_detector; publicVariable "detect_smug";
 
 if (_device_detector !="") then {
-	null= [_sursa_smugg] execvm QPATHTOF(Scripts\AL\ai_avoid_smugg.sqf)
+	null= [_sursa_smugg] execvm QPATHTOF(Scripts\AL\Smuggler\ai_avoid_smugg.sqf)
 } else {
-	null= [_sursa_smugg] execvm QPATHTOF(Scripts\AL\ai_avoid_smugg_visible.sqf)
+	null= [_sursa_smugg] execvm QPATHTOF(Scripts\AL\Smuggler\ai_avoid_smugg_visible.sqf)
 };
-[[_sursa_smugg,_sursa_smugg_core],QPATHTOF(Scripts\AL\alias_smugg_sfx.sqf)] remoteExec ["execVM",0,true];
-[[_sursa_smugg,_sursa_smugg_core],QPATHTOF(Scripts\AL\teleport_smugg.sqf)] remoteExec ["execVM",0,true];
+[[_sursa_smugg,_sursa_smugg_core],QPATHTOF(Scripts\AL\Smuggler\alias_smugg_sfx.sqf)] remoteExec ["execVM",0,true];
+[[_sursa_smugg,_sursa_smugg_core],QPATHTOF(Scripts\AL\Smuggler\teleport_smugg.sqf)] remoteExec ["execVM",0,true];
 if (count _spawn_classname > 0) then {
 	if(_delay_between_spawn <=0) exitwith {
 		hint "The delay between spawns must be bigger than 0"
 	};
 	spawn_delay_smugg=_delay_between_spawn;
 	publicVariable"spawn_delay_smugg";
-	[_spawn_classname,_sursa_smugg_core] execvm QPATHTOF(Scripts\AL\smuggler_spawn.sqf)
+	[_spawn_classname,_sursa_smugg_core] execvm QPATHTOF(Scripts\AL\Smuggler\smuggler_spawn.sqf)
 };
 
 if (_mobile_anomaly) then {

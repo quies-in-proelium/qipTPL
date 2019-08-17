@@ -28,7 +28,7 @@ while {alive _obj_teleporter} do {
 						[_obj_teleporter,["tele_message",100]] remoteExec ["say3d"];
 						[_x] call fnc_teleportSFX_AI;
 						if (isPlayer _x) then {
-							[[_x,_obj_teleporter],QPATHTOF(Scripts\AL\teleport_effect.sqf)] remoteExec ["execVM"]
+							[[_x,_obj_teleporter],QPATHTOF(Scripts\AL\Smuggler\teleport_effect.sqf)] remoteExec ["execVM"]
 						} else {
 							private _dest_tele = [getpos _obj_teleporter,300,-1,5,0,0.5,0] call BIS_fnc_findSafePos;
 							_x setPos _dest_tele;
@@ -45,7 +45,7 @@ while {alive _obj_teleporter} do {
 				[_obj_teleporter,["tele_message",100]] remoteExec ["say3d"];
 				[_x] call fnc_teleportSFX_AI;
 				if (isPlayer _x) then {
-					[[_x,_obj_teleporter],QPATHTOF(Scripts\AL\teleport_effect.sqf)] remoteExec ["execVM"]
+					[[_x,_obj_teleporter],QPATHTOF(Scripts\AL\Smuggler\teleport_effect.sqf)] remoteExec ["execVM"]
 				} else {
 					private _dest_tele = [getpos _obj_teleporter,300,-1,5,0,0.5,0] call BIS_fnc_findSafePos;
 					_x setPos _dest_tele;
