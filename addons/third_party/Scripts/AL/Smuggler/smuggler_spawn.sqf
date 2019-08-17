@@ -48,7 +48,7 @@ while {!isNull _object_anom_core} do {
 		[_gigi] spawn {
 			params ["_unit_fresh"];
 			sleep 120;
-			_unit_fresh setVariable ["teleported_in", nil,true];
+			_unit_fresh setVariable ["teleported_in", 0,true];
 		};
 		sleep (30 + random spawn_delay_smugg);
 	} else {

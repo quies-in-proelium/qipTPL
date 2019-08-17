@@ -23,8 +23,8 @@ while {alive _obj_teleporter} do {
 				if ((headgear _x == protection_smug)or(goggles _x==protection_smug)or(uniform _x==protection_smug)or(vest _x==protection_smug)or(Backpack _x==protection_smug) or (protection_smug in (assigneditems _x + items _x))) then {
 					/*hint "protejat"*/
 				} else {
-					private _fresh_spawn = _x getVariable "teleported_in";
-					if (isNil "_fresh_spawn" || isNull _fresh_spawn) then {
+					private _fresh_spawn = _x getVariable ["teleported_in", 0];
+					if (_fresh_spawn == 0) then {
 						[_obj_teleporter,["tele_message",100]] remoteExec ["say3d"];
 						[_x] call fnc_teleportSFX_AI;
 						if (isPlayer _x) then {
@@ -40,8 +40,8 @@ while {alive _obj_teleporter} do {
 		};
 	} else {
 		{
-			private _fresh_spawn = _x getVariable "teleported_in";
-			if (isNil "_fresh_spawn" || isNull _fresh_spawn) then {
+			private _fresh_spawn = _x getVariable ["teleported_in", 0];
+			if (_fresh_spawn == 0) then {
 				[_obj_teleporter,["tele_message",100]] remoteExec ["say3d"];
 				[_x] call fnc_teleportSFX_AI;
 				if (isPlayer _x) then {
@@ -58,8 +58,8 @@ while {alive _obj_teleporter} do {
 	_list_vek_teleport = (position _obj_teleporter) nearEntities ["LandVehicle",15];
 	if (count _list_vek_teleport>0) then {
 		{
-			private _fresh_spawn = _x getVariable "teleported_in";
-			if (isNil "_fresh_spawn" || isNull _fresh_spawn) then {
+			private _fresh_spawn = _x getVariable ["teleported_in", 0];
+			if (_fresh_spawn == 0) then {
 				[_obj_teleporter,["tele_message",100]] remoteExec ["say3d"];
 				[_x] call fnc_teleportSFX_AI;
 				private _dest_tele = [getpos _obj_teleporter,300,-1,5,0,0.5,0] call BIS_fnc_findSafePos;
