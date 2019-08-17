@@ -4,7 +4,7 @@ if (!hasInterface) exitWith {};
 params ["_alias_bolt_1","_sound_close","_sound_echo","_flick_screen"];
 private ["_soundPath","_voice_thund","_dist_pl_thund","_pitch_sound","_delay","_cloud"];
 
-_soundPath = "\z\qiptpl\addons\assets\Sounds\AL\";
+_soundPath = QPATHTOEF(assets,Sounds\AL\);
 _voice_thund = _soundPath + _sound_close + ".ogg"; //hint str _voice_thund;
 _dist_pl_thund	= player distance _alias_bolt_1; //hint str _dist_pl_thund;
 _pitch_sound = linearConversion [50,2000,_dist_pl_thund,1.5,0.5,true];
