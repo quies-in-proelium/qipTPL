@@ -1,19 +1,22 @@
 #include "script_component.hpp"
 
+params ["_destroyElectronic"];
 private _delay_check = 0.01;
 
 ["earthquake_02"] remoteExec ["playsound"];
 
 {
-	_x setHitPointDamage ["hitEngine",1];
-	_x disableTIEquipment true;
-	_x disableNVGEquipment true;
+	if (_destroyElectronic) then {
+		_x setHitPointDamage ["hitEngine",1];
+		_x disableTIEquipment true;
+		_x disableNVGEquipment true;
+	};
 	[
 		[_x],
 		QPATHTOF(Scripts\AL\Emp\tgt_sfx.sqf)
 	] remoteExec ["execVM"];
 	sleep _delay_check;
-} forEach list_car_emp;
+} forEach list_vehicle_emp;
 
 {
 	_x setDamage 0.9;

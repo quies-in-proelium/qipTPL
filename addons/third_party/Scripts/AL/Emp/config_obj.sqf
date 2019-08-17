@@ -13,7 +13,7 @@ list_man_emp = _poz_g nearEntities [
 	_rang_emp
 ];
 
-list_car_emp = _poz_g nearEntities [
+list_vehicle_emp = _poz_g nearEntities [
 	[
 		"Car",
 		"Motorcycle",
@@ -114,7 +114,7 @@ special_launchers_emp = [
 ];
 
 publicVariable "list_man_emp";
-publicVariable "list_car_emp";
+publicVariable "list_vehicle_emp";
 publicVariable "static_turrets_emp";
 publicVariable "list_light_emp";
 publicVariable "special_helmet_emp";
