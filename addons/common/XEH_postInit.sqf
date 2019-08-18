@@ -9,7 +9,7 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled)) || !hasInterface) exi
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
 if (isServer) then {
-    [] spawn FUNC(rptLog);
+    [{time > 10}, {[] call FUNC(rptLog);}, [player]] call CBA_fnc_waitUntilAndExecute;
 
     [QGVAR(createZeus), {
         params ["_ownerPlayer"];
@@ -26,7 +26,6 @@ if (isServer) then {
         _zeus addCuratorEditableObjects [allMissionObjects "", true];
         _ownerPlayer setVariable ["TFAR_CuratorCamEars",true,true];
         if (!isMultiplayer && {!isNull findDisplay IDD_DISPLAY3DEN}) then {
-            // if loaded from editor (but not after restart), addons are not activated so we do it manually
             private _addons = ('true' configClasses (configFile >> "CfgPatches")) apply {configName _x};
             activateAddons _addons;
             removeAllCuratorAddons _zeus;
@@ -46,4 +45,4 @@ if (hasInterface) then {
 
 call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 
-[] spawn FUNC(missionInitialization);
+[] call FUNC(missionInitialization);

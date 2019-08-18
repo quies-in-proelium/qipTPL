@@ -1,7 +1,5 @@
 #include "script_component.hpp"
 
-waitUntil {time > 10};
-
 private ["_playableUnits","_aiUnits","_allGroups"];
 if (isMultiplayer) then {
     _playableUnits = count playableUnits;
