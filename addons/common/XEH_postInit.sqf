@@ -9,7 +9,7 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled)) || !hasInterface) exi
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
 if (isServer) then {
-    [{time > 10}, {[] call FUNC(rptLog);}, [player]] call CBA_fnc_waitUntilAndExecute;
+    [{time > 10}, {[] call FUNC(rptLog);}] call CBA_fnc_waitUntilAndExecute;
 
     [QGVAR(createZeus), {
         params ["_ownerPlayer"];
@@ -45,4 +45,4 @@ if (hasInterface) then {
 
 call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
 
-[] call FUNC(missionInitialization);
+[] spawn FUNC(missionInitialization);

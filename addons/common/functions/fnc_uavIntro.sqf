@@ -27,7 +27,7 @@ if (!GVAR(uavIntro)) then {
         true,
         3
     ] spawn BIS_fnc_establishingShot;
-    //QUESTION: can I call BIS_fnc_establishingShot so I wont need waitUntil?
+
     switch (GVAR(uavIntroVision)) do {
         case 1: {camUseNVG true};
         case 2: {true setCamUseTI 0};
@@ -39,23 +39,6 @@ if (!GVAR(uavIntro)) then {
         case 8: {true setCamUseTI 6};
         case 9: {true setCamUseTI 7};
     };
-
-    [
-        {scriptDone _uavIntro},
-        {
-            switch (GVAR(uavIntroVision)) do {
-                case 1: {camUseNVG false};
-                case 2: {false setCamUseTI 0};
-                case 3: {false setCamUseTI 1};
-                case 4: {false setCamUseTI 2};
-                case 5: {false setCamUseTI 3};
-                case 6: {false setCamUseTI 4};
-                case 7: {false setCamUseTI 5};
-                case 8: {false setCamUseTI 6};
-                case 9: {false setCamUseTI 7};
-            };
-        }
-    ] call CBA_fnc_waitUntilAndExecute;
 };
 
 _uavIntro;

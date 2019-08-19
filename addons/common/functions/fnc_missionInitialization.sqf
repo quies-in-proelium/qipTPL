@@ -6,10 +6,7 @@
 	Shows initialization message
 
 */
-
 if (GVAR(skipMissionInit)) exitWith {};
-
-private ["_uavIntro"];
 
 if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     if (mod_ACE3) then {
@@ -24,6 +21,19 @@ if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     };
 };
 
-_uavIntro = [] call FUNC(uavIntro);
+private _uavIntro = [] call FUNC(uavIntro);
 
-[{scriptDone _uavIntro}, {call FUNC(missionIntro)}, [player]] call CBA_fnc_waitUntilAndExecute;
+waitUntil {scriptDone _uavIntro};
+
+switch (GVAR(uavIntroVision)) do {
+    case 1: {camUseNVG false};
+    case 2: {false setCamUseTI 0};
+    case 3: {false setCamUseTI 1};
+    case 4: {false setCamUseTI 2};
+    case 5: {false setCamUseTI 3};
+    case 6: {false setCamUseTI 4};
+    case 7: {false setCamUseTI 5};
+    case 8: {false setCamUseTI 6};
+    case 9: {false setCamUseTI 7};
+};
+[] call FUNC(missionIntro);
