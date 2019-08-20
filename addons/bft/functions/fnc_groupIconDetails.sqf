@@ -1,46 +1,29 @@
-////////////////////////////////////////////////////////////////////////////////
-// TO BE REMOVED USED AS REFERNCE
-//
 #include "script_component.hpp"
 
-private _group = _this select 1;
+params ["_markerName"];
+private ["_group", "_unitMOS", "_unitName", "_color", "_text", "_groupCount", "_unitNameList", "_leader", "_showClass"];
+
+if (!isNull (_markerName call BIS_fnc_groupFromNetId)) then {
+    _group = _markerName call BIS_fnc_groupFromNetId;
+} else {
+    _group = group (_markerName call BIS_fnc_objectFromNetId);
+};
 
 if (!((side _group) isEqualTo playerSide)) exitWith {
     hintSilent 'This group is not in your faction!';
 };
 
-private _lifeState = '';
-private _unitMOS = '';
-private _unitName = '';
-private _color = [0,0,0,1];
-private _colorIncapacitated = [1,0.41,0,1];
-private _colorInjured = [0,0,0,1];
-private _colorDead = [0.4,0,0.5,0.65];
-private _text = [_group,1] call FUNC(groupIconText);
-private _groupCount = count (units _group);
-private _unitNameList = '';
-private _leader = TRUE;
-private _showClass = GVAR(groupInteractiveClassIcons);
+_unitMOS = '';
+_unitName = '';
+_color = [0,0,0,1];
+_text = [_group,1] call FUNC(groupIconText);
+_groupCount = count (units _group);
+_unitNameList = '';
+_leader = TRUE;
+_showClass = GVAR(groupInteractiveClassIcons);
 
-if (GVAR(showMedicalWounded)) then {
-    _colorIncapacitated = GVAR(medicalIconColor) call BIS_fnc_colorRGBtoHTML;
-    _colorInjured = GVAR(colorInjured) call BIS_fnc_colorRGBtoHTML;
-    _colorDead = [0.4,0,0.5,0.65];
-} else {
-    _colorIncapacitated = [1,0.41,0,1];
-    _colorInjured = [0,0,0,1];
-    _colorDead = [0.4,0,0.5,0.65];
-};
 {
-    _color = [0,0,0,1];
-    _lifeState = lifeState _x;
-    switch _lifeState do {
-        case 'INJURED': {_color = _colorInjured};
-        case 'INCAPACITATED': {_color = _colorIncapacitated};
-        case 'DEAD': {_color = _colorDead};
-    };
-
-    if ([_x,GVAR(medicalSystem)] call FUNC(isIncapacitated)) then {_color = _colorIncapacitated;};
+    _color = [_x] call FUNC(getMarkerColor);
     _unitMOS = getText (configFile >> 'CfgVehicles' >> (typeOf _x) >> 'displayName');
     _unitName = name _x;
     if (!isPlayer _x) then {
