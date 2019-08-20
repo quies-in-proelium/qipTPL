@@ -1,4 +1,19 @@
 #include "script_component.hpp"
+/*
+ * Author: NemesisRE
+ * Shows hint with the group details for the given Marker
+ *
+ * Arguments:
+ * 0: marker name <NetID>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["UNIT"] call qipTPL_bft_fnc_groupIconDetails
+ *
+ * Public: No
+ */
 
 params ["_markerName"];
 private ["_group", "_unitMOS", "_unitName", "_color", "_text", "_groupCount", "_unitNameList", "_leader", "_showClass"];

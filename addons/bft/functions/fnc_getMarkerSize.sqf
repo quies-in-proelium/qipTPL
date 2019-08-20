@@ -16,10 +16,11 @@
  */
 
 params ["_unit"];
+private ["_size", "_briefingScale", "_mapScale"];
 
-private _size = [1,1];
-private _briefingScale = ctrlMapScale ((findDisplay 53) displayCtrl 51);
-private _mapScale = ctrlMapScale ((findDisplay 12) displayCtrl 51);
+_size = [1,1];
+_briefingScale = ctrlMapScale ((findDisplay 53) displayCtrl 51);
+_mapScale = ctrlMapScale ((findDisplay 12) displayCtrl 51);
 
 if (_unit in allGroups) exitWith {
     if ((_mapScale > 0.06) || (_briefingScale > 0.06)) then {

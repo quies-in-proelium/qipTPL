@@ -16,11 +16,12 @@
  */
 
 params ["_group"];
+private ["_leader", "_vehicle", "_side", "_sides"];
 
-private _leader = leader _group;
-private _vehicle = vehicle _leader;
-private _side = side _leader;
-private _sides = [];
+_leader = leader _group;
+_vehicle = vehicle _leader;
+_side = side _leader;
+_sides = [];
 
 if (GVAR(showCivilianIcons)) then {
     _sides = ["GUER", "WEST", "EAST", "CIV"];

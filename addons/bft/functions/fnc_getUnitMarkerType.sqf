@@ -16,11 +16,12 @@
  */
 
 params ["_unit"];
+private ["_vehicle", "_isEngineer"];
 
 if (isNull _unit) exitWith {"iconMan"};
 
 if (!isNull objectParent _unit) exitWith {
-    private _vehicle = vehicle _unit;
+    _vehicle = vehicle _unit;
     if (_vehicle isKindOf "Plane") exitWith {
         "iconPlane"
     };
@@ -73,7 +74,7 @@ if (_unit getVariable ["ace_medical_medicClass", [0, 1] select (_unit getUnitTra
 };
 
 // Engineer
-private _isEngineer = _unit getVariable ["ACE_isEngineer", _unit getUnitTrait "engineer"];
+_isEngineer = _unit getVariable ["ACE_isEngineer", _unit getUnitTrait "engineer"];
 if (_isEngineer isEqualType 0) then {_isEngineer = _isEngineer > 0};
 
 if (_isEngineer) exitWith {
