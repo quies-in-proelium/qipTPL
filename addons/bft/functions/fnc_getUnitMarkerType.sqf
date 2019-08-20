@@ -20,11 +20,37 @@ params ["_unit"];
 if (isNull _unit) exitWith {"iconMan"};
 
 if (!isNull objectParent _unit) exitWith {
-    if ((leader _unit) isEqualTo _unit) then {
-        // Vehicle icon
+    private _vehicle = vehicle _unit;
+    if (_vehicle isKindOf "Plane") exitWith {
+        "iconPlane"
     };
-    if !(vehicle (leader _unit) isEqualTo vehicle _unit) then {
-        // Vehicle icon
+
+    if (_vehicle isKindOf "Helicopter") exitWith {
+        "iconHelicopter"
+    };
+
+    if (_vehicle isKindOf "StaticMortar") exitWith {
+        "iconStaticMortar"
+    };
+
+    if (getNumber (configFile >> "CfgVehicles" >> typeOf _vehicle >> "artilleryScanner") == 1) exitWith {
+        "iconStaticCannon"
+    };
+
+    if (_vehicle isKindOf "Car") exitWith {
+        "iconCar"
+    };
+
+    if (_vehicle isKindOf "Tank") exitWith {
+        "iconTank"
+    };
+
+    if (_vehicle isKindOf "Ship") exitWith {
+        "iconShip"
+    };
+
+    if (_vehicle isKindOf "apc") exitWith {
+        "iconApc"
     };
 };
 
