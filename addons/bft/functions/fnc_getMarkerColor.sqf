@@ -16,15 +16,20 @@
  */
 
 params["_unit"];
+private ["_color", "_assignedTeam"];
 
-private _color = "ColorUNKNOWN";
+_color = "ColorUNKNOWN";
 
 if (_unit in allGroups) exitWith {
     [side (leader _unit),  true] call BIS_fnc_sideColor;
 };
 
 if (_unit in allUnits) then {
-    private _assignedTeam = [assignedTeam _unit] param [0, "MAIN"];
+    if (!isNull objectParent _unit) then {
+        _assignedTeam = "MAIN";
+    } else {
+        _assignedTeam = [assignedTeam _unit] param [0, "MAIN"];
+    };
     _color = ["Color", _assignedTeam, GVAR(teamColors)] joinString "_";
     if (GVAR(showLifeState)) then {
         switch ([_unit] call FUNC(getUnitLifeState)) do {
