@@ -20,7 +20,7 @@
 ] call CBA_fnc_addSetting;
 
 [
-    QGVAR(AINames),
+    QGVAR(showAINames),
     "CHECKBOX",
     "Show AI Names or Just '[AI]'",
     ["qipTPL BFT Main","General"],
@@ -41,15 +41,6 @@
     QGVAR(showFactionOnly),
     "CHECKBOX",
     "Show only own faction",
-    ["qipTPL BFT Main","General"],
-    false,
-    1
-] call CBA_fnc_addSetting;
-
-[
-    QGVAR(adminMode),
-    "CHECKBOX",
-    "Enable showing all units (even enemies) if logged in as admin on a server",
     ["qipTPL BFT Main","General"],
     false,
     1
@@ -152,35 +143,29 @@
 //=========================== CONFIGURE MAP (UNIT/VEHICLE) ICONS ===================//
 //==================================================================================//
 
-GVAR(showFactionOnly) = FALSE;                                    // BOOL. will override ST_showFriendlySides TRUE. If TRUE then will only show players faction. If FALSE then can show friendly factions. Default FALSE.
-GVAR(showAI) = TRUE;                                            // BOOL. FALSE = players only, TRUE = players and AI. Default TRUE.
-GVAR(showCivilianIcons) = TRUE;                                // BOOL. Set TRUE to allow showing of civilians, only works if Dynamic Diplomacy is enabled above. Default FALSE.
-GVAR(iconMapText) = TRUE;                                        // BOOL. TRUE to show unit/vehicle icon text on the map. FALSE to only show the icon and NO text (name/class). Default TRUE.
-GVAR(showMOS) = TRUE;                                            // BOOL. TRUE = show Military Occupational Specialty text(unit/vehicle class/role display name), FALSE = disable and only show icons and names. Default FALSE.
-GVAR(showMOSRange) = 3500;                                     // NUMBER. Range in distance to show MOS on the map. Default 3500.
-GVAR(showOwnGroupUnits) = TRUE;                                    // BOOL. Set TRUE to show ONLY the unit icons of THE PLAYERS GROUP MEMBERS on the MAP, FALSE to show ALL your factions units. May override other config. Default TRUE.
-GVAR(showOnlyVehicles) = FALSE;                                // BOOL. Set TRUE to show ONLY vehicles, no foot-soldier units will be shown. May override other config. Default TRUE.
-GVAR(iconMapClickShowDetail) = TRUE;                            // BOOL. Set TRUE to show unit/vehicle detail when player clicks on their map near the vehicle. Only works for shown vehicles. Default TRUE.
+GVAR(showFactionOnly) = FALSE;                             // BOOL. will override ST_showFriendlySides TRUE. If TRUE then will only show players faction. If FALSE then can show friendly factions. Default FALSE.
+GVAR(showCivilianIcons) = TRUE;                            // BOOL. Set TRUE to allow showing of civilians, only works if Dynamic Diplomacy is enabled above. Default FALSE.
+GVAR(showMOS) = TRUE;                                      // BOOL. TRUE = show Military Occupational Specialty text(unit/vehicle class/role display name), FALSE = disable and only show icons and names. Default FALSE.
+GVAR(showMOSRange) = 3500;                                 // NUMBER. Range in distance to show MOS on the map. Default 3500.
+GVAR(showOwnGroupUnits) = TRUE;                            // BOOL. Set TRUE to show ONLY the unit icons of THE PLAYERS GROUP MEMBERS on the MAP, FALSE to show ALL your factions units. May override other config. Default TRUE.
+GVAR(iconMapClickShowDetail) = TRUE;                       // BOOL. Set TRUE to show unit/vehicle detail when player clicks on their map near the vehicle. Only works for shown vehicles. Default TRUE.
 GVAR(showLifeState) = TRUE;
+GVAR(showUnitNames) = TRUE;                                // BOOL. TRUE to show unit/vehicle icon text on the map. FALSE to only show the icon and NO text (name/class). Default TRUE.
 //==================================================================================//
 //============================= CONFIGURE GROUP ICONS ==============================//
 //==================================================================================//
 
-GVAR(showGroupMapIcons) = TRUE;                                // BOOL. Group icons displayed on map. Default TRUE.
-GVAR(showGroupHudIcons) = FALSE;                                // BOOL. Group icons displayed on player 3D HUD. Default FALSE.
-GVAR(showAIGroups) = TRUE;                                        // BOOL. Show Groups with AI leaders. Default TRUE.
-GVAR(showAINames) = TRUE;                                        // BOOL. Show AI Names. If FALSE, when names are listed with Group features, will only display as '[AI]'. Default FALSE.
+GVAR(showGroupMapIcons) = TRUE;                            // BOOL. Group icons displayed on map. Default TRUE.
+GVAR(showGroupHudIcons) = FALSE;                           // BOOL. Group icons displayed on player 3D HUD. Default FALSE.
+GVAR(showAIGroups) = TRUE;                                 // BOOL. Show Groups with AI leaders. Default TRUE.
 GVAR(showPlayerNames) = TRUE;
-GVAR(groupInteractiveClassIcons) = TRUE;                    // BOOL. TRUE to show units vehicle class when revealing group details with interactive map group click. Default TRUE.
-GVAR(showGroupMapText) = TRUE;                                    // BOOL. TRUE to show Group Name on the map. If FALSE, name can still be seen by clicking on the group icon, if GVAR(groupInteractiveIcons) = TRUE. Default FALSE.
-GVAR(showCivilianGroups) = FALSE;                                // BOOL. TRUE to show Civilian groups. Must be whitelisted above in friendlySides. Default FALSE.
-GVAR(showOwnGroup) = FALSE;                                    // BOOL. TRUE to show the Players own group icon. Default FALSE.
+GVAR(groupInteractiveClassIcons) = TRUE;                   // BOOL. TRUE to show units vehicle class when revealing group details with interactive map group click. Default TRUE.
+GVAR(showGroupMapText) = TRUE;                             // BOOL. TRUE to show Group Name on the map. If FALSE, name can still be seen by clicking on the group icon, if GVAR(groupInteractiveIcons) = TRUE. Default FALSE.
+GVAR(showCivilianGroups) = FALSE;                          // BOOL. TRUE to show Civilian groups. Must be whitelisted above in friendlySides. Default FALSE.
+GVAR(showOwnGroup) = FALSE;                                // BOOL. TRUE to show the Players own group icon. Default FALSE.
 
 //==================================================================================//
 //============================= CONFIGURE BONUS FEATURES ===========================//
 //==================================================================================//
 
-GVAR(showEmptyVehicles) = FALSE;                                // BOOL. TRUE to mark certain unoccupied vehicles on the map. The vehicle must be assigned this variable:    <vehicle> setVariable [QGVAR(drawEmptyVehicle),TRUE,TRUE];    Default FALSE.   Only works if  GVAR(enableUnitIconsMap) = TRUE;
-
-//================= DEBUG
-GVAR(showAll) = 0;                                            // NUMBER. Intended for Debug / Development use only! Caution: Will cause lag if 1 or 2! Settings -  0 = Disabled (Recommended). 1 = Reveal all Units + vehicles. 2 = Reveal all mission objects + vehicles + units. May override below configurations if set at 1 or 2.
+GVAR(showEmptyVehicles) = FALSE;                           // BOOL. TRUE to mark certain unoccupied vehicles on the map. The vehicle must be assigned this variable:    <vehicle> setVariable [QGVAR(drawEmptyVehicle),TRUE,TRUE];    Default FALSE.   Only works if  GVAR(enableUnitIconsMap) = TRUE;
