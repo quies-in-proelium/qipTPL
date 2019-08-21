@@ -8,6 +8,7 @@ PREP(getMarkerSize);
 PREP(getUnitLifeState);
 PREP(getUnitMarkerType);
 PREP(hasGPSDevice);
+PREP(initDisplayMission);
 PREP(isPlayer);
 PREP(showGroupDetails);
 PREP(trackingUpdate);
