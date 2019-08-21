@@ -21,13 +21,7 @@ private ["_leader", "_vehicle", "_side", "_sides"];
 _leader = leader _group;
 _vehicle = vehicle _leader;
 _side = side _leader;
-_sides = [];
-
-if (GVAR(showCivilianIcons)) then {
-    _sides = ["GUER", "WEST", "EAST", "CIV"];
-} else {
-    _sides = ["GUER", "WEST", "EAST"];
-};
+_sides = ["GUER", "WEST", "EAST", "CIV"];
 
 if (_vehicle == _leader) exitWith {
     if (
