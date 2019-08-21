@@ -40,7 +40,7 @@
 [
     QGVAR(showFactionOnly),
     "CHECKBOX",
-    "Show only own faction",
+    "Show only own faction this will overwrite the diplomacy settings",
     ["qipTPL BFT Main","General"],
     false,
     1
@@ -143,7 +143,6 @@
 //=========================== CONFIGURE MAP (UNIT/VEHICLE) ICONS ===================//
 //==================================================================================//
 
-GVAR(showFactionOnly) = FALSE;                             // BOOL. will override ST_showFriendlySides TRUE. If TRUE then will only show players faction. If FALSE then can show friendly factions. Default FALSE.
 GVAR(showCivilianIcons) = TRUE;                            // BOOL. Set TRUE to allow showing of civilians, only works if Dynamic Diplomacy is enabled above. Default FALSE.
 GVAR(showMOS) = TRUE;                                      // BOOL. TRUE = show Military Occupational Specialty text(unit/vehicle class/role display name), FALSE = disable and only show icons and names. Default FALSE.
 GVAR(showMOSRange) = 3500;                                 // NUMBER. Range in distance to show MOS on the map. Default 3500.
@@ -156,10 +155,8 @@ GVAR(showUnitNames) = TRUE;                                // BOOL. TRUE to show
 //==================================================================================//
 
 GVAR(showGroupMapIcons) = TRUE;                            // BOOL. Group icons displayed on map. Default TRUE.
-GVAR(showGroupHudIcons) = FALSE;                           // BOOL. Group icons displayed on player 3D HUD. Default FALSE.
 GVAR(showAIGroups) = TRUE;                                 // BOOL. Show Groups with AI leaders. Default TRUE.
 GVAR(showPlayerNames) = TRUE;
-GVAR(groupInteractiveClassIcons) = TRUE;                   // BOOL. TRUE to show units vehicle class when revealing group details with interactive map group click. Default TRUE.
 GVAR(showGroupMapText) = TRUE;                             // BOOL. TRUE to show Group Name on the map. If FALSE, name can still be seen by clicking on the group icon, if GVAR(groupInteractiveIcons) = TRUE. Default FALSE.
 GVAR(showCivilianGroups) = FALSE;                          // BOOL. TRUE to show Civilian groups. Must be whitelisted above in friendlySides. Default FALSE.
 GVAR(showOwnGroup) = FALSE;                                // BOOL. TRUE to show the Players own group icon. Default FALSE.

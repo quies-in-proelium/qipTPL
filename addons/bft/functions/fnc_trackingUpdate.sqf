@@ -17,19 +17,20 @@
 
 if ((isNil "qipTPL_unit") && (!alive qipTPL_unit)) exitWith {};
 
-// Delete last set of markers (always)
+private ["_groupsToDrawMarkers", "_playerSide", "_showFriendlySides", "_sides", "_playersGroupUnitsToDrawMarkers"];
+
 {
     deleteMarkerLocal _x;
 } forEach GVAR(bftMarkers);
 
 GVAR(bftMarkers) = [];
 
-if (GVAR(requireItemGPS) && !(call FUNC(hasGPSDevice))) exitWith {};
+if (GVAR(requireItemGPS) && !([qipTPL_unit] call FUNC(hasGPSDevice))) exitWith {};
 
-private _groupsToDrawMarkers = [];
-private _playerSide = playerSide;
-private _showFriendlySides = [];
-private _sides = [EAST,WEST,RESISTANCE,CIVILIAN];
+_groupsToDrawMarkers = [];
+_playerSide = playerSide;
+_showFriendlySides = [];
+_sides = [EAST,WEST,RESISTANCE,CIVILIAN];
 if (!(_playerSide isEqualTo CIVILIAN) && !(GVAR(showCivilianIcons))) then {
     _sides = [EAST,WEST,RESISTANCE];
 };
@@ -63,7 +64,7 @@ if (!GVAR(showAIGroups)) then {
 _groupsToDrawMarkers = _groupsToDrawMarkers select {!(_x getVariable [QGVAR(hideBlueForceMarker), false])};
 
 if (GVAR(showOwnGroupUnits)) then {
-    private _playersGroupUnitsToDrawMarkers = units (group qipTPL_unit);
+    _playersGroupUnitsToDrawMarkers = units (group qipTPL_unit);
 
     {
         private ["_markerType", "_markerColor", "_markerSize", "_markerDir", "_markerName", "_markerText", "_marker"];
@@ -101,10 +102,12 @@ if (GVAR(showOwnGroupUnits)) then {
         GVAR(bftMarkers) pushBack _marker;
     } forEach _playersGroupUnitsToDrawMarkers;
 
-    _groupsToDrawMarkers = _groupsToDrawMarkers select {
-        {
-            !(_x in (units (group qipTPL_unit)));
-        } count units _x > 0;
+    if !(GVAR(showOwnGroup)) then {
+        _groupsToDrawMarkers = _groupsToDrawMarkers select {
+            {
+                !(_x in (units (group qipTPL_unit)));
+            } count units _x > 0;
+        };
     };
 };
 
@@ -117,11 +120,13 @@ if (GVAR(showOwnGroupUnits)) then {
     _markerName = _x call BIS_fnc_netId;
     _markerText = groupId _x;
 
-    _marker = createMarkerLocal [_markerName, getPos (leader _x)];
+    _marker = createMarkerLocal [_markerName, (leader _x) modelToWorld [+5,0,0]];
     _marker setMarkerTypeLocal _markerType;
     _marker setMarkerColorLocal _markerColor;
     _marker setMarkerSizeLocal _markerSize;
-    _marker setMarkerTextLocal _markerText;
+    if (GVAR(showGroupMapText)) then {
+        _marker setMarkerTextLocal _markerText;
+    };
 
     GVAR(bftMarkers) pushBack _marker;
 } forEach _groupsToDrawMarkers;
