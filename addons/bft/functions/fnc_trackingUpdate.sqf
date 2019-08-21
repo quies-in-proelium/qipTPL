@@ -17,7 +17,7 @@
 
 if ((isNil "qipTPL_unit") && (!alive qipTPL_unit)) exitWith {};
 
-private ["_groupsToDrawMarkers", "_playerSide", "_showFriendlySides", "_sides"];
+private ["_groupsToDrawMarkers", "_playerSide", "_friendlySides"];
 
 {
     deleteMarkerLocal _x;
@@ -29,32 +29,12 @@ if (GVAR(requireItemGPS) && !([qipTPL_unit] call FUNC(hasGPSDevice))) exitWith {
 
 _groupsToDrawMarkers = [];
 _playerSide = playerSide;
-_showFriendlySides = [];
-_sides = [EAST,WEST,RESISTANCE,CIVILIAN];
-if (!(_playerSide isEqualTo CIVILIAN) && !(GVAR(showCivilians))) then {
-    _sides = [EAST,WEST,RESISTANCE];
-};
-
-if (GVAR(friendlySidesDynamic)) then {
-    {
-        if ((_playerSide getFriend _x) > 0.6) then {
-            _showFriendlySides pushBack _x;
-        };
-    } forEach _sides;
-} else {
-    switch (_playerSide) do {
-        case east: {_showFriendlySides = GVAR(friendlySides_EAST)};
-        case west: {_showFriendlySides = GVAR(friendlySides_WEST)};
-        case resistance: {_showFriendlySides = GVAR(friendlySides_RESISTANCE)};
-        case civilian: {_showFriendlySides = GVAR(friendlySides_CIVILIAN)};
-        default {_showFriendlySides = []};
-    };
-};
+_friendlySides = [_playerSide] call FUNC(getFriendlySides);
 
 if (GVAR(showOwnFactionOnly)) then {
     _groupsToDrawMarkers = allGroups select {side _x == _playerSide};
 } else {
-    _groupsToDrawMarkers = allGroups select {side _x in _showFriendlySides};
+    _groupsToDrawMarkers = allGroups select {side _x in _friendlySides};
 };
 
 if (!GVAR(showAIGroups)) then {
