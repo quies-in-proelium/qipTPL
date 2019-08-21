@@ -43,12 +43,12 @@ if (GVAR(friendlySidesDynamic)) then {
     } forEach _sides;
 } else {
     switch (_playerSide) do {
-    case east: {_showFriendlySides = GVAR(friendlySides_EAST)};
-    case west: {_showFriendlySides = GVAR(friendlySides_WEST)};
-    case resistance: {_showFriendlySides = GVAR(friendlySides_RESISTANCE)};
-    case civilian: {_showFriendlySides = GVAR(friendlySides_CIVILIAN)};
-    default {_showFriendlySides = []};
-};
+        case east: {_showFriendlySides = GVAR(friendlySides_EAST)};
+        case west: {_showFriendlySides = GVAR(friendlySides_WEST)};
+        case resistance: {_showFriendlySides = GVAR(friendlySides_RESISTANCE)};
+        case civilian: {_showFriendlySides = GVAR(friendlySides_CIVILIAN)};
+        default {_showFriendlySides = []};
+    };
 };
 
 if (GVAR(showOwnFactionOnly)) then {
