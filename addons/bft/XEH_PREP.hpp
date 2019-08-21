@@ -1,12 +1,10 @@
-//PREP(clearHint);
+PREP(clearHint);
 PREP(getGroupMarkerType);
 PREP(getMarkerColor);
 PREP(getMarkerSize);
 PREP(getUnitLifeState);
 PREP(getUnitMarkerType);
-//PREP(groupIconDetails);
 PREP(hasGPSDevice);
-//PREP(iconUnits);
 PREP(isPlayer);
+PREP(showGroupDetails);
 PREP(trackingUpdate);
-//PREP(mapSingleClick);
