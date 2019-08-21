@@ -1,4 +1,6 @@
 PREP(clearHint);
+PREP(createGroupMarkers);
+PREP(createUnitMarkers);
 PREP(getGroupMarkerType);
 PREP(getMarkerColor);
 PREP(getMarkerSize);
