@@ -21,7 +21,7 @@ private ["_group", "_unitMOS", "_unitName", "_color", "_text", "_groupCount", "_
 if (!isNull (_markerName call BIS_fnc_groupFromNetId)) then {
     _group = _markerName call BIS_fnc_groupFromNetId;
 } else {
-    if (isNull _markerName call BIS_fnc_objectFromNetId) exitWith {};
+    if (isNull (_markerName call BIS_fnc_objectFromNetId)) exitWith {};
     _group = group (_markerName call BIS_fnc_objectFromNetId);
 };
 
