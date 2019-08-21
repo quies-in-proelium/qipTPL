@@ -65,6 +65,14 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(showPlayerNames),
+    "CHECKBOX",
+    "Show player names",
+    ["qipTPL - BFT","Units"],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(showAINames),
     "CHECKBOX",
     "Show player names",
@@ -78,6 +86,15 @@
     "Show AI names or just '[AI]'",
     ["qipTPL - BFT","Units"],
     true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(teamColors),
+    "LIST",
+    "Color style for team colors",
+    ["qipTPL - BFT","Units"],
+    [["Default","ACE","STHUD"],["Default","ACE","STHUD"],0],
+    0
 ] call CBA_fnc_addSetting;
 
 //================= GROUPS
@@ -114,6 +131,15 @@
     "Show group marker of your own group",
     ["qipTPL - BFT","Groups"],
     true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(groupIconsInteraction),
+    "LIST",
+    "Interaction with group icons to show details",
+    ["qipTPL - BFT","Groups"],
+    [["disabled","hover","click"],["Disabled","Hover","Click"],1],
+    0
 ] call CBA_fnc_addSetting;
 
 //================= MEDICAL
@@ -189,24 +215,6 @@
     1,
     nil,
     true
-] call CBA_fnc_addSetting;
-
-[
-    QGVAR(groupIconsInteraction),
-    "LIST",
-    "Interaction with group icons to show details",
-    ["qipTPL - BFT","Group"],
-    [["disabled","hover","click"],["Disabled","Hover","Click"],1],
-    0
-] call CBA_fnc_addSetting;
-
-[
-    QGVAR(teamColors),
-    "LIST",
-    "Color style for team colors",
-    ["qipTPL - BFT","Group"],
-    [["Default","ACE","STHUD"],["Default","ACE","STHUD"],0],
-    0
 ] call CBA_fnc_addSetting;
 
 //==================================================================================//
