@@ -15,4 +15,4 @@
  * Public: No
  */
 
-hintSilent '';
+hintSilent "";

@@ -94,7 +94,7 @@ if (GVAR(showOwnGroupUnits)) then {
                 if (GVAR(showAINames)) then {
                     _marker setMarkerTextLocal _markerText;
                 } else {
-                    _marker setMarkerTextLocal '[AI]';
+                    _marker setMarkerTextLocal "[AI]";
                 };
             };
         };

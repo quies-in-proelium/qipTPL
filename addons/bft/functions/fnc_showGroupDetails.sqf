@@ -26,7 +26,7 @@ if (!isNull (_markerName call BIS_fnc_groupFromNetId)) then {
 };
 
 if (!((side _group) isEqualTo playerSide)) exitWith {
-    hintSilent 'This group is not in your faction!';
+    hintSilent "This group is not in your faction!";
 };
 
 _text = groupId _group;
@@ -34,17 +34,17 @@ _groupCount = count (units _group);
 
 {
     _color = [_x] call FUNC(getMarkerColor);
-    _unitMOS = getText (configFile >> 'CfgVehicles' >> (typeOf _x) >> 'displayName');
+    _unitMOS = getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
     _unitName = name _x;
 
     if (!isPlayer _x && !(GVAR(showAINames))) then {
-        _unitName = '[AI]';
+        _unitName = "[AI]";
     };
 
     if (leader _x) then {
-        _unitNameList = _unitNameList + format ["<t align='left'><t size='1.2'><t color='%2'>%1</t></t></t>",_unitName,_color] + format ["<t align='right'><t size='0.75'><t color='%2'>[%1]</t></t></t>",_unitMOS,_color] + '<br/>';
+        _unitNameList = _unitNameList + format ["<t align='left'><t size='1.2'><t color='%2'>%1</t></t></t>",_unitName,_color] + format ["<t align='right'><t size='0.75'><t color='%2'>[%1]</t></t></t>",_unitMOS,_color] + "<br/>";
     } else {
-        _unitNameList = _unitNameList + format ["<t align='left'><t color='%2'>%1</t></t>",_unitName,_color] + format ["<t align='right'><t size='0.75'><t color='%2'>[%1]</t></t></t>",_unitMOS,_color] + '<br/>';
+        _unitNameList = _unitNameList + format ["<t align='left'><t color='%2'>%1</t></t>",_unitName,_color] + format ["<t align='right'><t size='0.75'><t color='%2'>[%1]</t></t></t>",_unitMOS,_color] + "<br/>";
     };
 } forEach (units _group);
 
