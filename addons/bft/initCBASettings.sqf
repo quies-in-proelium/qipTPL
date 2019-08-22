@@ -217,8 +217,5 @@
     true
 ] call CBA_fnc_addSetting;
 
-//==================================================================================//
-//============================= CONFIGURE BONUS FEATURES ===========================//
-//==================================================================================//
-
+// TODO:
 GVAR(showEmptyVehicles) = FALSE;                           // BOOL. TRUE to mark certain unoccupied vehicles on the map. The vehicle must be assigned this variable:    <vehicle> setVariable [QGVAR(drawEmptyVehicle),TRUE,TRUE];    Default FALSE.   Only works if  GVAR(enableUnitIconsMap) = TRUE;
