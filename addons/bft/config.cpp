@@ -8,7 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"qiptpl_main"};
         author = "NemesisRE";
-        authors[] = {"Quiksilver","ACE3"};
+        authors[] = {"baermitumlaut", "commy2"};
         VERSION_CONFIG;
     };
 };
