@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
+if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
 
 if (isServer || !hasInterface) exitWith {};
 

@@ -56,6 +56,7 @@ Manual:            Call from init.sqf via:
 if (isDedicated) exitWith {};
 waitUntil {!isNull player}; //to prevent MP / JIP issues
 
+private ["_id"];
 NreEarplugsPath = "\qipTPL\3rdPartyScripts\";
 
 if (isNil "NreEarplugsActive") then {

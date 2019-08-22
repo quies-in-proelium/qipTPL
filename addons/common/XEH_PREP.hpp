@@ -1,8 +1,7 @@
-PREP(addChatCommands);
 PREP(customMark);
 PREP(exportInventory);
-PREP(giveZeus);
 PREP(missionInitialization);
+PREP(missionIntro);
 PREP(paramToBool);
 PREP(rptLog);
 PREP(uavHelper);

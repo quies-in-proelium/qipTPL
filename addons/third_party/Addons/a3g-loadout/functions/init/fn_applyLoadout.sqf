@@ -1,7 +1,9 @@
-if (isNil "qipTPL_enabled" || !(qipTPL_enabled)) exitWith {};
-if !(qipTPL_enableLoadout) exitWith {};
+#include "script_component.hpp"
 
-private ["_configPath", "_missionStart"];
+if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
+if !(GVAR(enableLoadout)) exitWith {};
+
+private ["_configPath", "_missionStart","_units","_str","_role"];
 
 _configPath = missionConfigFile >> "CfgLoadouts";
 _missionStart = if ( !isNil { _this select 0 } && { _this select 0 == "postInit" }) then { true } else { false };
