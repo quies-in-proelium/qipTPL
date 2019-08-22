@@ -1,0 +1,14 @@
+PREP(clearHint);
+PREP(createGroupMarkers);
+PREP(createUnitMarkers);
+PREP(getFriendlySides);
+PREP(getGroupMarkerType);
+PREP(getMarkerColor);
+PREP(getMarkerSize);
+PREP(getUnitLifeState);
+PREP(getUnitMarkerType);
+PREP(hasGPSDevice);
+PREP(initDisplayMap);
+PREP(isPlayer);
+PREP(showGroupDetails);
+PREP(trackingUpdate);
