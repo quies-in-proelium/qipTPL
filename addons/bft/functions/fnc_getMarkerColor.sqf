@@ -35,8 +35,9 @@ if (_unit in allUnits) then {
         switch ([_unit] call FUNC(getUnitLifeState)) do {
             case "INCAPACITATED": {_color = "Color_INCAPACITATED";};
             case "INJURED": {_color = "Color_INJURED";};
-            case "UNKNOWN": {_color = "ColorUNKNOWN";};
             case "HEALTHY": {_color = _color;};
+            case "UNKNOWN";
+            default {_color = "ColorUNKNOWN";};
         };
     };
 };
