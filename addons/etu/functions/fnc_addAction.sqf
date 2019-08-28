@@ -17,7 +17,9 @@
 params [["_object", objNull, [objNull]]];
 
 GVAR(teleporter) = _object;
-publicVariable QGVAR(teleporter);
+GVAR(teleporter) enableSimulation false;
+GVAR(teleporter) allowDamage false;
+
 _object addAction [
     "Transport zum Squadleader",
     {
@@ -27,7 +29,7 @@ _object addAction [
         _leader = leader (group (vehicle _caller));
         _targetPos = getPos _target;
         if (vehicle _leader == _leader) then {
-            _pos = [_leader, 2, 30, 1, 1, 20, 0, [], [_targetPos,_targetPos]] call BIS_fnc_findSafePos;
+            _pos = [_leader, 2, 15, 1, 1, 20, 0, [], [_targetPos,_targetPos]] call BIS_fnc_findSafePos;
             if !(_pos isEqualTo _targetPos) then {
                 _caller setpos _pos;
             } else {
