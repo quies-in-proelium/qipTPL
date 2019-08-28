@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
- * Author: BlauBär
+ * Author: NemesisRE
  * Adds a teleporter action to the given object.
  *
  * Arguments:
@@ -17,19 +17,25 @@
 params [["_object", objNull, [objNull]]];
 
 GVAR(teleporter) = _object;
-_object addAction ["Transport zum Squadleader",
+publicVariable QGVAR(teleporter);
+_object addAction [
+    "Transport zum Squadleader",
     {
-        params ["", "_caller"];
-        private ["_leader","_pos"];
+        params ["_target", "_caller"];
+        private ["_leader","_pos","_targetPos"];
         _caller call FUNC(restoreGear);
         _leader = leader (group (vehicle _caller));
+        _targetPos = getPos _target;
         if (vehicle _leader == _leader) then {
-            _pos = _leader modelToWorld [-5,-5,0];
-			_pos set [2,0];
-            _caller setpos _pos;
+            _pos = [_leader, 2, 30, 1, 1, 20, 0, [], [_targetPos,_targetPos]] call BIS_fnc_findSafePos;
+            if !(_pos isEqualTo _targetPos) then {
+                _caller setpos _pos;
+            } else {
+                hint "Could not find a safe location near your leader, try again in a few seconds.";
+            };
         } else {
             if ((vehicle _leader) emptyPositions "cargo" == 0) then {
-                hint "No room in squad leader's vehicle";
+                hint "No room in squad leader's vehicle, try again in a few seconds.";
             } else {
                 _caller moveincargo vehicle _leader;
             };

@@ -1,3 +1,5 @@
 #include "script_component.hpp"
 
- [{{_x call FUNC(saveGear)} forEach allPlayers;},60] call CBA_fnc_addPerFrameHandler;
+if (isServer) then {
+    [{{_x call FUNC(saveGear)} forEach allPlayers;}, 30] call CBA_fnc_addPerFrameHandler;
+};

@@ -1,5 +1,18 @@
 #include "script_component.hpp"
-
+/*
+ * Author: NemesisRE
+ * Restores the saved gear.
+ *
+ * Arguments:
+ * 0: Unit <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [this] call qipTPL_etu_fnc_restoreGear;
+ *
+ */
 params ["_unit"];
 private ["_unitID","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
