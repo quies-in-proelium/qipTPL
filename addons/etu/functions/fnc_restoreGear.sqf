@@ -16,7 +16,7 @@
 params ["_unit"];
 private ["_unitID","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
-_unitID = "qipTPL_savedGear_" + (getPlayerUID _unit);
+_unitID = "qipTPL_savedGear_" + (name _unit);
 _savedGear = missionNamespace getVariable [_unitID, nil];
 if (isNil "_savedGear" || {!alive _unit}) exitWith {};
 
@@ -69,7 +69,7 @@ if (_earplugs) then {
     [player] call ace_hearing_fnc_putInEarplugs;
 };
 
-if (!isNil "_chestpack") then {
+if (_chestpack != 0) then {
     _chestpack set [0, _chestpack select 0 select 0];
     _chestpack deleteAt 1;
     [_unit, _chestpack select 0] call zade_boc_fnc_addChestpack;
