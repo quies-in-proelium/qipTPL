@@ -7,6 +7,8 @@ class CfgVehicles {
         };
     };
 
+    // EO Animals Module - Extended
+    // https://forums.bohemia.net/forums/topic/218801-sullen-skies-ambient-animals-animals-module-extended/
     class ModuleAnimals_F : Module_F {
         author = "$STR_A3_Bohemia_Interactive";
         _generalMacro = "ModuleAnimals_F";
@@ -363,5 +365,56 @@ class CfgVehicles {
         displayName = "Salema";
         portrait = "\a3\Modules_F_Curator\Data\portraitAnimals_ca.paa";
         animalType = "Tuna_F";
+    };
+
+    // EO Enhanced Tents
+    // https://forums.bohemia.net/forums/topic/225055-enhanced-tents/
+    class NonStrategic;
+    class Camping_base_F: NonStrategic {
+        author="$STR_A3_Bohemia_Interactive";
+        scope=0;
+        scopeCurator=0;
+        displayName="";
+        model="\A3\Weapons_F\empty.p3d";
+        icon="iconObject";
+        editorCategory="EdCat_Things";
+        editorSubcategory="EdSubcat_Camping";
+        vehicleClass="Tents";
+        destrType="DestructTent";
+        maximumLoad=2000;
+        mass=10;
+        transportMaxWeapons=10;
+        transportMaxMagazines=50;
+        transportMaxBackpacks=5;
+        transportAmmo=0;
+        transportRepair=0;
+        transportFuel=0;
+        supplyRadius=1.5;
+        cost=0;
+        class DestructionEffects {
+        };
+
+        class TransportItems {
+            class _xx_FirstAidKit {
+                name="FirstAidKit";
+                count=2;
+            };
+            class _xx_ItemCompass {
+                name="ItemCompass";
+                count=1;
+            };
+            class _xx_ItemMap {
+                name="ItemMap";
+                count=1;
+            };
+        };
+        class SimpleObject {
+            eden=1;
+            animate[]={};
+            hide[]={};
+            verticalOffset=0.61900002;
+            verticalOffsetWorld=0;
+            init="''";
+        };
     };
 };

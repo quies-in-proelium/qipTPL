@@ -10,8 +10,12 @@ class CfgPatches {
             "qiptpl_main",
             "qiptpl_assets"
         };
-        author = "";
-        authors[] = {""};
+        author = "NemesisRE";
+        authors[] = {
+            "aliascartoons",
+            "EO",
+            "Cephel"
+        };
         VERSION_CONFIG;
     };
 };
