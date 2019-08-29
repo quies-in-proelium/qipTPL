@@ -50,7 +50,7 @@ class Reveal {
 	name = "Reveal";
 	sound[] = {QPATHTOF(Music\Contact\Reveal.ogg), db+0, 1.0};
 	theme = "combat";
-	duration = ""147"";
+	duration = "147";
 	musicClass = "Contact";
 };
 
