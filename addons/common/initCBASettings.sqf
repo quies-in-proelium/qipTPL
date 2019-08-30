@@ -12,7 +12,7 @@
     "CHECKBOX",
     "Skip Mission initialization",
     ["qipTPL Settings","Mission Settings"],
-    false,
+    true,
     1
 ] call CBA_fnc_addSetting;
 
