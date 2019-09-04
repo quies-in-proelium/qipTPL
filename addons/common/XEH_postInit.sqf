@@ -8,6 +8,13 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled)) || !hasInterface) exi
 
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
+if (isDedicated) then {
+    call FUNC(initDB);
+    [{
+        [{{_x call FUNC(saveState)} forEach allPlayers;}, 30] call CBA_fnc_addPerFrameHandler;
+    }, [], 30] call CBA_fnc_waitAndExecute;
+};
+
 if (isServer) then {
     [{time > 10}, {[] call FUNC(rptLog);}] call CBA_fnc_waitUntilAndExecute;
 

@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [this] call qipTPL_etu_fnc_restoreGear;
+ * [this] call qipTPL_common_fnc_restoreGear;
  *
  */
 params ["_unit"];
@@ -28,7 +28,6 @@ _chestpack = _savedGear select 3;
 if (!isNil "_allGear") then {
     _allGear params ["_primaryWeaponArray"];
     if ((_primaryWeaponArray param [0, ""]) == "ACE_FakePrimaryWeapon") then {
-        TRACE_1("Ignoring fake gun",_primaryWeaponArray);
         _allGear set [0, []];
         _activeWeaponAndMuzzle = nil;
     };
@@ -69,7 +68,7 @@ if (_earplugs) then {
     [player] call ace_hearing_fnc_putInEarplugs;
 };
 
-if (_chestpack != 0) then {
+if !(_chestpack isEqualTo []) then {
     _chestpack set [0, _chestpack select 0 select 0];
     _chestpack deleteAt 1;
     [_unit, _chestpack select 0] call zade_boc_fnc_addChestpack;

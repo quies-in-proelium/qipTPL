@@ -1,4 +1,2 @@
-PREP(addAction);
-PREP(initDB);
-PREP(restoreGear);
-PREP(saveGear);
+PREP(addETUAction);
+PREP(transporter);

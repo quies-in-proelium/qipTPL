@@ -1,8 +1,11 @@
 PREP(customMark);
 PREP(exportInventory);
+PREP(initDB);
 PREP(missionInitialization);
 PREP(missionIntro);
 PREP(paramToBool);
+PREP(restoreGear);
 PREP(rptLog);
+PREP(saveUnitState);
 PREP(uavHelper);
 PREP(uavIntro);
