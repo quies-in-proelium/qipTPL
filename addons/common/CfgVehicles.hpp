@@ -1,16 +1,11 @@
 class CfgVehicles {
-    class Module_F;
-    class ModuleEmpty_F;
-    class ACE_Module;
-
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
             class GVAR(create) {
                 displayName = "Create [qip] Zeus";
-                condition = QUOTE(call BIS_fnc_isDebugConsoleAllowed || {IS_ADMIN_LOGGED} || isServer);
+                condition = QUOTE(call FUNC(isAdmin));
                 exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting", "isNotOnLadder", "isNotRefueling"};
-                //Set GVAR(zeus) to null first to disable the action through the isNil check
                 statement = QUOTE(GVAR(zeus) = objNull; [ARR_2(QQGVAR(createZeus), qipTPL_unit)] call CBA_fnc_serverEvent);
                 showDisabled = 1;
                 icon = "\A3\Ui_F_Curator\Data\Logos\arma3_curator_eye_32_ca.paa";

@@ -14,11 +14,16 @@
  *
  */
 params ["_unit"];
-private ["_unitID","_unitRole","_unitPos","_savedGear","_proximity","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
+private ["_unitID","_unitName","_unitRole","_unitPos","_savedGear","_proximity","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
-if (_unit != player || {isNull _unit} || {!alive _unit}) exitWith {};
+if (isNull _unit || {!alive _unit}) exitWith {};
 
-_unitID = "qipTPL_savedGear_" + (name _unit);
+if (isNil QGVAR(iniDB)) then {
+    call FUNC(initDB);
+};
+
+_unitID = getPlayerUID _unit;
+_unitName = name _unit;
 _unitRole = roleDescription _unit;
 _unitPos =  getPos _unit;
 _savedGear = missionNamespace getVariable [_unitID, nil];
@@ -27,6 +32,7 @@ _activeWeaponAndMuzzle = [currentWeapon _unit, currentMuzzle _unit, currentWeapo
 _earplugs = _unit getVariable ["ACE_hasEarPlugsIn", false];
 _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 
+["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
 ["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
 ["write", [_unitID, "unitPos", _unitPos]] call GVAR(iniDB);
 ["write", [_unitID, "gear", _allGear]] call GVAR(iniDB);
@@ -35,9 +41,14 @@ _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 ["write", [_unitID, "chestpack", _chestpack]] call GVAR(iniDB);
 
 if (!isNil QGVAR(transporter)) then {
-	_proximity = _unit distance GVAR(teleporter);
-	if (isNil "_savedGear" || (_proximity > 100)) then {
-		missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
-		["write", [_unitID, "allGear", _allGear]] call GVAR(iniDB);
-	};
+    _proximity = _unit distance GVAR(teleporter);
+    if (_proximity > 100) then {
+        missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
+        ["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+    };
+} else {
+    if (isNil "_savedGear") then {
+        missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
+        ["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+    };
 };

@@ -16,7 +16,7 @@
 params ["_unit"];
 private ["_unitID","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
-_unitID = "qipTPL_savedGear_" + (name _unit);
+_unitID = getPlayerUID _unit;
 _savedGear = missionNamespace getVariable [_unitID, nil];
 if (isNil "_savedGear" || {!alive _unit}) exitWith {};
 
@@ -34,9 +34,7 @@ if (!isNil "_allGear") then {
     _unit setUnitLoadout _allGear;
 };
 
-// restore the last active weapon, muzzle and weaponMode
 if (!isNil "_activeWeaponAndMuzzle") then {
-    // @todo, replace this with CBA_fnc_selectWeapon after next CBA update
     _activeWeaponAndMuzzle params ["_activeWeapon", "_activeMuzzle", "_activeWeaponMode"];
 
     if (

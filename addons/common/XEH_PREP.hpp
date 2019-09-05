@@ -1,6 +1,7 @@
 PREP(customMark);
 PREP(exportInventory);
 PREP(initDB);
+PREP(isAdmin);
 PREP(missionInitialization);
 PREP(missionIntro);
 PREP(paramToBool);
