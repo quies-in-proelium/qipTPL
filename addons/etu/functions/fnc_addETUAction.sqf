@@ -16,9 +16,13 @@
 
 params [["_object", objNull, [objNull]]];
 
-GVAR(teleporter) = _object;
-GVAR(teleporter) enableSimulation false;
-GVAR(teleporter) allowDamage false;
+if (isNil QGVAR(teleporter)) then {
+    GVAR(teleporter) = [];
+};
+
+GVAR(teleporter) pushBack _object;
+_object enableSimulation false;
+_object allowDamage false;
 
 _object addAction [
     "Transport zum Squadleader",

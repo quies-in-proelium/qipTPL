@@ -40,9 +40,15 @@ _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 ["write", [_unitID, "earplugs", _earplugs]] call GVAR(iniDB);
 ["write", [_unitID, "chestpack", _chestpack]] call GVAR(iniDB);
 
-if (!isNil QGVAR(transporter)) then {
-    _proximity = _unit distance GVAR(teleporter);
-    if (_proximity > 100) then {
+if (!isNil QEGVAR(etu,teleporter)) then {
+    _proximity = false;
+    {
+        if ((_unit distance _x) > 50) then {
+            _proximity = true;
+        };
+    } forEach EGVAR(etu,teleporter);
+
+    if (_proximity) then {
         missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
         ["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
     };
