@@ -26,6 +26,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(teleporterDistance),
+    "SLIDER",
+    ["Distance to teleporter","Distance needed to teleporter to save player variables"],
+    ["qipTPL Settings","Player Backup"],
+    [25, 200, 50, 0],
+    1
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(uavIntro),
     "CHECKBOX",
     ["UAV Intro","Uses 'qipTPL_uavIntroMarker' marker or player position as target"],

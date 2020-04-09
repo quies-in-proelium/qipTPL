@@ -32,7 +32,7 @@ _activeWeaponAndMuzzle = [currentWeapon _unit, currentMuzzle _unit, currentWeapo
 _earplugs = _unit getVariable ["ACE_hasEarPlugsIn", false];
 _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 
-if (isNull _unitID || {!alive _unit}) exitWith {};
+if (isNil "_unitID" || {!alive _unit}) exitWith {};
 
 ["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
 ["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
@@ -45,7 +45,7 @@ if (isNull _unitID || {!alive _unit}) exitWith {};
 if (!isNil QEGVAR(etu,teleporter)) then {
     _proximity = false;
     {
-        if ((_unit distance _x) > 50) then {
+        if ((_unit distance _x) > GVAR(teleporterDistance)) then {
             _proximity = true;
         };
     } forEach EGVAR(etu,teleporter);
