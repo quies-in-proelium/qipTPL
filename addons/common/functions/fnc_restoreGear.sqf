@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [this] call qipTPL_common_fnc_restoreGear;
+ * [UNIT] call qipTPL_common_fnc_restoreGear;
  *
  */
 params ["_unit"];

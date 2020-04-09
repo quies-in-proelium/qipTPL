@@ -10,7 +10,7 @@
  * None
  *
  * Example:
- * [this] call qipTPL_common_fnc_saveUnitState;
+ * [UNIT] call qipTPL_common_fnc_saveUnitState;
  *
  */
 params ["_unit"];
@@ -31,6 +31,8 @@ _allGear = getUnitLoadout _unit;
 _activeWeaponAndMuzzle = [currentWeapon _unit, currentMuzzle _unit, currentWeaponMode _unit];
 _earplugs = _unit getVariable ["ACE_hasEarPlugsIn", false];
 _chestpack = _unit getVariable ["zade_boc_chestpack", []];
+
+if (isNull _unitID || {!alive _unit}) exitWith {};
 
 ["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
 ["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
