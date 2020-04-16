@@ -1,13 +1,11 @@
 #include "script_component.hpp"
+#include "\a3\ui_f\hpp\defineResincl.inc"
 
 params ["_display"];
+if (ctrlIDD _display != IDD_MAIN_MAP) exitWith {};
 
-if (ctrlIDD _display == 12) then {
-    private _control = _display displayCtrl 51;
+private _control = _display displayCtrl IDC_MAP;
 
-    _control ctrlAddEventHandler ["Draw", {
-        _this call FUNC(uavHelper);
-    }];
+_control ctrlAddEventHandler ["Draw", {_this call FUNC(uavHelper);}];
 
-    [_display,_control] call FUNC(customMark);
-};
+[_display,_control] call FUNC(customMark);
