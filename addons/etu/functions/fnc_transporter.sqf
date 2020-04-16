@@ -18,7 +18,6 @@
 params [["_target", player],["_caller", player]];
 private ["_leader","_pos","_targetPos"];
 
-_caller call EFUNC(common,restoreGear);
 _leader = leader (group (vehicle _caller));
 _targetPos = getPos _target;
 if (vehicle _leader == _leader) then {

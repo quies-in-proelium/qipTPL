@@ -34,13 +34,15 @@ _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 
 if (isNil "_unitID" || {!alive _unit}) exitWith {};
 
-["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
-["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
-["write", [_unitID, "unitPos", _unitPos]] call GVAR(iniDB);
-["write", [_unitID, "gear", _allGear]] call GVAR(iniDB);
-["write", [_unitID, "activeWeaponAndMuzzle", _activeWeaponAndMuzzle]] call GVAR(iniDB);
-["write", [_unitID, "earplugs", _earplugs]] call GVAR(iniDB);
-["write", [_unitID, "chestpack", _chestpack]] call GVAR(iniDB);
+if (!isNil QGVAR(iniDB)) then {
+	["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
+	["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
+	["write", [_unitID, "unitPos", _unitPos]] call GVAR(iniDB);
+	["write", [_unitID, "gear", _allGear]] call GVAR(iniDB);
+	["write", [_unitID, "activeWeaponAndMuzzle", _activeWeaponAndMuzzle]] call GVAR(iniDB);
+	["write", [_unitID, "earplugs", _earplugs]] call GVAR(iniDB);
+	["write", [_unitID, "chestpack", _chestpack]] call GVAR(iniDB);
+};
 
 if (!isNil QEGVAR(etu,teleporter)) then {
     _proximity = false;
@@ -52,11 +54,15 @@ if (!isNil QEGVAR(etu,teleporter)) then {
 
     if (_proximity) then {
         missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
-        ["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+		if (!isNil QGVAR(iniDB)) then {
+        	["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+		};
     };
 } else {
     if (isNil "_savedGear") then {
         missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];
-        ["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+		if (!isNil QGVAR(iniDB)) then {
+        	["write", [_unitID, "etuGear", _allGear]] call GVAR(iniDB);
+		};
     };
 };

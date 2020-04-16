@@ -1,9 +1,17 @@
 #include "script_component.hpp"
 
-if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
-if !(GVAR(enableLoadout)) exitWith {};
+private ["_player","_unitID","_savedGear","_configPath", "_missionStart","_units","_str","_role"];
 
-private ["_configPath", "_missionStart","_units","_str","_role"];
+if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
+
+_player = player;
+_unitID = getPlayerUID _player;
+_savedGear = missionNamespace getVariable [_unitID, nil];
+if (!isNil "_savedGear") exitWith {
+	_player call EFUNC(common,restoreGear);
+};
+
+if !(GVAR(enableLoadout)) exitWith {};
 
 _configPath = missionConfigFile >> "CfgLoadouts";
 _missionStart = if ( !isNil { _this select 0 } && { _this select 0 == "postInit" }) then { true } else { false };
@@ -12,7 +20,7 @@ _missionStart = if ( !isNil { _this select 0 } && { _this select 0 == "postInit"
 // This is because AI don't respawn, and we especially don't want to have local AI go through an entire loadout loop again, everytime the player respawns that the AI belongs to.
 _units = [];
 if( !_missionStart ) then {
-    _units pushBack player;
+    _units pushBack _player;
 } else {
     {
         if ( local _x ) then {
