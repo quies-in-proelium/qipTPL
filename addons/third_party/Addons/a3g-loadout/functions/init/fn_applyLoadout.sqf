@@ -8,7 +8,7 @@ _player = player;
 _unitID = getPlayerUID _player;
 _savedGear = missionNamespace getVariable [_unitID, nil];
 if (!isNil "_savedGear") exitWith {
-	_player call EFUNC(common,restoreGear);
+    _player call EFUNC(common,restoreGear);
 };
 
 if !(GVAR(enableLoadout)) exitWith {};
