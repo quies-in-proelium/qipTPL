@@ -285,3 +285,11 @@ class qipTPL_DieFantastischenVierZusammen {
     duration = "313";
     musicClass = "Misc";
 };
+
+class qipTPL_TwilightZoneShort {
+    name = "Twilight Zone Short";
+    sound[] = {QPATHTOF(Music\Misc\TwilightZoneShort.ogg), db+0, 1.0};
+    theme = "combat";
+    duration = "13";
+    musicClass = "Misc";
+};
