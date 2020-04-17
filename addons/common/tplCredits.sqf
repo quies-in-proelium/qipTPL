@@ -1,6 +1,6 @@
 // Template Credits (be fair do not remove)
-player createDiarySubject ["Credits","Credits"];
-player createDiaryRecord ["Credits", ["Template Credits","
+qipTPL_unit createDiarySubject ["Credits","Credits"];
+qipTPL_unit createDiaryRecord ["Credits", ["Template Credits","
 <font size='20'>General</font><br/>
 This mission is made with the [qip] Mission Template.<br/>
 The Scripts and Mods used in this Template are searched,<br/>

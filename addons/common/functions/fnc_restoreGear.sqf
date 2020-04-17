@@ -62,18 +62,18 @@ if (!isNil "_activeWeaponAndMuzzle") then {
 };
 
 if (_earplugs) then {
-    player addItemToUniform "ACE_Earplugs";
-    [player] call ace_hearing_fnc_putInEarplugs;
+    qipTPL_unit addItemToUniform "ACE_Earplugs";
+    [qipTPL_unit] call ace_hearing_fnc_putInEarplugs;
 };
 
 if !(_chestpack isEqualTo []) then {
     _chestpack set [0, _chestpack select 0 select 0];
     _chestpack deleteAt 1;
     [_unit, _chestpack select 0] call zade_boc_fnc_addChestpack;
-    private _var = player getVariable ["zade_boc_chestpack", nil];
+    private _var = qipTPL_unit getVariable ["zade_boc_chestpack", nil];
     if (!isNil "_var") then {
         _var set [2, _chestpack select 1];
         _var set [3, _chestpack select 2];
     };
-    player setVariable ["zade_boc_chestpack", _var, true];
+    qipTPL_unit setVariable ["zade_boc_chestpack", _var, true];
 };

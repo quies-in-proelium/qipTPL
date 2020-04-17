@@ -15,7 +15,7 @@
  */
 
 if ((call BIS_fnc_admin) isEqualTo 2) exitWith {true};
-if (getPlayerUID player in getMissionConfigValue ["enableDebugConsole",[]]) exitWith {true};
+if (getPlayerUID qipTPL_unit in getMissionConfigValue ["enableDebugConsole",[]]) exitWith {true};
 if (isServer) exitWith {true};
 
 false

@@ -15,7 +15,7 @@
  *
  */
 
-params [["_target", player],["_caller", player]];
+params [["_target", qipTPL_unit],["_caller", qipTPL_unit]];
 private ["_leader","_pos","_targetPos"];
 
 _leader = leader (group (vehicle _caller));
