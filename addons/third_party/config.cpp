@@ -14,7 +14,8 @@ class CfgPatches {
         authors[] = {
             "aliascartoons",
             "EO",
-            "Cephel"
+            "Cephel",
+			"diwako"
         };
         VERSION_CONFIG;
     };
@@ -22,4 +23,6 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgFunctions.hpp"
+#include "CfgRscTitles.hpp"
+#include "CfgSounds.hpp"
 #include "CfgVehicles.hpp"

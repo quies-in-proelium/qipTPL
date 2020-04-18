@@ -11,3 +11,7 @@ class Extended_PostInit_EventHandlers {
         disableModuload = true;
     };
 };
+
+class Extended_InitPost_EventHandlers {
+    #include "scripts\cbrn\XEH_InitPost_eh.hpp"
+};
