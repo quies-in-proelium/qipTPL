@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
- ["qipTPL_setCustomMark", "onMapSingleClick", {
+["qipTPL_setCustomMark", "onMapSingleClick", {
     params ["_pos","_shift"];
     if (_shift) then {
         missionNamespace setVariable ["qipTPL_customMarkLocation",_pos];

@@ -10,7 +10,17 @@ _maxDamage = cbrn_maxDamage;
 
 if ((_curDamage / _maxDamage) > 0.5 && {!(_unit getVariable ["cbrn_autoDamage", false])}) then {
     _unit setVariable ["cbrn_autoDamage", true];
-    "WARNING!" hintC ["Your CBRN exposure is now rising automatically!!","SEEK DECONTAMINATION IMMIDIATELY!!","FIND DECONTAMINATION SHOWERS!"];
+
+    _warning = format ["
+        <br/>
+        <t align='center' size='1.2' color='#FF0000'>WARNING!</t><br/>
+        <t align='left' color='#FFFFFF'>Your CBRN exposure is now rising automatically!!</t><br/><br/>
+		<t align='left' color='#FFAA00'>SEEK DECONTAMINATION IMMIDIATELY!!</t><br/>
+		<t align='left' color='#FFAA00'>FIND DECONTAMINATION SHOWERS!</t><br/>
+        <br/>
+    "];
+    hint parseText _warning;
+
     [{
         params ["_args", "_idPFH"];
         _args params ["_unit"];

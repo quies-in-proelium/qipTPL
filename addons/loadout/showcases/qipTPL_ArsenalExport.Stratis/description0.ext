@@ -1,0 +1,20 @@
+// VERSION 1.0.2
+////////////////////////////////////////////////////////////////////////////////
+// DO NOT REMOVE THIS
+#include "qipTPL\description.hpp"
+////////////////////////////////////////////////////////////////////////////////
+// EDIT BELOW THIS
+
+/**********  Mission Information **********/
+author = "NemesisRE";
+briefingName = "qipTPL | Arsenal Export"; // Missionselection Screen
+overviewText = "This mission is used to export the arsenal to the correct format for the qipTPL loadout script (by using CTRL + SHIFT + C)"; // Heading on the loadscreen
+onLoadName = "qipTPL | Arsenal Export"; // Caption on the loadscreen
+onLoadMission = "Arsenal Export for qipTPL";
+loadScreen =  "\z\qipTPL\addons\assets\Images\qip_flag.paa"; // Picture on the loadscreen
+/**********  Mission type settings **********/
+class Header {
+	gameType = Zeus; // https://community.bistudio.com/wiki/Multiplayer_Game_Types
+	minPlayers = 1;
+	maxPlayers = 1;
+};

@@ -1,13 +1,4 @@
 [
-    QGVAR(enableLoadout),
-    "CHECKBOX",
-    "Predefind Mission Loadout",
-    ["qipTPL Settings","Mission Settings"],
-    true,
-    1
-] call CBA_fnc_addSetting;
-
-[
     "cbrn_maxOxygenTime",
     "SLIDER",
     ["Oxygen Time", "Value in seconds of how long one oxygen container should last."],

@@ -1,8 +1,8 @@
 class CfgMissions {
-    class Showcases {
-        class Showcase_qipTPL {
-            briefingName = "qipTPL | Arsenal Export";
-            directory = "z\qiptpl\addons\missions\showcases\qipTPL_ArsenalExport.Stratis";
-        };
-    };
+	class MPMissions {
+		class qipTPL_Techcheck {
+			briefingName="qipTPL Techcheck";
+			directory="z\qiptpl\addons\missions\mpscenarios\qipTPL_Techcheck.Enoch";
+		};
+	};
 };
