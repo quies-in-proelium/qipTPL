@@ -1,7 +1,12 @@
 #include "script_component.hpp"
 
 params ["_configPath", "_loadoutTarget"];
-private ["_handgunBackup", "_handgunMagazineBackup"];
+private ["_lastState","_handgunBackup", "_handgunMagazineBackup"];
+
+if ( [_configPath, "lastState"] call FUNC(isConfigEntry) ) exitWith {
+    _lastState = getText (_configPath >> "lastState");
+    [_loadoutTarget,_lastState] call FUNC(restoreGear);
+};
 
 // ========================================== Arsenal =============================================
 // This is being done first, so it can be overwritten at a later time, when it is needed.

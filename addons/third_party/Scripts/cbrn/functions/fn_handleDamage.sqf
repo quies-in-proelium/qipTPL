@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 params ["_unit", "_threadLevel", "_delta"];
-private ["_actualThreat", "_curDamage", "_maxDamage", "_newDamage", "_effectStrength", "_pain"];
+private ["_actualThreat", "_curDamage", "_maxDamage","_warning","_newDamage", "_effectStrength", "_pain"];
 
 if !(isDamageAllowed _unit) exitWith {};
 _actualThreat = _threadLevel;

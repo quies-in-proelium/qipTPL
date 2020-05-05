@@ -13,11 +13,16 @@
  * [UNIT] call qipTPL_loadout_fnc_restoreGear;
  *
  */
-params ["_unit"];
+params ["_unit","_lastState"];
 private ["_unitID","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
 _unitID = getPlayerUID _unit;
-_savedGear = missionNamespace getVariable [_unitID, nil];
+if (!isNil "_lastState") then {
+	_savedGear = _lastState;
+} else {
+	_savedGear = missionNamespace getVariable [_unitID, nil];
+};
+
 if (isNil "_savedGear" || {!alive _unit}) exitWith {};
 
 _allGear = _savedGear select 0;
