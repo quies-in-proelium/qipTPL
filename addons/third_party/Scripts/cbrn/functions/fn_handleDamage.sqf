@@ -33,7 +33,7 @@ if ((_curDamage / _maxDamage) > 0.5 && {!(_unit getVariable ["cbrn_autoDamage", 
         _newDamage = ((_unit getVariable ["cbrn_damage", 0]) + 0.0277777777777777) min 100;
         _unit setVariable ["cbrn_damage", _newDamage];
         if (_newDamage >= 100) then {
-            _unit setDamage 1;
+            [_unit, true] call ace_medical_status_fnc_setCardiacArrestState;
         };
     }, 1, [_unit]] call CBA_fnc_addPerFrameHandler;
 };
@@ -70,8 +70,7 @@ _curDamage = _curDamage + (_actualThreat * _delta);
 _unit setVariable ["cbrn_damage", _curDamage];
 
 if (alive _unit && {_curDamage > _maxDamage}) exitWith {
-    // I am sorry john...
-    _unit setDamage 1;
+    [_unit, true] call ace_medical_status_fnc_setCardiacArrestState
 };
 
 
