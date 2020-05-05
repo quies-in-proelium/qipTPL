@@ -1,9 +1,39 @@
 class CfgVehicles {
-    class Logic;    // External class reference
+    class Logic;
 
     class Module_F : Logic {
+        class ArgumentsBaseUnits {
+            class Units;
+        };
         class ModuleDescription {
-            class AnyPlayer;    // External class reference
+            class AnyPlayer;
+            class EmptyDetector;
+        };
+    };
+
+    class Earthquake_Module: Module_F {
+        displayName="Earthquake";
+        scope=2;
+        icon="earthquake\iconEarthquake_ca.paa";
+        category="Effects";
+        function="earthquake_fnc_moduleEarthquake";
+        functionPriority=1;
+        isGlobal=1;
+        isTriggerActivated=1;
+        isDisposable=0;
+        curatorInfoType = "RscDisplayAttributeModuleEarthquake";
+        class Arguments: ArgumentsBaseUnits {
+            class Units: Units {};
+            class Range {
+                displayName="Shockwave range";
+                description="enter value in meters how far away the shock wave can be felt";
+                typeName="NUMBER";
+                defaultValue=400;
+            };
+        };
+        class ModuleDescription: ModuleDescription {
+            description = "Earthquake effect";
+            sync[] = {"EmptyDetector"};
         };
     };
 
