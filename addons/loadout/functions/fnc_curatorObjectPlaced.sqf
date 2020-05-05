@@ -1,13 +1,13 @@
 #include "script_component.hpp"
 
-if (hasInterface) then {
-    {
-        _x addEventHandler ["CuratorObjectPlaced", {
-            params ["", "_entity"];
+params [["_curatorModule", objNull]];
 
-            if (_entity isKindOf "Man") then {
-                [_entity] call FUNC(applyLoadout);
-            };
-        }];
-     } forEach allCurators;
-};
+if (isNull _curatorModule || {!local _curatorModule}) exitWith {};
+
+_curatorModule addEventHandler ["CuratorObjectPlaced", {
+    params ["", "_entity"];
+
+    if (_entity isKindOf "Man") then {
+        [_entity] call FUNC(applyLoadout);
+    };
+}];

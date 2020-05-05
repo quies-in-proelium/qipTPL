@@ -13,31 +13,30 @@
  *
  * Examples:
  *   From addAction
- *     [trigger,"text",this select 0] spawn qipTPL_etu_fnc_teleport;
+ *     [trigger,"text",this select 0] call qipTPL_etu_fnc_teleport;
  *   From trigger
  *     [trigger,"text",thisList] call qipTPL_etu_fnc_teleport;
  */
 
 params [["_target", qipTPL_unit],["_text", "you've just crossed over into the twilight zone"],["_caller", qipTPL_unit]];
-private ["_pos"];
 
 if !(typeName _caller isEqualTo "ARRAY") then {
 	_caller = [_caller];
 };
 
 [0, "BLACK", 5, 1] spawn BIS_fnc_fadeEffect;
-["qipTPL_TwilightZoneShort", 0, true] call CBA_fnc_playMusic;
 
 [
 	{
-		params ["_caller","_text"];
+		params ["_target","_caller","_text"];
+		private ["_pos"];
 		{
 			_pos = [_target] call CBA_fnc_randPosArea;
 			_x setPos _pos;
 		} forEach _caller;
 		titleText [_text,"PLAIN"];
 	},
-	[_caller,_text],
+	[_target,_caller,_text],
 	5
 ] call CBA_fnc_waitAndExecute;
 
