@@ -22,7 +22,6 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "CfgFactionClasses.hpp"
 #include "CfgFunctions.hpp"
 #include "CfgRscTitles.hpp"
 #include "CfgSounds.hpp"

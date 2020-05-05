@@ -7,11 +7,4 @@ class CfgFunctions {
             class moduleAnimals {};
         };
     };
-
-    class Earthquake {
-        class Effects {
-            file="earthquake\functions";
-            class moduleEarthquake {};
-        };
-    };
 };
