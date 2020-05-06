@@ -20,6 +20,6 @@ class Extended_PostInit_EventHandlers {
 
 class Extended_InitPost_EventHandlers {
 	class CAManBase {
-		init = QUOTE(_this call FUNC(applyLoadout));
+		init = QUOTE(_this call FUNC(initLoadout));
 	};
 };

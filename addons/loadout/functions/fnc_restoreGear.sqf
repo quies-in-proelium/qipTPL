@@ -14,24 +14,23 @@
  *
  */
 params ["_unit","_lastState"];
-private ["_unitID","_unitRole","_varName","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
-
-_unitID = getPlayerUID _unit;
-_unitRole = roleDescription _unit;
-_varName = format ["%1:%2", _unitRole, _unitID];
+private ["_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
 
 if (!isNil "_lastState") then {
 	_savedGear = _lastState;
 } else {
-	_savedGear = missionNamespace getVariable [_varName, nil];
+    _savedGear = _unit call FUNC(checkSavedGear);
 };
 
-if (isNil "_savedGear" || {!alive _unit}) exitWith {};
+if (_savedGear == "" || {!alive _unit}) exitWith {};
+
+diag_log format ["Restoring gear for this entity (%1)", _unit];
 
 _allGear = _savedGear select 0;
 _activeWeaponAndMuzzle = _savedGear select 1;
 _earplugs = _savedGear select 2;
 _chestpack = _savedGear select 3;
+_unitTeam = _savedGear select 4;
 
 if (!isNil "_allGear") then {
 	_unit setUnitLoadout (configFile >> "EmptyLoadout");
@@ -85,4 +84,8 @@ if !(_chestpack isEqualTo []) then {
         _var set [3, _chestpack select 2];
     };
     qipTPL_unit setVariable ["zade_boc_chestpack", _var, true];
+};
+
+if !(_unitTeam == "") then {
+	_unit assignTeam _unitTeam;
 };

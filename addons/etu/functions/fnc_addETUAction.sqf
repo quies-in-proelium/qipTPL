@@ -25,8 +25,8 @@ _object enableSimulation false;
 _object allowDamage false;
 
 _object addAction [
-    "Transport zum Squadleader",
-    {[_this] call FUNC(transporter);},
+    "Transport",
+    {call FUNC(transporterUI);},
     [],
     1,
     false

@@ -15,17 +15,27 @@
  *
  */
 
-params ["",["_caller", qipTPL_unit]];
-private ["_leader","_pos"];
+params ["_target",["_caller", qipTPL_unit]];
+private ["_pos", "_ctrl", "_targets"];
 
-_leader = leader (group (vehicle _caller));
-if (vehicle _leader == _leader) then {
-	_pos = [_leader] call CBA_fnc_randPosArea;
+if (isNil "_target") then {
+	_ctrl = (findDisplay 1000) displayCtrl 1101;
+	_targets = profileNamespace getVariable ["transporterTargets",nil];
+	if (isNil "_targets") exitWith {closeDialog 0};
+	_target = _targets select (lbCurSel _ctrl);
+};
+
+if (isNil "_target") exitWith {hint "No transport target found"};
+
+if (vehicle _target == _target) then {
+	_pos = [_target, 3, direction _target] call CBA_fnc_randPos;
 	_caller setpos _pos;
+	closeDialog 0;
 } else {
-	if ((vehicle _leader) emptyPositions "cargo" == 0) then {
-		hint "No room in squad leader's vehicle, try again in a few seconds.";
+	if ((vehicle _target) emptyPositions "cargo" == 0) then {
+		hint "No room in target vehicle, try again later.";
 	} else {
-		_caller moveincargo vehicle _leader;
+		_caller moveincargo vehicle _target;
+		closeDialog 0;
 	};
 };

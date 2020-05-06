@@ -16,3 +16,9 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+
+// UI stuff
+class RscText;
+class RscListbox;
+class RscButton;
+#include "transporterUI.hpp"
