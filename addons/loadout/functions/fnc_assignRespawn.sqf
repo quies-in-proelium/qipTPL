@@ -2,7 +2,7 @@
 
 if ( isDedicated ) exitWith {};
 
-player addEventHandler ["Respawn", {
+qipTPL_unit addEventHandler ["Respawn", {
     params ["_unit",""];
     [_unit] call FUNC(applyLoadout);
 }];

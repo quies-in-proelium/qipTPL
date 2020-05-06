@@ -1,23 +1,21 @@
 #include "script_component.hpp"
 
 params ["_entity"];
-private ["_units","_player","_unitID","_savedGear","_configPath","_str","_role"];
+private ["_unitID","_unitRole","_varName","_savedGear","_units","_configPath","_str","_role"];
 
 if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
 
-_units = [];
-
-if (hasInterface) then {
-    _player = player;
-    _unitID = getPlayerUID _player;
-    _savedGear = missionNamespace getVariable [_unitID, nil];
-    if (!isNil "_savedGear") exitWith {
-        _player call FUNC(restoreGear);
-    };
+_unitID = getPlayerUID qipTPL_unit;
+_unitRole = roleDescription qipTPL_unit;
+c = format ["%1:%2", _unitRole, _unitID];
+_savedGear = missionNamespace getVariable [_varName, nil];
+if (!isNil "_savedGear") exitWith {
+    qipTPL_unit call FUNC(restoreGear);
 };
 
 if !(GVAR(enableLoadout)) exitWith {};
 
+_units = [];
 _configPath = missionConfigFile >> "CfgLoadouts";
 
 if ( !isNil "_entity"  && { _entity isKindOf "Man" } ) then {

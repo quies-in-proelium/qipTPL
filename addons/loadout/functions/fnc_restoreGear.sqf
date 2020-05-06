@@ -14,13 +14,16 @@
  *
  */
 params ["_unit","_lastState"];
-private ["_unitID","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
+private ["_unitID","_unitRole","_varName","_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack"];
 
 _unitID = getPlayerUID _unit;
+_unitRole = roleDescription _unit;
+_varName = format ["%1:%2", _unitRole, _unitID];
+
 if (!isNil "_lastState") then {
 	_savedGear = _lastState;
 } else {
-	_savedGear = missionNamespace getVariable [_unitID, nil];
+	_savedGear = missionNamespace getVariable [_varName, nil];
 };
 
 if (isNil "_savedGear" || {!alive _unit}) exitWith {};
@@ -31,6 +34,7 @@ _earplugs = _savedGear select 2;
 _chestpack = _savedGear select 3;
 
 if (!isNil "_allGear") then {
+	_unit setUnitLoadout (configFile >> "EmptyLoadout");
     _allGear params ["_primaryWeaponArray"];
     if ((_primaryWeaponArray param [0, ""]) == "ACE_FakePrimaryWeapon") then {
         _allGear set [0, []];
