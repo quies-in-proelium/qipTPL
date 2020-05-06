@@ -18,7 +18,7 @@ private ["_unitID","_unitName","_unitRole","_unitPos","_allGear","_activeWeaponA
 
 if (isNull _unit || {!alive _unit}) exitWith {};
 
-if (isNil QGVAR(iniDB)) then {
+if (isNil QEGVAR(common,iniDB)) then {
     call EFUNC(common,initDB);
 };
 
@@ -33,15 +33,15 @@ _chestpack = _unit getVariable ["zade_boc_chestpack", []];
 
 if (isNil "_unitID" || {!alive _unit}) exitWith {};
 
-if (!isNil QGVAR(iniDB)) then {
-    ["write", [_unitID, "name", _unitName]] call GVAR(iniDB);
-    ["write", [_unitID, "role", _unitRole]] call GVAR(iniDB);
-    ["write", [_unitID, "unitPos", _unitPos]] call GVAR(iniDB);
-    ["write", [_unitID, "gear", _allGear]] call GVAR(iniDB);
-    ["write", [_unitID, "activeWeaponAndMuzzle", _activeWeaponAndMuzzle]] call GVAR(iniDB);
-    ["write", [_unitID, "earplugs", _earplugs]] call GVAR(iniDB);
-    ["write", [_unitID, "chestpack", _chestpack]] call GVAR(iniDB);
-	["write", [_unitID, "lastState", [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack]]] call GVAR(iniDB);
+if (!isNil QEGVAR(common,iniDB)) then {
+    ["write", [_unitID, "name", _unitName]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "role", _unitRole]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "unitPos", _unitPos]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "gear", _allGear]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "activeWeaponAndMuzzle", _activeWeaponAndMuzzle]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "earplugs", _earplugs]] call EGVAR(common,iniDB);
+    ["write", [_unitID, "chestpack", _chestpack]] call EGVAR(common,iniDB);
+	["write", [_unitID, "lastState", [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack]]] call EGVAR(common,iniDB);
 };
 
 missionNamespace setVariable [_unitID, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack], true];

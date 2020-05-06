@@ -10,8 +10,6 @@ mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
 if (isServer) then {
     [{time > 10}, {
-        [{{_x call FUNC(saveUnitState)} forEach allPlayers;}, 1] call CBA_fnc_addPerFrameHandler;
-
         [] call FUNC(rptLog);
     }] call CBA_fnc_waitUntilAndExecute;
 };
