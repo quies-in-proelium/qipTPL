@@ -21,7 +21,6 @@ if (isNil QGVAR(teleporter)) then {
 };
 
 GVAR(teleporter) pushBack _object;
-_object enableSimulation false;
 _object allowDamage false;
 
 _object addAction [
