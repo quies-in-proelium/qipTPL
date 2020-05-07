@@ -16,7 +16,7 @@ _targets = [];
 
 {
     if !(_x == qipTPL_unit) then {
-        if !((vehicle _x) emptyPositions "cargo" == 0) then {
+        if (vehicle _x == _x || {(vehicle _x) emptyPositions "cargo" >= 1}) then {
             _targets pushBack _x;
         };
     };
