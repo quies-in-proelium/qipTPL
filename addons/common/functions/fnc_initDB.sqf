@@ -15,6 +15,8 @@
  */
 private ["_dateTime","_dateTimeStr","_joinedMissionName","_databasename"];
 
+if !(isDedicated) exitWith {};
+
 _dateTime = missionStart;
 _dateTimeStr = format ["_%1-%2-%3_%4-%5",
     _dateTime select 0,

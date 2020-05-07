@@ -1,16 +1,16 @@
 #include "script_component.hpp"
 
-params ["_entity"];
+params ["_unit"];
 private ["_units","_configPath","_str","_role"];
 
 if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
-if !(local _entity || GVAR(enableLoadout)) exitWith {};
+if !(GVAR(enableLoadout)) exitWith {};
 
 _units = [];
 _configPath = missionConfigFile >> "CfgLoadouts";
 
-if ( !isNil "_entity"  && { _entity isKindOf "CAManBase" } ) then {
-    _units pushBack _entity;
+if ( !isNil "_unit"  && { _unit isKindOf "CAManBase" } ) then {
+    _units pushBack _unit;
 } else {
     {
         if ( local _x ) then {
@@ -19,7 +19,7 @@ if ( !isNil "_entity"  && { _entity isKindOf "CAManBase" } ) then {
     } forEach allUnits;
 };
 
-diag_log format ["Apply Loadout running for %1", _units];
+LOG(format ["Apply Loadout running for %1", _units]);
 
 {
     // General --------------------------------------------------------------------------------------

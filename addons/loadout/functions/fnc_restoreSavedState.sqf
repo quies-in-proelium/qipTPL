@@ -10,27 +10,27 @@
  * None
  *
  * Example:
- * [UNIT] call qipTPL_loadout_fnc_restoreGear;
+ * [UNIT] call qipTPL_loadout_fnc_restoreSavedState;
  *
  */
 params ["_unit","_lastState"];
-private ["_savedGear","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
+private ["_lastState","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
 
 if (!isNil "_lastState") then {
-	_savedGear = _lastState;
+	_lastState = _lastState;
 } else {
-    _savedGear = _unit call FUNC(checkSavedGear);
+    _lastState = _unit call FUNC(checkSavedUnitState);
 };
 
-if (_savedGear == "" || {!alive _unit}) exitWith {};
+if (count _lastState == 0 || {!alive _unit}) exitWith {};
 
-diag_log format ["Restoring gear for this entity (%1)", _unit];
+INFO(format ["Restoring gear for this entity (%1)", _unit]);
 
-_allGear = _savedGear select 0;
-_activeWeaponAndMuzzle = _savedGear select 1;
-_earplugs = _savedGear select 2;
-_chestpack = _savedGear select 3;
-_unitTeam = _savedGear select 4;
+_allGear = _lastState select 0;
+_activeWeaponAndMuzzle = _lastState select 1;
+_earplugs = _lastState select 2;
+_chestpack = _lastState select 3;
+_unitTeam = _lastState select 4;
 
 if (!isNil "_allGear") then {
 	_unit setUnitLoadout (configFile >> "EmptyLoadout");

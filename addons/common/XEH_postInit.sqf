@@ -8,12 +8,14 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
 
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
-if (isServer) then {
-    [{time > 10}, {
-        [] call FUNC(rptLog);
+if (isServer) exitWith {
+    [{time > 5}, {
+        call FUNC(initDB);
+        call FUNC(rptLog);
     }] call CBA_fnc_waitUntilAndExecute;
 };
 
-call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
-
-[] spawn FUNC(missionInitialization);
+if (hasInterface) then {
+    call compile preprocessFileLineNumbers QPATHTOF(tplCredits.sqf);
+    [] spawn FUNC(missionInitialization);
+};

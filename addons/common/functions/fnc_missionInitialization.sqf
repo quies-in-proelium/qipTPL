@@ -7,8 +7,8 @@
 
 */
 if (GVAR(skipMissionInit)) exitWith {};
-private _savedGear = qipTPL_unit call EFUNC(loadout,checkSavedGear);
-if !(_savedGear == "") exitWith {};
+private _lastState = qipTPL_unit call EFUNC(loadout,checkSavedUnitState);
+if !(count _lastState == 0) exitWith {};
 
 if ( vehicle qipTPL_unit == qipTPL_unit ) then {
     if (mod_ACE3) then {

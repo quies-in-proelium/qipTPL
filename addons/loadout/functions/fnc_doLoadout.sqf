@@ -5,7 +5,7 @@ private ["_lastState","_handgunBackup", "_handgunMagazineBackup"];
 
 if ( [_configPath, "lastState"] call FUNC(isConfigEntry) ) exitWith {
     _lastState = getText (_configPath >> "lastState");
-    [_loadoutTarget,_lastState] call FUNC(restoreGear);
+    [_loadoutTarget,_lastState] call FUNC(restoreSavedState);
 };
 
 // ========================================== Arsenal =============================================
