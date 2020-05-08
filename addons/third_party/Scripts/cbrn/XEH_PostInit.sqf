@@ -1,3 +1,14 @@
+#include "script_component.hpp"
+
+if (hasInterface) then {
+    [
+        { !isNull qipTPL_unit },
+        {
+            call cbrn_fnc_init;
+        }
+    ] call CBA_fnc_waitUntilAndExecute;
+};
+
 [
     "CBRN",
     "Decon & Heal",

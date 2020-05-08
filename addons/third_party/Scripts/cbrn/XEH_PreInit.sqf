@@ -1,3 +1,5 @@
+#include "script_component.hpp"
+
 cbrn_maxDamage = 100; // how much damage before death, 50% starts internal contamination
 cbrn_backpacks = ["B_SCBA_01_F"];
 cbrn_suits = ["U_C_CBRN_Suit_01_Blue_F",
@@ -41,7 +43,7 @@ cbrn_beep = true;
     private _radius = _size + _falloffArea;
     _trg setTriggerArea [_radius, _radius, 0, false, _radius];
     _trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];
-    _trg setTriggerStatements ["thisTrigger getVariable ['cbrn_active',false] && {this && {(vehicle ace_player) in thisList}}", "[thisTrigger, ace_player, true] call cbrn_fnc_addZone", "[thisTrigger, ace_player, false] call cbrn_fnc_addZone"];
+    _trg setTriggerStatements ["thisTrigger getVariable ['cbrn_active',false] && {this && {(vehicle qipTPL_unit) in thisList}}", "[thisTrigger, qipTPL_unit, true] call cbrn_fnc_addZone", "[thisTrigger, qipTPL_unit, false] call cbrn_fnc_addZone"];
     cbrn_localZones pushBack _trg;
 }] call CBA_fnc_addEventhandler;
 

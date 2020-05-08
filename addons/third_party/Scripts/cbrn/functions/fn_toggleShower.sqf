@@ -51,8 +51,8 @@ if (_on) then {
     _trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];
     _trg setTriggerTimeout [5, 5, 5, true];
     _trg setTriggerStatements [
-        "(ace_player getVariable ['cbrn_damage', 0] > 0) && {ace_player in thisList}",
-        "ace_player setVariable ['cbrn_stoppedAutoDamage', true]; ace_player setVariable ['cbrn_damage', 0];hint 'Success, the contamination stopped. But it should not have come to this in the first place!'",
+        "(qipTPL_unit getVariable ['cbrn_damage', 0] > 0) && {qipTPL_unit in thisList}",
+        "qipTPL_unit setVariable ['cbrn_stoppedAutoDamage', true]; qipTPL_unit setVariable ['cbrn_damage', 0];hint 'Success, the contamination stopped. But it should not have come to this in the first place!'",
         ""
     ];
     _particles pushBack _trg;

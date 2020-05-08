@@ -1,5 +1,5 @@
 /********** Some defaults **************/
-overviewPicture = "\z\qiptpl\addons\assets\Images\qip_flag.paa";
+overviewPicture = "\z\qipTPL\addons\assets\Images\qip_flag.paa";
 onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 onLoadIntro = "Powered by [qip]";

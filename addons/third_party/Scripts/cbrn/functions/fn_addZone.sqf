@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 
-params["_trigger", ["_unit", ace_player], ["_add", false]];
+params["_trigger", ["_unit", qipTPL_unit], ["_add", false]];
 
 private _zones = _unit getVariable ["cbrn_zones", []];
 

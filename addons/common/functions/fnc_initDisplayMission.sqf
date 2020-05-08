@@ -7,8 +7,6 @@ if (ctrlIDD _display != IDD_MAIN_MAP) exitWith {};
 
 private _control = _display displayCtrl IDC_MAP;
 
-_control ctrlAddEventHandler ["Draw", {_this call FUNC(uavHelper);}];
-
 _control ctrlAddEventHandler ["MouseMoving", {
     params ["_control"];
     GVAR(qipTPL_customMark) = "customMark" in (ctrlMapMouseOver _control);
@@ -17,6 +15,6 @@ _control ctrlAddEventHandler ["MouseMoving", {
 _display displayAddEventHandler ["KeyDown", {
     params ["", "_keyCode"];
     if (!isNil QGVAR(qipTPL_customMark) && {GVAR(qipTPL_customMark)} && {(_keyCode) == DIK_DELETE}) then {
-        missionNamespace setVariable ["qipTPL_customMarkLocation",nil];
+        qipTPL_unit setVariable ["qipTPL_customMarkLocation",nil];
     };
 }];

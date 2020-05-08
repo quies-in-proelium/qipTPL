@@ -7,8 +7,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "qiptpl_main",
-            "qiptpl_assets"
+            "qipTPL_main",
+            "qipTPL_assets"
         };
         author = "NemesisRE";
         authors[] = {

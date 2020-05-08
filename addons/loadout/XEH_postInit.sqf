@@ -12,7 +12,7 @@ if (hasInterface) then {
         {
             private _lastState = qipTPL_unit call FUNC(checkSavedUnitState);
             if !(count _lastState == 0) then {
-                INFO(format ["Found previous gear for this entity (%1)", qipTPL_unit]);
+                INFO_1("Found previous gear for this entity (%1)", qipTPL_unit);
                 [qipTPL_unit,_lastState] call FUNC(restoreSavedState);
             } else {
                 [qipTPL_unit] call FUNC(applyLoadout);

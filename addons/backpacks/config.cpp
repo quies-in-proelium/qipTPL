@@ -20,7 +20,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "qiptpl_main",
+            "qipTPL_main",
             "A3_Modules_F",
             "A3_UI_F",
             "A3_Structures_F_Items_Electronics",

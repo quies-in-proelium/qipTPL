@@ -1,6 +1,6 @@
 #define COMPONENT etu
 #define COMPONENT_BEAUTIFIED Emergency transport unit
-#include "\z\qiptpl\addons\main\script_mod.hpp"
+#include "\z\qipTPL\addons\main\script_mod.hpp"
 
 #ifdef DEBUG_ENABLED_ETU
     #define DEBUG_MODE_FULL
@@ -12,4 +12,4 @@
 
 #define DEBUG_MODE_NORMAL
 #define DEBUG_SYNCHRONOUS
-#include "\z\qiptpl\addons\main\script_macros.hpp"
+#include "\z\qipTPL\addons\main\script_macros.hpp"

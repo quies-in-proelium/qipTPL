@@ -1,1 +1,1 @@
-#include "\z\qiptpl\addons\common\script_component.hpp"
+#include "\z\qipTPL\addons\common\script_component.hpp"

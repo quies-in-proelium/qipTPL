@@ -7,7 +7,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "qiptpl_main"
+            "qipTPL_main"
         };
         author = "";
         authors[] = {""};

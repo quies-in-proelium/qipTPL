@@ -3,6 +3,8 @@
 params ["_configPath", "_loadoutTarget"];
 private ["_lastState","_handgunBackup", "_handgunMagazineBackup"];
 
+INFO_2("Applying %1 for %2", _configPath, _loadoutTarget);
+
 if ( [_configPath, "lastState"] call FUNC(isConfigEntry) ) exitWith {
     _lastState = getText (_configPath >> "lastState");
     [_loadoutTarget,_lastState] call FUNC(restoreSavedState);
@@ -13,7 +15,6 @@ if ( [_configPath, "lastState"] call FUNC(isConfigEntry) ) exitWith {
 if ( [_configPath, "linkedItems"] call FUNC(isConfigEntry) ) then {
     [_configPath >> "linkedItems", _loadoutTarget] call FUNC(replaceLinkedItems);
 };
-
 
 // ======================================== Containers ============================================
 // Uniform
@@ -30,7 +31,6 @@ if ( [_configPath, "vest"] call FUNC(isConfigEntry) ) then {
 if ( [_configPath, "backpack"] call FUNC(isConfigEntry) ) then {
     [_configPath >> "backpack", _loadoutTarget] call FUNC(replaceBackpack);
 };
-
 
 // ==================================== Items & Magazines =========================================
 // Items

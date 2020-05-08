@@ -3,7 +3,7 @@
 if (isGamePaused) exitWith {};
 params ["_args"];
 _args params ["_lastIteration"];
-private _player = ace_player;
+private _player = qipTPL_unit;
 private _zones = _player getVariable ["cbrn_zones", []];
 private _max = 0;
 if (alive _player && {!(_zones isEqualTo [])}) then {

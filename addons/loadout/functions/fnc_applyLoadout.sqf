@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 
 params ["_unit"];
-private ["_units","_configPath","_str","_role"];
+private ["_units","_configPath","_unitVar","_unitRole"];
 
 if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
 if !(GVAR(enableLoadout)) exitWith {};
@@ -19,7 +19,7 @@ if ( !isNil "_unit"  && { _unit isKindOf "CAManBase" } ) then {
     } forEach allUnits;
 };
 
-LOG(format ["Apply Loadout running for %1", _units]);
+INFO_1("Apply Loadout running for %1", _units);
 
 {
     // General --------------------------------------------------------------------------------------
@@ -108,15 +108,19 @@ LOG(format ["Apply Loadout running for %1", _units]);
     };
 
     // Name based loadouts
-    _str = str _x splitString "_" select 0;
-    if( isClass ( _configPath >> _str )) then {
-        [_configPath >> _str, _x] call FUNC(doLoadout);
+    if (["Spieler", str _x] call BIS_fnc_inString) then {
+        _unitVar = str _x splitString "_" select 1;
+    } else {
+        _unitVar = str _x splitString "_" select 0;
+    };
+    if( isClass ( _configPath >> _unitVar )) then {
+        [_configPath >> _unitVar, _x] call FUNC(doLoadout);
     };
 
     // Roledescription based loadouts
-    _role = roleDescription _x splitString " " joinString "";
-    if( isClass ( _configPath >> _role )) then {
-        [_configPath >> _role, _x] call FUNC(doLoadout);
+    _unitRole = roleDescription _x splitString " " joinString "";
+    if( isClass ( _configPath >> _unitRole )) then {
+        [_configPath >> _unitRole, _x] call FUNC(doLoadout);
     };
 
 } forEach _units;

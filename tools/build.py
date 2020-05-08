@@ -6,7 +6,7 @@ import subprocess
 
 ######## GLOBALS #########
 MAINPREFIX = "z"
-PREFIX = "qiptpl_"
+PREFIX = "qipTPL_"
 ##########################
 
 def mod_time(path):

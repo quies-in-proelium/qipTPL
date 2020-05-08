@@ -8,7 +8,7 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
 
 mod_ACE3 = isClass (configFile >> "CfgPatches" >> "ace_common");
 
-if (isServer) exitWith {
+if (isServer) then {
     [{time > 5}, {
         call FUNC(initDB);
         call FUNC(rptLog);

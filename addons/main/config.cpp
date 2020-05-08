@@ -28,7 +28,7 @@ class CfgMods {
         hideName = "true";
         actionName = "Website";
         action = CSTRING(URL);
-        description = "Issue Tracker: https://github.com/quies-in-proelium/qiptpl/issues";
+        description = "Issue Tracker: https://github.com/quies-in-proelium/qipTPL/issues";
     };
 };
 

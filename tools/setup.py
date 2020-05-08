@@ -13,7 +13,7 @@ import winreg
 
 ######## GLOBALS #########
 MAINDIR = "z"
-PROJECTDIR = "qiptpl"
+PROJECTDIR = "qipTPL"
 ##########################
 
 def main():

@@ -1,1 +1,1 @@
-#include "\z\qiptpl\addons\etu\script_component.hpp"
+#include "\z\qipTPL\addons\etu\script_component.hpp"

@@ -24,7 +24,7 @@ if (!isNil "_lastState") then {
 
 if (count _lastState == 0 || {!alive _unit}) exitWith {};
 
-INFO(format ["Restoring gear for this entity (%1)", _unit]);
+INFO_1("Restoring gear for %1", _unit);
 
 _allGear = _lastState select 0;
 _activeWeaponAndMuzzle = _lastState select 1;
@@ -70,22 +70,22 @@ if (!isNil "_activeWeaponAndMuzzle") then {
 };
 
 if (_earplugs) then {
-    qipTPL_unit addItemToUniform "ACE_Earplugs";
-    [qipTPL_unit] call ace_hearing_fnc_putInEarplugs;
+    _unit addItemToUniform "ACE_Earplugs";
+    [_unit] call ace_hearing_fnc_putInEarplugs;
 };
 
 if !(_chestpack isEqualTo []) then {
     _chestpack set [0, _chestpack select 0 select 0];
     _chestpack deleteAt 1;
     [_unit, _chestpack select 0] call zade_boc_fnc_addChestpack;
-    private _var = qipTPL_unit getVariable ["zade_boc_chestpack", nil];
+    private _var = _unit getVariable ["zade_boc_chestpack", nil];
     if (!isNil "_var") then {
         _var set [2, _chestpack select 1];
         _var set [3, _chestpack select 2];
     };
-    qipTPL_unit setVariable ["zade_boc_chestpack", _var, true];
+    _unit setVariable ["zade_boc_chestpack", _var, true];
 };
 
-if !(_unitTeam == "") then {
+if (_unitTeam != "") then {
 	_unit assignTeam _unitTeam;
 };
