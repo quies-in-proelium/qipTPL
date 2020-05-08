@@ -107,6 +107,12 @@ INFO_1("Apply Loadout running for %1", _units);
         [_configPath >> typeof _x, _x] call FUNC(doLoadout);
     };
 
+    // Roledescription based loadouts
+    _unitRole = roleDescription _x splitString " " joinString "";
+    if( isClass ( _configPath >> _unitRole )) then {
+        [_configPath >> _unitRole, _x] call FUNC(doLoadout);
+    };
+
     // Name based loadouts
     if (["Spieler", str _x] call BIS_fnc_inString) then {
         _unitVar = str _x splitString "_" select 1;
@@ -116,11 +122,4 @@ INFO_1("Apply Loadout running for %1", _units);
     if( isClass ( _configPath >> _unitVar )) then {
         [_configPath >> _unitVar, _x] call FUNC(doLoadout);
     };
-
-    // Roledescription based loadouts
-    _unitRole = roleDescription _x splitString " " joinString "";
-    if( isClass ( _configPath >> _unitRole )) then {
-        [_configPath >> _unitRole, _x] call FUNC(doLoadout);
-    };
-
 } forEach _units;
