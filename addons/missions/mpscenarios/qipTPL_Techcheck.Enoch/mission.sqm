@@ -49,7 +49,6 @@ addons[]=
 	"A3_Structures_F_Ind_Transmitter_Tower",
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Characters_F",
-	"asr_ai3_skills",
 	"A3_Structures_F_Ind_FuelStation_Small",
 	"ace_refuel",
 	"A3_Modules_F_Multiplayer",
