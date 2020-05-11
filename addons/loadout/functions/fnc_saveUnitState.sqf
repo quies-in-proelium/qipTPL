@@ -21,7 +21,7 @@ if (isNull _unit || {!alive _unit}) exitWith {};
 if (local _unit) then {
     _unitName = name _unit;
     _unitRole = roleDescription _unit;
-    _unitSide = side _unit;
+    _unitSide = str (side _unit);
     _unitID = getPlayerUID _unit;
     _unitPos =  getPos _unit;
     _unitTeam = assignedTeam _unit;
