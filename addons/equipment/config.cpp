@@ -8,7 +8,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "qipTPL_main",
-            "qipTPL_common"
+            "ace_vector"
         };
         author = "";
         authors[] = {""};
@@ -17,4 +17,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "CfgMissions.hpp"
+#include "CfgWeapons.hpp"

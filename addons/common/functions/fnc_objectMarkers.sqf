@@ -11,7 +11,7 @@
  * None
  *
  * Example:
- * this call qipTPL_common_fnc_objectMarker;
+ * this call qipTPL_common_fnc_objectMarkers;
  *
  */
 
