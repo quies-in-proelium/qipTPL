@@ -45090,7 +45090,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=225;
@@ -45337,7 +45337,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=226;
@@ -45583,7 +45583,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=227;
@@ -45830,7 +45830,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=228;
@@ -46076,7 +46076,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=229;
@@ -46322,7 +46322,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=230;
@@ -46568,7 +46568,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=231;
@@ -46815,7 +46815,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=232;
@@ -47062,7 +47062,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=233;
@@ -47308,7 +47308,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=234;
@@ -47555,7 +47555,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=237;
@@ -47801,7 +47801,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=238;
@@ -48047,7 +48047,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=239;
@@ -48293,7 +48293,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=240;
@@ -48539,7 +48539,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=241;
@@ -48785,7 +48785,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=242;
@@ -49031,7 +49031,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=245;
@@ -49277,7 +49277,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=246;
@@ -49523,7 +49523,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=247;
@@ -49769,7 +49769,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=248;
@@ -50015,7 +50015,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=249;
@@ -50261,7 +50261,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=250;
@@ -50507,7 +50507,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=255;
@@ -50753,7 +50753,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=256;
@@ -50999,7 +50999,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=257;
@@ -51245,7 +51245,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=258;
@@ -51491,7 +51491,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=260;
@@ -51737,7 +51737,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=271;
@@ -51983,7 +51983,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=272;
@@ -52230,7 +52230,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=273;
@@ -52477,7 +52477,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=274;
@@ -52723,7 +52723,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=275;
@@ -52969,7 +52969,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=283;
@@ -53215,7 +53215,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=284;
@@ -53462,7 +53462,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=285;
@@ -53708,7 +53708,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=286;
@@ -53954,7 +53954,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=287;
@@ -54200,7 +54200,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=288;
@@ -54446,7 +54446,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=289;
@@ -54693,7 +54693,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=304;
@@ -54939,7 +54939,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=305;
@@ -55185,7 +55185,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=306;
@@ -55432,7 +55432,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=307;
@@ -55679,7 +55679,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=308;
@@ -55925,7 +55925,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=309;
@@ -56171,7 +56171,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=320;
@@ -56417,7 +56417,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=321;
@@ -56664,7 +56664,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=322;
@@ -56910,7 +56910,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=323;
@@ -57156,7 +57156,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=331;
@@ -57402,7 +57402,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=332;
@@ -57648,7 +57648,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=333;
@@ -57894,7 +57894,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=334;
@@ -58141,7 +58141,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=339;
@@ -58387,7 +58387,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=340;
@@ -58634,7 +58634,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=341;
@@ -58881,7 +58881,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=342;
@@ -59128,7 +59128,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=343;
@@ -59374,7 +59374,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=404;
@@ -59620,7 +59620,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=863;
@@ -59867,7 +59867,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=864;
@@ -60113,7 +60113,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=235;
@@ -60360,7 +60360,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=259;
@@ -60607,7 +60607,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=276;
@@ -60854,7 +60854,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=335;
@@ -61345,7 +61345,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=263;
@@ -61591,7 +61591,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=264;
@@ -61837,7 +61837,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=265;
@@ -62083,7 +62083,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=266;
@@ -62330,7 +62330,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=267;
@@ -62576,7 +62576,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=268;
@@ -62822,7 +62822,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=269;
@@ -63069,7 +63069,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=316;
@@ -63315,7 +63315,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=317;
@@ -63561,7 +63561,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=318;
@@ -63807,7 +63807,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=328;
@@ -64053,7 +64053,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=329;
@@ -64299,7 +64299,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=261;
@@ -64546,7 +64546,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=262;
@@ -64793,7 +64793,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=315;
@@ -65039,7 +65039,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=326;
@@ -65285,7 +65285,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=327;
@@ -73415,7 +73415,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -73663,7 +73663,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -73911,7 +73911,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -74208,7 +74208,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -74456,7 +74456,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -74704,7 +74704,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								createAsSimpleObject=1;
 								disableSimulation=1;
 							};
@@ -76679,7 +76679,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								dynamicSimulation=1;
 							};
 							id=252;
@@ -78729,7 +78729,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 								disableSimulation=1;
 							};
 							id=290;
@@ -108191,7 +108191,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 							};
 							id=254;
 							type="Land_MilOffices_V1_F";
@@ -114370,7 +114370,7 @@ class Mission
 							class Attributes
 							{
 								skill=0.2;
-								init="call{this call qipTPL_common_fnc_objectMarker;}";
+								init="call{this call qipTPL_common_fnc_objectMarkers;}";
 							};
 							id=346;
 							type="Land_Medevac_HQ_V1_F";
