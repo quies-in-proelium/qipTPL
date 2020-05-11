@@ -1,13 +1,13 @@
 //class AllUnits {};
 
 class AllAi {
-    addItems[] =  {"ACE_EarPlugs","murshun_cigs_lighter","murshun_cigs_cigpack"};
+    //addItems[] =  {"ACE_EarPlugs","murshun_cigs_lighter","murshun_cigs_cigpack"};
 };
 
 class AllPlayers {
     items[] = {};
     magazines[] = {};
-    addItemsToUniform[] =  {"ACE_EarPlugs","murshun_cigs_lighter","murshun_cigs_cigpack","ACE_Flashlight_MX991","ACE_CableTie","ACE_CableTie","ACE_IR_Strobe_Item","ACE_MapTools"};
+    //addItemsToUniform[] =  {"ACE_EarPlugs","murshun_cigs_lighter","murshun_cigs_cigpack","ACE_Flashlight_MX991","ACE_CableTie","ACE_CableTie","ACE_IR_Strobe_Item","ACE_MapTools"};
 };
 
 //class Blufor {};
