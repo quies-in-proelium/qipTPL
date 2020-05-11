@@ -3,6 +3,7 @@ PREP(initDB);
 PREP(isAdmin);
 PREP(missionInitialization);
 PREP(missionIntro);
+PREP(objectMarkers);
 PREP(paramToBool);
 PREP(rptLog);
 PREP(uavIntro);
