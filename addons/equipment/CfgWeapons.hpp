@@ -10,6 +10,7 @@ class CfgWeapons {
         cursorAim = "EmptyCursor";
         cursorAimOn = "CursorAimOn";
         showSwitchAction = 1;
+        weaponInfoType = "qipTPL_RscOptics_vector";
         class WeaponSlotsInfo {
             mass = 20;
         };
