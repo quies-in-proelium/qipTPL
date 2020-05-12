@@ -3,7 +3,7 @@
     "CHECKBOX",
     "Enable Template",
     ["qipTPL Settings","Mission Settings"],
-    true,
+    false,
     1
 ] call CBA_fnc_addSetting;
 
@@ -84,7 +84,7 @@
     "EDITBOX",
     ["Clan Name","Clan name or name of the community. Used in Hints, intro's etc."],
     ["qipTPL Settings","Main Settings"],
-    "quies in proelium",
+    "CLAN NAME",
     1
 ] call CBA_fnc_addSetting;
 
@@ -93,7 +93,7 @@
     "EDITBOX",
     ["Clan Tag","Clantag or shortname of the community. Used in Hints, intro's etc."],
     ["qipTPL Settings","Main Settings"],
-    "[qip]",
+    "CLAN TAG",
     1
 ] call CBA_fnc_addSetting;
 

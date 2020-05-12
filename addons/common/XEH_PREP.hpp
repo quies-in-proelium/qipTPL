@@ -1,5 +1,6 @@
 PREP(customMark);
 PREP(initDB);
+PREP(initIntelObject);
 PREP(isAdmin);
 PREP(missionInitialization);
 PREP(missionIntro);
