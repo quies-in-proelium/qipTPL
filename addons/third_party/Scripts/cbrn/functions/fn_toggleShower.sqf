@@ -7,14 +7,13 @@ if !(hasInterface) exitWith {};
 if (_on) then {
     if (_shower getVariable ["cbrn_water", cbrn_maxWaterTime] isEqualTo 0) exitWith {};
 
-    private _particles    = [];
+    private _particles = [];
     private _power = 1.4;
     private _sizeFactor = 1;
     private _count = 3;
 
     // Iterate through all memory points
-    for "_i" from 1 to _count do
-    {
+    for "_i" from 1 to _count do {
         // Calculate position & direction of particle effects
         private _pos = _shower selectionPosition format["shower_%1_pos",_i];
         private _dir = _shower selectionPosition format["shower_%1_dir",_i];
@@ -36,7 +35,7 @@ if (_on) then {
     // if(local _shower)then
     // {
     //     _shower animateSource ["Valve_Source",1];
-        _shower animateSource ["Hide_Mist_Source",0,true];
+    _shower animateSource ["Hide_Mist_Source",0,true];
     //     _shower setVariable ["BIN_Shower_Stop",false,true];
     // };
 
