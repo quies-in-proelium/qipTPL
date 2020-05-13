@@ -2,7 +2,7 @@ class cbrn {
     tag="cbrn";
     class functions{
         file = QPATHTOF(Scripts\cbrn\functions);
-        class init{postInit=1;};
+        class init{};
         class startOxygen{};
         class addZone{};
         class createZone{};
