@@ -12,12 +12,21 @@
     "CHECKBOX",
     "Skip Mission initialization",
     ["qipTPL Settings","Mission Settings"],
-    true,
+    false,
     1
 ] call CBA_fnc_addSetting;
 
 [
-    QGVAR(missionInitTime),
+    QGVAR(skipPlayerInit),
+    "CHECKBOX",
+    "Skip Player initialization",
+    ["qipTPL Settings","Mission Settings"],
+    false,
+    1
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(playerInitTime),
     "SLIDER",
     ["Init Time","Time to initialize the mission"],
     ["qipTPL Settings","Mission Settings"],
@@ -26,19 +35,28 @@
 ] call CBA_fnc_addSetting;
 
 [
-    QGVAR(uavIntro),
-    "CHECKBOX",
-    ["UAV Intro","Uses 'qipTPL_uavIntroMarker' marker or player position as target"],
-    ["qipTPL Settings","Mission Settings"],
-    true,
+    QGVAR(missionIntro),
+    "LIST",
+    ["Mission Intro","Text uses intro Text on black background, UAV Intro uses 'qipTPL_uavIntroMarker' marker or player position as target"],
+    ["qipTPL Intro","Main"],
+    [[0,1,2,3],["disabled","UAV","Title Text","Type Text"],1],
+    1
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(introText),
+    "EDITBOX",
+    ["Intro Text","Text that is show when Text or UAV Intro plays"],
+    ["qipTPL Intro","Text Intro"],
+    "[]",
     1
 ] call CBA_fnc_addSetting;
 
 [
     QGVAR(uavIntroText),
     "EDITBOX",
-    ["UAV Intro Text","Text that is show when UAV Intro plays"],
-    ["qipTPL Settings","Mission Settings"],
+    ["Intro Text","Text that is show when UAV Intro plays (Mission Title if empty)"],
+    ["qipTPL Intro","UAV Intro"],
     "",
     1
 ] call CBA_fnc_addSetting;
@@ -47,7 +65,7 @@
     QGVAR(uavIntroAltitude),
     "SLIDER",
     ["UAV Intro altitude","Altitude (in meters)"],
-    ["qipTPL Settings","Mission Settings"],
+    ["qipTPL Intro","UAV Intro"],
     [25, 3000, 100, 0],
     1
 ] call CBA_fnc_addSetting;
@@ -56,7 +74,7 @@
     QGVAR(uavIntroRadius),
     "SLIDER",
     ["UAV Intro radius","Radius of the circular movement (in meters)"],
-    ["qipTPL Settings","Mission Settings"],
+    ["qipTPL Intro","UAV Intro"],
     [25, 1000, 100, 0],
     1
 ] call CBA_fnc_addSetting;
@@ -65,7 +83,7 @@
     QGVAR(uavIntroAngle),
     "SLIDER",
     ["UAV Intro angle","Viewing angle (in degrees)"],
-    ["qipTPL Settings","Mission Settings"],
+    ["qipTPL Intro","UAV Intro"],
     [0, 360, 160, 0],
     1
 ] call CBA_fnc_addSetting;
@@ -74,7 +92,7 @@
     QGVAR(uavIntroVision),
     "LIST",
     ["UAV Intro vision","Different visions (Normal,NVG,TI)"],
-    ["qipTPL Settings","Mission Settings"],
+    ["qipTPL Intro","UAV Intro"],
     [[0,1,2,3,4,5,6,7,8,9],["Normal","NVG","White Hot","Black Hot","Light Green Hot / Darker Green cold","Black Hot / Darker Green cold","Light Red Hot / Darker Red Cold","Black Hot / Darker Red Cold","White Hot / Darker Red Cold","Thermal (Shade of Red and Green, Bodies are white)"],0],
     1
 ] call CBA_fnc_addSetting;

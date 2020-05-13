@@ -3,7 +3,7 @@ PREP(initDB);
 PREP(initIntelObject);
 PREP(isAdmin);
 PREP(missionInitialization);
-PREP(missionIntro);
+PREP(playerInit);
 PREP(objectMarkers);
 PREP(paramToBool);
 PREP(rptLog);

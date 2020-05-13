@@ -7,10 +7,12 @@
 
 */
 
+if (GVAR(skipPlayerInit)) exitWith {};
+
 private ["_unitName","_cnt","_cntStop","_timerInput","_timer","_missionAuthor","_initMsg","_postInitMsg"];
 _unitName = name qipTPL_unit;
 _cnt = 0;
-_timerInput = GVAR(missionInitTime); // Mission Init time counter. Min 30 secs. Add 1 sec per 2 players. 10 players = 35 secs.
+_timerInput = GVAR(playerInitTime);
 _timer = _timerInput / 100;
 _cntStop = -1;
 _missionAuthor = getText (missionConfigFile >> "author");
