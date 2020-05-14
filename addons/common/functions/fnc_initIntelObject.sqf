@@ -18,16 +18,15 @@
  *
  */
 
-params ["_object","_caller",["_data",[]],["_deleteObject",false],["_mode", "init"]];
-private ["_scriptName","_var","_callerName","_marker","_title","_text","_texture","_recipients","_state"];
-
-if !(isServer) exitWith {};
+params ["_object","_caller",["_data",[]],["_deleteObject",false],["_mode", "init"],"_diaryVar"];
+private ["_scriptName"];
 
 _scriptName = "qipTPL_common_fnc_initIntelObject";
-_var = (_scriptName + str _object) call bis_fnc_filterString;
 
 switch _mode do {
     case "init": {
+        private ["_var","_callerName","_marker","_title","_text","_texture","_recipients","_state"];
+        _var = (_scriptName + str _object) call bis_fnc_filterString;
         ////////////////////////////////////////////////////////////////////////////
         // Benachrichtigung an alle Zeus Module wer die intel gefunden hat
         {
@@ -88,10 +87,11 @@ switch _mode do {
             deletevehicle _object;
         };
 
-        [[_object,nil,nil,nil,"diary"],_scriptName,_recipients,true] call bis_fnc_mp;
+        [[nil,nil,nil,nil,"diary",_var],_scriptName,_recipients,true] call bis_fnc_mp;
     };
     case "diary": {
-        _data = [nil,_var] call bis_fnc_getServerVariable;
+        private ["_data","_title","_text","_texture","_marker","_callerName"];
+        _data = [nil,_diaryVar] call bis_fnc_getServerVariable;
         _title = _data param [0,"",[""]];
         _text = _data param [1,"",[""]];
         _texture = _data param [2,"",[""]];

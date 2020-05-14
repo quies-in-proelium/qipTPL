@@ -51,7 +51,13 @@ if (_on) then {
     _trg setTriggerTimeout [5, 5, 5, true];
     _trg setTriggerStatements [
         "(qipTPL_unit getVariable ['cbrn_damage', 0] > 0) && {qipTPL_unit in thisList}",
-        "qipTPL_unit setVariable ['cbrn_stoppedAutoDamage', true]; qipTPL_unit setVariable ['cbrn_damage', 0];hint 'Success, the contamination stopped. But it should not have come to this in the first place!'",
+        "
+            qipTPL_unit setVariable ['cbrn_stoppedAutoDamage', true];
+            qipTPL_unit setVariable ['cbrn_damage', 0];
+            [qipTPL_unit, false] call ace_medical_status_fnc_setCardiacArrestState;
+            [qipTPL_unit, false] call ace_medical_status_fnc_setUnconsciousState;
+            hint 'Success, the contamination stopped. But it should not have come to this in the first place!'
+        ",
         ""
     ];
     _particles pushBack _trg;
