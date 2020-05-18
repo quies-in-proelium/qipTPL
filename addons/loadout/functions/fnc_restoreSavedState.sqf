@@ -13,12 +13,10 @@
  * [UNIT] call qipTPL_loadout_fnc_restoreSavedState;
  *
  */
-params ["_unit","_lastState"];
-private ["_lastState","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
+params ["_unit",["_lastState",[],[[]]]];
+private ["_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
 
-if (!isNil "_lastState") then {
-	_lastState = _lastState;
-} else {
+if (count _lastState == 0) then {
     _lastState = _unit call FUNC(checkSavedUnitState);
 };
 
@@ -26,11 +24,11 @@ if (count _lastState == 0 || {!alive _unit}) exitWith {};
 
 INFO_1("Restoring gear for %1", _unit);
 
-_allGear = _lastState select 0;
-_activeWeaponAndMuzzle = _lastState select 1;
-_earplugs = _lastState select 2;
-_chestpack = _lastState select 3;
-_unitTeam = _lastState select 4;
+_allGear = _lastState param [0,[],[[]]];
+_activeWeaponAndMuzzle = _lastState param [1,[],[[]]];
+_earplugs = _lastState param [2,false];
+_chestpack = _lastState param [3,[],[[]]];
+_unitTeam = _lastState param [4,"MAIN",[""]];
 
 if (!isNil "_allGear") then {
 	_unit setUnitLoadout (configFile >> "EmptyLoadout");

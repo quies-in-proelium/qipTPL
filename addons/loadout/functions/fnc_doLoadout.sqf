@@ -6,7 +6,7 @@ private ["_lastState","_handgunBackup", "_handgunMagazineBackup"];
 INFO_2("Applying %1 for %2", _configPath, _loadoutTarget);
 
 if ( [_configPath, "lastState"] call FUNC(isConfigEntry) ) exitWith {
-    _lastState = getText (_configPath >> "lastState");
+    _lastState = parseSimpleArray (getText (_configPath >> "lastState"));
     [_loadoutTarget,_lastState] call FUNC(restoreSavedState);
 };
 
