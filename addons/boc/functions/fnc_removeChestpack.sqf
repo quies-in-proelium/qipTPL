@@ -38,7 +38,7 @@ if (GVAR(forceWalk)) then {
     [_unit, "blockSprint", QGVAR(forceMovementSpeed), false] call ace_common_fnc_statusEffect_set;
 };
 
-[GVAR(preventCrouch)] call CBA_fnc_removePerFrameHandler;
+_unit setVariable [QGVAR(preventCrouch),false,true];
 
 // reset variable
 _unit setVariable [QGVAR(chestpack),nil,true];

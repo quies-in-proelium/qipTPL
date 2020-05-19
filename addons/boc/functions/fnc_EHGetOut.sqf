@@ -32,11 +32,4 @@ if (GVAR(forceWalk)) then {
     [_unit, "blockSprint", QGVAR(forceMovementSpeed), true] call ace_common_fnc_statusEffect_set;
 };
 
-GVAR(preventCrouch) = [{
-    params ["_args"];
-    _args params ["_unit"];
-    if ((stance _unit) == "PRONE") then {
-        _unit playAction "PlayerCrouch";
-        hint localize "$str_qipTPL_boc_crouch";
-    };
-},1,_unit] call CBA_fnc_addPerFrameHandler;
+_unit setVariable [QGVAR(preventCrouch),true,true];
