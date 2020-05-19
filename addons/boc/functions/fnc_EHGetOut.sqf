@@ -32,4 +32,4 @@ if (GVAR(forceWalk)) then {
     [_unit, "blockSprint", QGVAR(forceMovementSpeed), true] call ace_common_fnc_statusEffect_set;
 };
 
-_unit setVariable [QGVAR(preventCrouch),true,true];
+_unit setVariable [QGVAR(preventProne),true,true];
