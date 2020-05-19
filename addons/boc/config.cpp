@@ -4,7 +4,6 @@ class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         units[] = {
-            "qipTPL_boc_moduleDisable",
             "qipTPL_boc_moduleAdd",
             "qipTPL_boc_moduleOnChest",
             "qipTPL_boc_weaponHolder"
@@ -16,7 +15,8 @@ class CfgPatches {
             "a3_ui_f",
             "A3_Modules_F",
             "ace_main",
-            "ace_common"
+            "ace_common",
+            "ace_movement"
         };
         author = "NemesisRE";
         authors[] = {"DerZade"};
