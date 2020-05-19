@@ -11,7 +11,7 @@
  * Nothing
  *
  * Example:
- * _this call qipTPL_boc_fnc_chestpackContainer;
+ * _this call qipTPL_boc_fnc_EHAnimDone;
  *
  * Public: No
  */

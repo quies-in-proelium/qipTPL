@@ -10,7 +10,7 @@
  * Nothing
  *
  * Example:
- * [player] call FUNC(removeChestpack);
+ * [player] call qipTPL_boc_fnc_removeChestpack;
  *
  * Public: No
  */
@@ -39,6 +39,8 @@ if (GVAR(forceWalk)) then {
 };
 
 _unit setVariable [QGVAR(preventProne),false,true];
+
+[_unit, false] call FUNC(manageWeight);
 
 // reset variable
 _unit setVariable [QGVAR(chestpack),nil,true];

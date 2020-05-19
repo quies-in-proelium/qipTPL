@@ -17,6 +17,7 @@ PREP(chestpackMagazines);
 PREP(clearAllItemsFromChestpack);
 PREP(chestpackLoadout);
 PREP(loadChestpack);
+PREP(manageWeight);
 PREP(removeChestpack);
 PREP(removeItemFromChestpack);
 PREP(removeMagFromChestpack);

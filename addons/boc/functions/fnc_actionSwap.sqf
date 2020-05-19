@@ -33,3 +33,5 @@ _unitLoadout set [5, [_chestpack, _chestpackLoadout]];
 _unit setUnitLoadout _unitLoadout;
 [_unit, _backpack] call FUNC(addChestpack);
 [_unit, _backpackLoadout] call FUNC(setChestpackLoadout);
+
+[_unit, true] call FUNC(manageWeight);

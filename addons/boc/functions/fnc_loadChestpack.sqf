@@ -25,7 +25,8 @@ _items = [_unit] call FUNC(chestpackItems);
 _mass = 0;
 
 {
-    _mass = _mass + _x call FUNC(itemMass);
+    private _itemMass = _x call FUNC(itemMass);
+    _mass = _mass + _itemMass;
 } forEach _items;
 
 _mass

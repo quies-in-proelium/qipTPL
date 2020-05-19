@@ -39,6 +39,6 @@ if (isClass (configFile >> "CfgGlasses" >> _item)) then  {
 
 if (isNull _config) exitWith {0};
 
-_itemMass = [_config, "Mass", 0] call call BIS_fnc_returnConfigEntry;
+_itemMass = [_config, "Mass", 0] call BIS_fnc_returnConfigEntry;
 
 _itemMass;
