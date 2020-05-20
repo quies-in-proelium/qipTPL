@@ -4,7 +4,6 @@ params ["_unit"];
 private ["_units","_configPath","_unitVar","_unitRole"];
 
 if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
-if !(GVAR(enableLoadout)) exitWith {};
 
 _units = [];
 _configPath = missionConfigFile >> "CfgLoadouts";

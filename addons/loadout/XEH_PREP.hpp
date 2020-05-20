@@ -5,7 +5,7 @@ PREP(addItemsToUniform);
 PREP(addItemsToVest);
 PREP(addMagazines);
 PREP(applyLoadout);
-PREP(assignRespawn);
+PREP(handleRespawn);
 PREP(checkSavedUnitState);
 PREP(curatorObjectPlaced);
 PREP(doLoadout);

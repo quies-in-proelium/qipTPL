@@ -23,3 +23,11 @@ class Extended_InitPost_EventHandlers {
 		init = QUOTE(_this call FUNC(initLoadout));
 	};
 };
+
+class Extended_Respawn_EventHandlers {
+    class CAManBase {
+        class ADDON {
+            respawn = QUOTE(_this call FUNC(handleRespawn));
+        };
+    };
+};

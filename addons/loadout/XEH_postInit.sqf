@@ -7,6 +7,7 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
 }] call CBA_fnc_waitUntilAndExecute;
 
 if (hasInterface) then {
+    if !(GVAR(enableLoadout)) exitWith {};
     [
         { !isNull player },
         {
