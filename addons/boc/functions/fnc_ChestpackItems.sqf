@@ -33,6 +33,10 @@ _items = [];
             _item = _item select 0;
         };
 
+        if (typeName _amount != "SCALAR") then {
+            _amount = 1;
+        };
+
         for "_i" from 1 to _amount do {
             _items pushBack _item;
         };

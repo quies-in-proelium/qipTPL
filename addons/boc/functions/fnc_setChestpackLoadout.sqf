@@ -34,5 +34,9 @@ if (isNull _unit) exitWith {};
 if ([_unit] call FUNC(chestpack) isEqualTo "") exitWith {};
 
 _var = _unit getVariable [QGVAR(chestpack), nil];
+if !((_var select 2) isEqualTo []) then {
+    [_unit, false] call FUNC(manageWeight);
+};
 _var set [2, _loadout];
 _unit setVariable [QGVAR(chestpack), _var, true];
+[_unit, true] call FUNC(manageWeight);

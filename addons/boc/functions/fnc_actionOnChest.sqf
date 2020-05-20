@@ -30,5 +30,3 @@ if ((_backpack isEqualTo "") || {!(([_unit] call FUNC(chestpack)) isEqualTo "")}
 _weaponHolder = objectParent ([_unit] call FUNC(chestpackContainer));
 clearBackpackCargoGlobal _weaponHolder;
 _unit action ["DropBag", _weaponHolder, _backpack];
-
-[_unit, true] call FUNC(manageWeight);
