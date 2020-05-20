@@ -28,7 +28,7 @@ if (local _unit) then {
     _allGear = getUnitLoadout _unit;
     _activeWeaponAndMuzzle = [currentWeapon _unit, currentMuzzle _unit, currentWeaponMode _unit];
     _earplugs = _unit getVariable ["ACE_hasEarPlugsIn", false];
-    _chestpack = _unit getVariable ["zade_boc_chestpack", []];
+    _chestpack = _unit getVariable [QEGVAR(boc,chestpack), []];
     _unitStateVar = ["qipTPL_unitState", name _unit, roleDescription _unit] joinString "_";
     missionNamespace setVariable [_unitStateVar, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack, _unitTeam, _unitPos, _unitID, _unitName, _unitRole, _unitSide], true];
 };

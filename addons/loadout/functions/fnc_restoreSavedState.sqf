@@ -73,15 +73,8 @@ if (_earplugs) then {
 };
 
 if !(_chestpack isEqualTo []) then {
-    _chestpack set [0, _chestpack select 0 select 0];
-    _chestpack deleteAt 1;
-    [_unit, _chestpack select 0] call zade_boc_fnc_addChestpack;
-    private _var = _unit getVariable ["zade_boc_chestpack", nil];
-    if (!isNil "_var") then {
-        _var set [2, _chestpack select 1];
-        _var set [3, _chestpack select 2];
-    };
-    _unit setVariable ["zade_boc_chestpack", _var, true];
+    [_unit, (_chestpack select 0) select 0] call EFUNC(boc,addChestpack);
+    [_unit, (_chestpack select 2)] call EFUNC(boc,setChestpackLoadout);
 };
 
 if (_unitTeam != "") then {

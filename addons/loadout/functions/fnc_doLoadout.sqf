@@ -184,6 +184,11 @@ if ( [_configPath, "watch"] call FUNC(isConfigEntry) ) then {
 };
 
 // Code
+if ( [_configPath, "chestpack"] call FUNC(isConfigEntry) ) then {
+    [_configPath >> "chestpack", _loadoutTarget] call FUNC(addChestpack);
+};
+
+// Code
 if ( [_configPath, "code"] call FUNC(isConfigEntry) ) then {
     [_configPath >> "code", _loadoutTarget] call FUNC(runCode);
 };

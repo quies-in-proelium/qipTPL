@@ -1,3 +1,4 @@
+PREP(addChestpack);
 PREP(addItems);
 PREP(addItemsToBackpack);
 PREP(addItemsToUniform);

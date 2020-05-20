@@ -1,18 +1,18 @@
 #include "script_component.hpp"
 /*
-	Author: NemesisRE
+    Author: NemesisRE
 
-	Description:
-	Export unit's loadout qipTPL Style
+    Description:
+    Export unit's loadout qipTPL Style
 
-	Returns:
-	STRING - Class code
+    Returns:
+    STRING - Class code
 */
 params ["_unit"];
-private ["_br","_tab","_fnc_addArray","_export"];
+private ["_br","_tab","_fnc_addArray","_export","_chestpack"];
 
 if (isNil "_unit") then {
-	_unit = qipTPL_unit;
+    _unit = qipTPL_unit;
 };
 _br = tostring [13,10];
 _tab = toString [9];
@@ -22,7 +22,11 @@ _fnc_addArray = {
     _export = _export + _tab + format ["%1[] = {",_name];
     {
         if (_foreachindex > 0) then {_export = _export + ",";};
-        _export = _export + format ["""%1""",_x];
+        if (typeName _x == "ARRAY") then {
+            _export = _export + str (str _x);
+        } else {
+            _export = _export + str _x;
+        };
     } foreach _array;
     _export = _export + "};" + _br;
 };
@@ -49,6 +53,12 @@ _export = _export + _tab + format ["secondaryWeapon = ""%1"";",secondaryweapon _
 _export = _export + _tab + format ["handgunWeapon = ""%1"";",handgunweapon _unit] + _br;
 ["handgunWeaponAttachments",_unit weaponAccessories handgunweapon _unit] call _fnc_addArray;
 ["linkedItems",assigneditems _unit - [binocular _unit, hmd _unit]] call _fnc_addArray;
+if !([_unit] call EFUNC(boc,chestpack) isEqualTo "") then {
+    _chestpack = [];
+    _chestpack set [0, ((_unit getVariable [QEGVAR(boc,chestpack), []]) select 0) select 0];
+    _chestpack set [1, (_unit getVariable [QEGVAR(boc,chestpack), []]) select 2];
+    ["chestpack",_chestpack] call _fnc_addArray;
+};
 _export = _export + "};" + _br;
 //--- Export to clipboard
 _export spawn {copytoclipboard _this;};
