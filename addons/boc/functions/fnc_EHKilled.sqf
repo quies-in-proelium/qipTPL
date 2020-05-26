@@ -17,6 +17,9 @@
 params ["_unit"];
 private ["_chestpack","_chestpackitems","_chestpackmags","_holder","_backpack"];
 
+//TODO: check if unit was player
+if (GVAR(removeKilledPlayerChestpack)) exitWith {[_unit] call FUNC(removeChestpack);};
+
 _chestpack = [_unit] call FUNC(chestpack);
 _chestpackitems =  [_unit, false] call FUNC(chestpackItems);
 _chestpackmags = [_unit] call FUNC(chestpackMagazines);

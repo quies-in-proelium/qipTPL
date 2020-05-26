@@ -19,9 +19,9 @@ class Extended_PostInit_EventHandlers {
 };
 
 class Extended_InitPost_EventHandlers {
-	class CAManBase {
-		init = QUOTE(_this call FUNC(initLoadout));
-	};
+    class CAManBase {
+        init = QUOTE(_this call FUNC(initLoadout));
+    };
 };
 
 class Extended_Respawn_EventHandlers {

@@ -2,8 +2,8 @@
 
 params ["_unit"];
 
-if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
+if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled)) || !(GVAR(enableLoadout))) exitWith {};
 
-if !(local _unit || {_unit in allPlayers} || {GVAR(enableLoadout)}) exitWith {};
-
-[_unit] call FUNC(applyLoadout);
+[{!isNull _this && local _this}, {
+    [_this] call FUNC(applyLoadout);
+}, _unit,5] call CBA_fnc_waitUntilAndExecute;

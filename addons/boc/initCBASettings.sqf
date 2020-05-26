@@ -15,3 +15,12 @@
     false,
     1
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(removeKilledPlayerChestpack),
+    "CHECKBOX",
+    "Remove chestpack of dead players",
+    ["qipTPL BoC","Main"],
+    true,
+    1
+] call CBA_fnc_addSetting;

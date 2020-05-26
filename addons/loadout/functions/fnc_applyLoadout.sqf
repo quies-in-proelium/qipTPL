@@ -1,9 +1,20 @@
 #include "script_component.hpp"
 
-params ["_unit"];
-private ["_units","_configPath","_unitVar","_unitRole"];
+params ["_unit",["_force",false,[true]]];
+private ["_units","_configPath","_lastState","_unitVar","_unitRole"];
 
-if (isNil QEGVAR(common,qipTPL_enabled) || !(EGVAR(common,qipTPL_enabled))) exitWith {};
+if (
+    isNil QEGVAR(common,qipTPL_enabled)
+    || !(EGVAR(common,qipTPL_enabled))
+) exitWith {};
+
+_lastState = _unit call FUNC(checkSavedUnitState);
+if !(count _lastState == 0 || {_force}) exitWith {
+    INFO_1("Found previous gear for this entity (%1)", _unit);
+    [_unit,_lastState] call FUNC(restoreSavedState);
+};
+
+if !(GVAR(enableLoadout)) exitWith {};
 
 _units = [];
 _configPath = missionConfigFile >> "CfgLoadouts";

@@ -41,14 +41,14 @@ if (isDedicated) then {
         ["write", [_unit, "allGear", _lastState select 0]] call EGVAR(common,iniDB);
         ["write", [_unit, "activeWeaponAndMuzzle", _lastState select 1]] call EGVAR(common,iniDB);
         ["write", [_unit, "earplugs", _lastState select 2]] call EGVAR(common,iniDB);
-        ["write", [_unit, "chestpack", _lastState select 3]] call EGVAR(common,iniDB);
+        ["write", [_unit, "chestpack", str (_lastState select 3)]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitTeam", _lastState select 4]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitPos", _lastState select 5]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitID", _lastState select 6]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitName", _lastState select 7]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitRole", _lastState select 8]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitSide", _lastState select 9]] call EGVAR(common,iniDB);
-    	["write", [_unit, "lastState", _lastState]] call EGVAR(common,iniDB);
+    	["write", [_unit, "lastState", str (_lastState)]] call EGVAR(common,iniDB);
     } else {
         call EFUNC(common,initDB);
     };

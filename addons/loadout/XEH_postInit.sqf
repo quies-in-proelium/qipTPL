@@ -6,18 +6,24 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
     [{{_x call FUNC(saveUnitState)} forEach allPlayers;}, 1] call CBA_fnc_addPerFrameHandler;
 }] call CBA_fnc_waitUntilAndExecute;
 
-if (hasInterface) then {
-    if !(GVAR(enableLoadout)) exitWith {};
-    [
-        { !isNull player },
-        {
-            private _lastState = qipTPL_unit call FUNC(checkSavedUnitState);
-            if !(count _lastState == 0) then {
-                INFO_1("Found previous gear for this entity (%1)", qipTPL_unit);
-                [qipTPL_unit,_lastState] call FUNC(restoreSavedState);
-            } else {
-                [qipTPL_unit] call FUNC(applyLoadout);
-            };
-        }
-    ] call CBA_fnc_waitUntilAndExecute;
-};
+[
+    "[qipTPL] Loadout",
+    "Set predefined loadout",
+    {
+        params ["","_object"];
+        if ( !isNil "_object"  && { _object isKindOf "CAManBase" } ) then {
+            [QFUNC(applyLoadout), [_object,true], _object] call CBA_fnc_targetEvent;
+        };
+    }
+] call zen_custom_modules_fnc_register;
+
+[
+    "[qipTPL] Loadout",
+    "Export qipTPL loadout",
+    {
+        params ["","_object"];
+        if ( !isNil "_object"  && { _object isKindOf "CAManBase" } ) then {
+            [_object] call FUNC(exportInventory);
+        };
+    }
+] call zen_custom_modules_fnc_register;

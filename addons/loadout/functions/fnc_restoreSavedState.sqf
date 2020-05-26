@@ -16,11 +16,12 @@
 params ["_unit",["_lastState",[],[[]]]];
 private ["_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
 
+if (!alive _unit) exitWith {};
+
 if (count _lastState == 0) then {
     _lastState = _unit call FUNC(checkSavedUnitState);
+    if (count _lastState == 0) exitWith {};
 };
-
-if (count _lastState == 0 || {!alive _unit}) exitWith {};
 
 INFO_1("Restoring gear for %1", _unit);
 
@@ -30,8 +31,9 @@ _earplugs = _lastState param [2,false];
 _chestpack = _lastState param [3,[],[[]]];
 _unitTeam = _lastState param [4,"MAIN",[""]];
 
+_unit setUnitLoadout (configFile >> "EmptyLoadout");
+
 if (!isNil "_allGear") then {
-	_unit setUnitLoadout (configFile >> "EmptyLoadout");
     _allGear params ["_primaryWeaponArray"];
     if ((_primaryWeaponArray param [0, ""]) == "ACE_FakePrimaryWeapon") then {
         _allGear set [0, []];
