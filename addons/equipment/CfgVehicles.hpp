@@ -64,6 +64,34 @@ class CfgVehicles {
             };
         };
     };
+    class qipTPL_Item_optic_AMSTI: Item_optic_AMS {
+        displayName="[qip] AMS-TI (Black)";
+        author="NemesisRE";
+        class TransportItems {
+            class qipTPL_optic_AMS {
+                name="qipTPL_optic_AMSTI";
+                count=1;
+            };
+        };
+    };
+    class qipTPL_Item_optic_AMS_khk: qipTPL_Item_optic_AMSTI {
+        displayName="[qip] AMS-TI (Khaki)";
+        class TransportItems {
+            class qipTPL_optic_AMS_khk {
+                name="qipTPL_optic_AMSTI_khk";
+                count=1;
+            };
+        };
+    };
+    class qipTPL_Item_optic_AMS_snd: qipTPL_Item_optic_AMSTI {
+        displayName="[qip] AMS-TI (Sand)";
+        class TransportItems {
+            class qipTPL_optic_AMS_snd {
+                name="qipTPL_optic_AMSTI_snd";
+                count=1;
+            };
+        };
+    };
 
     class Box_NATO_Support_F;
     class ACE_Box_Misc: Box_NATO_Support_F {

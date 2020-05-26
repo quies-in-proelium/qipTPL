@@ -8,7 +8,10 @@ class CfgPatches {
             "qipTPL_Item_optic_Nightstalker",
             "qipTPL_Item_optic_AMS",
             "qipTPL_Item_optic_AMS_khk",
-            "qipTPL_Item_optic_AMS_snd"
+            "qipTPL_Item_optic_AMS_snd",
+            "qipTPL_Item_optic_AMSTI",
+            "qipTPL_Item_optic_AMSTI_khk",
+            "qipTPL_Item_optic_AMSTI_snd"
         };
         weapons[] = {
             "qipTPL_Vector_Designator",
@@ -16,7 +19,11 @@ class CfgPatches {
             "qipTPL_optic_AMS_base",
             "qipTPL_optic_AMS",
             "qipTPL_optic_AMS_khk",
-            "qipTPL_optic_AMS_snd"
+            "qipTPL_optic_AMS_snd",
+            "qipTPL_optic_AMSTI_base",
+            "qipTPL_optic_AMSTI",
+            "qipTPL_optic_AMSTI_khk",
+            "qipTPL_optic_AMSTI_snd"
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {

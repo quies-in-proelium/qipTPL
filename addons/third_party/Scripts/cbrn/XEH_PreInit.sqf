@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 
 cbrn_maxDamage = 100; // how much damage before death, 50% starts internal contamination
-cbrn_backpacks = ["B_SCBA_01_F"];
+cbrn_backpacks = ["B_SCBA_01_F",
+"B_CombinationUnitRespirator_01_F"];
 cbrn_suits = ["U_C_CBRN_Suit_01_Blue_F",
     "U_B_CBRN_Suit_01_MTP_F",
     "U_B_CBRN_Suit_01_Tropic_F",
