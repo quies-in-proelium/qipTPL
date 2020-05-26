@@ -61,6 +61,7 @@ if !([_unit] call EFUNC(boc,chestpack) isEqualTo "") then {
 _export = _export + "};" + endl;
 //--- Export to clipboard
 "ace_clipboard" callExtension _export;
+"ace_clipboard" callExtension "--COMPLETE--";
 hint localize "STR_a3_RscDisplayArsenal_message_clipboard";
 
 _export

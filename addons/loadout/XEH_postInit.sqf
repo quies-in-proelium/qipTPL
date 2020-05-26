@@ -6,13 +6,15 @@ if (isNil QGVAR(qipTPL_enabled) || !(GVAR(qipTPL_enabled))) exitWith {};
     [{{_x call FUNC(saveUnitState)} forEach allPlayers;}, 1] call CBA_fnc_addPerFrameHandler;
 }] call CBA_fnc_waitUntilAndExecute;
 
+[QGVAR(applyLoadout), LINKFUNC(applyLoadout)] call CBA_fnc_addEventHandler;
+
 [
     "[qipTPL] Loadout",
     "Set predefined loadout",
     {
         params ["","_object"];
         if ( !isNil "_object"  && { _object isKindOf "CAManBase" } ) then {
-            [QFUNC(applyLoadout), [_object,true], _object] call CBA_fnc_targetEvent;
+            [QGVAR(applyLoadout), [_object,true], _object] call CBA_fnc_targetEvent;
         };
     }
 ] call zen_custom_modules_fnc_register;

@@ -74,7 +74,7 @@ class CfgVehicles {
             };
         };
     };
-    class qipTPL_Item_optic_AMS_khk: qipTPL_Item_optic_AMSTI {
+    class qipTPL_Item_optic_AMSTI_khk: qipTPL_Item_optic_AMSTI {
         displayName="[qip] AMS-TI (Khaki)";
         class TransportItems {
             class qipTPL_optic_AMS_khk {
@@ -83,7 +83,7 @@ class CfgVehicles {
             };
         };
     };
-    class qipTPL_Item_optic_AMS_snd: qipTPL_Item_optic_AMSTI {
+    class qipTPL_Item_optic_AMSTI_snd: qipTPL_Item_optic_AMSTI {
         displayName="[qip] AMS-TI (Sand)";
         class TransportItems {
             class qipTPL_optic_AMS_snd {
