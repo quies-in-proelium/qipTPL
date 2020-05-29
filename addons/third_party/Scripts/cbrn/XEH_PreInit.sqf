@@ -30,7 +30,7 @@ if !(hasInterface) exitWith {};
 cbrn_localZones = [];
 cbrn_curThreat = 0;
 cbrn_lastBeep = -1;
-cbrn_beepVolume = 2;
+cbrn_beepVolume = 0;
 cbrn_beep = true;
 ["cbrn_createZone", {
     params ["_pos", "_threatLevel", "_size", "_falloffArea"];

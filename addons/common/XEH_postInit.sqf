@@ -12,6 +12,13 @@ if (isServer) then {
     [{time > 5}, {
         call FUNC(initDB);
         call FUNC(rptLog);
+        {
+            private _markerName = "respawn_" + name _x;
+            if !(_markerName in allMapMarkers) then {
+                createMarker [_markerName, ASLtoAGL getPosASL _x];
+            };
+        } forEach allPlayers;
+
     }] call CBA_fnc_waitUntilAndExecute;
 };
 

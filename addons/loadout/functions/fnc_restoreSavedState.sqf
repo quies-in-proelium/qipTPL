@@ -14,7 +14,7 @@
  *
  */
 params ["_unit",["_lastState",[],[[]]]];
-private ["_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam"];
+private ["_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitTeam","_attached"];
 
 if (!alive _unit) exitWith {};
 
@@ -30,6 +30,7 @@ _activeWeaponAndMuzzle = _lastState param [1,[],[[]]];
 _earplugs = _lastState param [2,false];
 _chestpack = _lastState param [3,[],[[]]];
 _unitTeam = _lastState param [4,"MAIN",[""]];
+_attached = _lastState param [10,[],[[]]];
 
 _unit setUnitLoadout (configFile >> "EmptyLoadout");
 
@@ -81,4 +82,8 @@ if !(_chestpack isEqualTo []) then {
 
 if (_unitTeam != "") then {
 	_unit assignTeam _unitTeam;
+};
+
+if !(_attached isEqualTo []) then {
+    [_unit, _unit, _attached select 0 select 1, true] call ace_attach_fnc_attach;
 };

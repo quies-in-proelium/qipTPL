@@ -14,7 +14,7 @@
  *
  */
 params ["_unit"];
-private ["_unitID","_unitName","_unitRole","_unitSide","_unitTeam","_unitPos","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_unitStateVar","_lastState"];
+private ["_unitID","_unitName","_unitRole","_unitSide","_unitTeam","_unitPos","_allGear","_activeWeaponAndMuzzle","_earplugs","_chestpack","_attached","_unitStateVar","_lastState"];
 
 if (isNull _unit || {!alive _unit}) exitWith {};
 
@@ -29,8 +29,9 @@ if (local _unit) then {
     _activeWeaponAndMuzzle = [currentWeapon _unit, currentMuzzle _unit, currentWeaponMode _unit];
     _earplugs = _unit getVariable ["ACE_hasEarPlugsIn", false];
     _chestpack = _unit getVariable [QEGVAR(boc,chestpack), []];
+    _attached = _unit getVariable ["ACE_attach_attached", []];
     _unitStateVar = ["qipTPL_unitState", name _unit, roleDescription _unit] joinString "_";
-    missionNamespace setVariable [_unitStateVar, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack, _unitTeam, _unitPos, _unitID, _unitName, _unitRole, _unitSide], true];
+    missionNamespace setVariable [_unitStateVar, [_allGear, _activeWeaponAndMuzzle, _earplugs, _chestpack, _unitTeam, _unitPos, _unitID, _unitName, _unitRole, _unitSide, _attached], true];
 };
 
 if (isDedicated) then {
@@ -48,6 +49,7 @@ if (isDedicated) then {
         ["write", [_unit, "unitName", _lastState select 7]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitRole", _lastState select 8]] call EGVAR(common,iniDB);
         ["write", [_unit, "unitSide", _lastState select 9]] call EGVAR(common,iniDB);
+        ["write", [_unit, "attached", [["",((_lastState select 10) select 0) select 1]]]] call EGVAR(common,iniDB);
     	["write", [_unit, "lastState", str (_lastState)]] call EGVAR(common,iniDB);
     } else {
         call EFUNC(common,initDB);

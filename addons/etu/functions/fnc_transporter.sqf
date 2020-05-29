@@ -29,7 +29,7 @@ if (isNil "_target") exitWith {hint "No transport target found"};
 
 if (vehicle _target == _target) then {
 	_pos = [_target, 3, direction _target] call CBA_fnc_randPos;
-	_caller setpos _pos;
+	_caller setpos [_pos select 0, _pos select 1, ASLtoAGL getPosASL _target select 2];
 	closeDialog 0;
 } else {
 	if ((vehicle _target) emptyPositions "cargo" == 0) then {

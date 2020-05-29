@@ -20,31 +20,48 @@
 
 params [["_target", qipTPL_unit],["_text", "you've just crossed over into the twilight zone"],["_caller", qipTPL_unit]];
 
+if (_target isEqualTo _caller) exitWith {};
+
 if !(typeName _caller isEqualTo "ARRAY") then {
 	_caller = [_caller];
 };
 
-[0, "BLACK", 5, 1] spawn BIS_fnc_fadeEffect;
-
-[
-	{
-		params ["_target","_caller","_text"];
-		private ["_pos"];
+{
+	[
+		[],
 		{
-			_pos = [_target] call CBA_fnc_randPosArea;
-			_x setPos _pos;
-		} forEach _caller;
-		titleText [_text,"PLAIN"];
-	},
-	[_target,_caller,_text],
-	5
-] call CBA_fnc_waitAndExecute;
+			[0, "BLACK", 2, 1] spawn BIS_fnc_fadeEffect;
+		}
+	] remoteExec ["spawn", _x];
 
-[
-	{
-		titleFadeOut 3;
-		[1, "BLACK", 3, 1] spawn BIS_fnc_fadeEffect;
-	},
-	[],
-	5
-] call CBA_fnc_waitAndExecute;
+	[
+		{
+			params ["_target","_caller","_text"];
+			private ["_pos"];
+			_pos = [_target] call CBA_fnc_randPosArea;
+			_caller setPos _pos;
+			[
+				_text,
+				{
+					titleText [_this,"PLAIN"];
+				}
+			] remoteExec ["spawn", _caller];
+		},
+		[_target,_x,_text],
+		2
+	] call CBA_fnc_waitAndExecute;
+
+	[
+		[],
+		{
+			[
+				{
+					titleFadeOut 2;
+					[1, "BLACK", 5, 1] spawn BIS_fnc_fadeEffect;
+				},
+				[],
+				8
+			] call CBA_fnc_waitAndExecute;
+		}
+	] remoteExec ["spawn", _x];
+} forEach _caller;
