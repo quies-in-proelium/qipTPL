@@ -12,7 +12,7 @@ aiKills = 0; // 0 = Disable, 1 = Enable
 enableItemsDropping = 1; // 0 = Disable, 1 = Enable
 
 /**********  Respawn & JIP Settings **********/
-respawn = 2; //  0 = No respawn, 1 = Spectator, 2 = Instant, respawn just where you died, 3 = Respawn at base (respawn_west marker), 4 = Respawn in your group, 5 = Respawn into an AI unit on your side
+respawn = 3; //  0 = No respawn, 1 = Spectator, 2 = Instant, respawn just where you died, 3 = Respawn at base (respawn_west marker), 4 = Respawn in your group, 5 = Respawn into an AI unit on your side
 respawnDelay = 5; // Respawn delay time in seconds
 respawnDialog = 1; // Respawn dialog in case of multiple locations. 0 = false (no dialog), 1 = true (show dialog).
 respawnButton = 1; // Respawn button in the pause menu is automatically now enabled for INSTANT, BASE, GROUP and SIDE respawn types. 0 = disabled, 1 = enabled
@@ -21,7 +21,7 @@ joinUnassigned = 1; // Where 0 forces joining players into the first empty slot,
 skipLobby = 0; // 0: disabled - 1: enabled. Default: 0 - Overwrites joinUnassigned
 
 // Respawn Ticket system init. Vars defined in init
-respawnTemplates[] = {"MenuPosition"};
+//respawnTemplates[] = {"MenuPosition"};
 //respawnTemplatesWest[] = {"MenuPosition"};
 //respawnTemplatesEast[] = {"MenuPosition"};
 //respawnTemplatesCiv[] = {"MenuPosition"};
@@ -41,10 +41,10 @@ respawnTemplatesVirtual[] = {"Base"};
 /********** Vanilla Garbagecollector Settings **********/
 //minPlayerDistance = 50; // meters. Default: 0
 
-//corpseManagerMode = 0; // Default: 0 for SP, 2 for MP
-//corpseLimit = 1; // Default: 15
-//corpseRemovalMinTime = 1; // seconds. Default: 10
-//corpseRemovalMaxTime = 1200; // seconds. Default: 3600
+corpseManagerMode = 2; // Default: 0 for SP, 2 for MP
+corpseLimit = 1; // Default: 15
+corpseRemovalMinTime = 1; // seconds. Default: 10
+corpseRemovalMaxTime = 10; // seconds. Default: 3600
 
 //wreckManagerMode = 0; // Default: 0 for SP, 2 for MP
 //wreckLimit = 1; // seconds. Default: 15
